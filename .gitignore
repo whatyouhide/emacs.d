@@ -1,0 +1,14 @@
+# Package management
+elpa
+.cask
+
+# Backups
+*~
+
+# Compiled files
+*.elc
+
+# Projectile stuff
+projectile-bookmarks.eld
+
+.mc-lists.el
