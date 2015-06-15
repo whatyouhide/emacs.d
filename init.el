@@ -38,12 +38,14 @@
 (define-key evil-normal-state-map (kbd "H") 'back-to-indentation)
 (define-key evil-normal-state-map (kbd "C-e") 'move-end-of-line)
 (define-key evil-normal-state-map (kbd "L") 'move-end-of-line)
+(define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
+(define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
 
 (define-key evil-visual-state-map (kbd "a") 'align-regexp)
 
-(evil-leader/set-key "!" 'shell-command)
-
 (define-key dired-mode-map (kbd "-") 'dired-up-directory)
+
+(evil-leader/set-key "!" 'shell-command)
 
 (use-package evil-commentary
   :config
@@ -52,6 +54,10 @@
 (use-package evil-terminal-cursor-changer)
 
 ;; Misc packages.
+
+(use-package pallet
+  :config
+  (pallet-mode t))
 
 (use-package magit
   :init
@@ -102,6 +108,14 @@
   :bind
   ("<f9>" . neotree-toggle))
 
+(use-package company
+  :config
+  (global-company-mode t))
+
+(use-package writeroom
+  :config
+  (evil-leader/set-key "m w" 'writeroom-mode))
+
 ;; Modes for programming languages and such.
 
 (use-package web-mode
@@ -124,6 +138,17 @@
   :config
   (progn
     (evil-leader/set-key-for-mode 'elixir-mode "tb" 'alchemist-mix-test-this-buffer)))
+
+(use-package markdown-mode
+  :config
+  (progn
+    (mapcar (lambda (regex) (add-to-list 'auto-mode-alist `(,regex . gfm-mode)))
+            '("\\.md\\'" "\\.mkd\\'" "\\.markdown\\'"))
+    (add-hook
+     'gfm-mode-hook
+     (lambda ()
+       (local-set-key (kbd "RET") 'wh/newline-and-indent-like-previous-line)
+       (local-set-key (kbd "DEL") 'backward-delete-char-untabify)))
 
 ;; Miscellaneous stuff.
 
@@ -159,16 +184,6 @@
 ;; Ensure there's a trailing newline, always.
 (setq require-final-newline t)
 
-;; ;; Markdown.
-;; (add-to-list 'auto-mode-alist '("\\.md\\'" . gfm-mode))
-;; (add-to-list 'auto-mode-alist '("\\.mkd\\'" . gfm-mode))
-;; (add-to-list 'auto-mode-alist '("\\.markdown\\'" . gfm-mode))
-;; (add-hook 'gfm-mode-hook
-;;           (lambda ()
-;;             (local-set-key (kbd "RET") 'wh/newline-and-indent-like-previous-line)
-;;             (local-set-key (kbd "DEL") 'backward-delete-char-untabify)))
-;; (add-hook 'gfm-mode-hook
-;;           (lambda () (electric-pair-mode -1)))
 
 
 ;; Visual minor modes.
