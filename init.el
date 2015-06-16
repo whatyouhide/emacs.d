@@ -109,6 +109,8 @@
   ("<f9>" . neotree-toggle))
 
 (use-package company
+  :init
+  (setq company-idle-delay 0.10)
   :config
   (global-company-mode t))
 
@@ -148,7 +150,7 @@
      'gfm-mode-hook
      (lambda ()
        (local-set-key (kbd "RET") 'wh/newline-and-indent-like-previous-line)
-       (local-set-key (kbd "DEL") 'backward-delete-char-untabify)))
+       (local-set-key (kbd "DEL") 'backward-delete-char-untabify)))))
 
 ;; Miscellaneous stuff.
 
