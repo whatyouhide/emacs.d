@@ -30,6 +30,8 @@
 (setcdr evil-insert-state-map nil)
 (define-key evil-insert-state-map [escape] 'evil-normal-state)
 
+(define-key evil-insert-state-map (kbd "<RET>") 'newline-and-indent)
+
 ;; Evil mode keys.
 (evil-leader/set-leader "<SPC>")
 
@@ -43,6 +45,10 @@
 
 (define-key evil-visual-state-map (kbd "a") 'align-regexp)
 
+;; Modes that don't use evil.
+(add-to-list 'evil-emacs-state-modes 'inferior-emacs-lisp-mode)
+(add-to-list 'evil-emacs-state-modes 'alchemist-iex-mode)
+
 (define-key dired-mode-map (kbd "-") 'dired-up-directory)
 
 (evil-leader/set-key "!" 'shell-command)
@@ -52,6 +58,12 @@
   (evil-commentary-mode))
 
 (use-package evil-terminal-cursor-changer)
+
+(use-package evil-surround
+  :config
+  (progn
+    (global-evil-surround-mode 1)
+    (evil-define-key 'visual evil-surround-mode-map "s" 'evil-surround-region)))
 
 ;; Misc packages.
 
@@ -104,6 +116,14 @@
   :config
   (guide-key-mode 1))
 
+(use-package popwin
+  :config
+  (progn
+    (add-to-list 'popwin:special-display-config 'helm-mode)
+    (add-to-list 'popwin:special-display-config
+                 '("*mix*" :position bottom :noselect t))
+    (popwin-mode 1)))
+
 (use-package neotree
   :bind
   ("<f9>" . neotree-toggle))
@@ -112,11 +132,27 @@
   :init
   (setq company-idle-delay 0.10)
   :config
-  (global-company-mode t))
+  (progn
+    (define-key company-active-map (kbd "C-n") 'company-select-next)
+    (define-key company-active-map (kbd "C-p") 'company-select-previous)
+    (define-key company-active-map (kbd "TAB") 'company-complete-selection)
+    (define-key company-active-map (kbd "RET") nil)
+    (global-company-mode t))
 
-(use-package writeroom
+(defun wh/toggle-tmux-status-bar (activate?)
+  (let ((cmd (if activate? "tmux set status off" "tmux set status on")))
+    (shell-command cmd)))
+
+(use-package writeroom-mode
+  :demand
+  :init
+  (evil-leader/set-key "m w" 'writeroom-mode)
   :config
-  (evil-leader/set-key "m w" 'writeroom-mode))
+  (add-to-list 'writeroom-global-effects 'wh/toggle-tmux-status-bar))
+
+(use-package github-browse-file
+  :config
+  (evil-leader/set-key "g b" 'github-browse-file))
 
 ;; Modes for programming languages and such.
 
@@ -124,7 +160,12 @@
   :init
   (setq web-mode-markup-indent-offset 2)
   (setq web-mode-css-indent-offset 2)
-  (setq web-mode-code-indent-offset 2))
+  (setq web-mode-code-indent-offset 2)
+  :mode (("\\.html\\.erb\\'" . web-mode)))
+
+(use-package scss-mode
+  :init
+  (setq css-indent-offset 2))
 
 (use-package erlang
   :init
@@ -139,18 +180,24 @@
   :demand
   :config
   (progn
+    (evil-define-key 'normal alchemist-test-mode-map "]t" 'alchemist-test-mode-jump-to-next-test)
+    (evil-define-key 'normal alchemist-test-mode-map "[t" 'alchemist-test-mode-jump-to-previous-test)
     (evil-leader/set-key-for-mode 'elixir-mode "tb" 'alchemist-mix-test-this-buffer)))
 
 (use-package markdown-mode
+  :mode (("\\.md\\'" . gfm-mode)
+         ("\\.mkd\\'" . gfm-mode)
+         ("\\.markdown\\'" . gfm-mode))
   :config
   (progn
-    (mapcar (lambda (regex) (add-to-list 'auto-mode-alist `(,regex . gfm-mode)))
-            '("\\.md\\'" "\\.mkd\\'" "\\.markdown\\'"))
-    (add-hook
-     'gfm-mode-hook
-     (lambda ()
-       (local-set-key (kbd "RET") 'wh/newline-and-indent-like-previous-line)
-       (local-set-key (kbd "DEL") 'backward-delete-char-untabify)))))
+    (add-hook 'gfm-mode-hook
+              (lambda ()
+                (local-set-key (kbd "RET") 'wh/newline-and-indent-like-previous-line)
+                (local-set-key (kbd "DEL") 'backward-delete-char-untabify)))))
+
+(use-package projectile-rails
+  :config
+  (add-hook 'projectile-mode-hook 'projectile-rails-on))
 
 ;; Miscellaneous stuff.
 
@@ -226,7 +273,8 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("05c3bc4eb1219953a4f182e10de1f7466d28987f48d647c01f1f0037ff35ab9a" default))))
+    ("05c3bc4eb1219953a4f182e10de1f7466d28987f48d647c01f1f0037ff35ab9a" default)))
+ '(magit-use-overlays nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
