@@ -70,6 +70,7 @@
 
 (evil-leader/set-key-for-mode 'emacs-lisp-mode "e d" 'eval-defun)
 (evil-leader/set-key-for-mode 'emacs-lisp-mode "e s" 'wh/eval-surrounding-sexp)
+(evil-leader/set-key-for-mode 'emacs-lisp-mode "h" 'describe-function)
 
 (use-package evil-commentary
   :config
