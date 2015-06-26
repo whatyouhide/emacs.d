@@ -27,6 +27,9 @@
 (evil-mode 1)
 
 ;; Use Emacs keybindings when in insert mode.
+;; Always as "y or n", not that annoying "yes or no".
+(defalias 'yes-or-no-p 'y-or-n-p)
+
 (setcdr evil-insert-state-map nil)
 (define-key evil-insert-state-map [escape] 'evil-normal-state)
 
