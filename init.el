@@ -232,6 +232,9 @@
 
 ;; Wrap at 80 characters.
 (setq-default fill-column 80)
+;; Show the column number in the modeline.
+(column-number-mode 1)
+
 
 ;; Ensure there's a trailing newline, always.
 (setq require-final-newline t)
