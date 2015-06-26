@@ -15,6 +15,12 @@
   (newline)
   (indent-relative-maybe))
 
+(defun wh/eval-surrounding-sexp ()
+  (interactive)
+  (save-excursion
+    (up-list)
+    (eval-last-sexp nil)))
+
 (global-set-key (kbd "<f2>") 'wh/edit-init-file)
 (global-set-key (kbd "C-k") 'kill-whole-line)
 
@@ -55,6 +61,12 @@
 (define-key dired-mode-map (kbd "-") 'dired-up-directory)
 
 (evil-leader/set-key "!" 'shell-command)
+(evil-leader/set-key ":" 'eval-expression)
+(evil-leader/set-key "o" 'other-window)
+(evil-leader/set-key "b" 'switch-to-buffer)
+
+(evil-leader/set-key-for-mode 'emacs-lisp-mode "e d" 'eval-defun)
+(evil-leader/set-key-for-mode 'emacs-lisp-mode "e s" 'wh/eval-surrounding-sexp)
 
 (use-package evil-commentary
   :config
