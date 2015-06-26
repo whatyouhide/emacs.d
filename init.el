@@ -27,15 +27,18 @@
 (require 'dired-x)
 (define-key dired-mode-map (kbd "SPC") nil)
 
+;; Always as "y or n", not that annoying "yes or no".
+(defalias 'yes-or-no-p 'y-or-n-p)
+
 ;; Evil.
+
+;; Modes for which <leader> works in Emacs state.
+(setq evil-leader/no-prefix-mode-rx '("magit-.*-mode"))
 
 (global-evil-leader-mode)
 (evil-mode 1)
 
 ;; Use Emacs keybindings when in insert mode.
-;; Always as "y or n", not that annoying "yes or no".
-(defalias 'yes-or-no-p 'y-or-n-p)
-
 (setcdr evil-insert-state-map nil)
 (define-key evil-insert-state-map [escape] 'evil-normal-state)
 
@@ -91,7 +94,13 @@
   (setq magit-last-seen-setup-instructions "1.4.0")
   :config
   (progn
-    (evil-leader/set-key "g s" 'magit-status)))
+    (evil-leader/set-key "g s" 'magit-status)
+    (define-key magit-status-mode-map (kbd "j") 'magit-goto-next-section)
+    (define-key magit-status-mode-map (kbd "k") 'magit-goto-previous-section)))
+
+(use-package github-browse-file
+  :config
+  (evil-leader/set-key "g b" 'github-browse-file))
 
 (use-package helm
   :init
@@ -140,10 +149,6 @@
               ("*alchemist-test-report*" :position bottom :tail t)))
     (popwin-mode 1)))
 
-(use-package neotree
-  :bind
-  ("<f9>" . neotree-toggle))
-
 (use-package company
   :init
   (setq company-idle-delay 0.10)
@@ -153,7 +158,7 @@
     (define-key company-active-map (kbd "C-p") 'company-select-previous)
     (define-key company-active-map (kbd "TAB") 'company-complete-selection)
     (define-key company-active-map (kbd "RET") nil)
-    (global-company-mode t))
+    (global-company-mode t)))
 
 (defun wh/toggle-tmux-status-bar (activate?)
   (let ((cmd (if activate? "tmux set status off" "tmux set status on")))
@@ -165,10 +170,6 @@
   (evil-leader/set-key "m w" 'writeroom-mode)
   :config
   (add-to-list 'writeroom-global-effects 'wh/toggle-tmux-status-bar))
-
-(use-package github-browse-file
-  :config
-  (evil-leader/set-key "g b" 'github-browse-file))
 
 ;; Modes for programming languages and such.
 
@@ -185,7 +186,7 @@
 
 (use-package erlang
   :init
-  (setq erlang-indent-level 2))
+  (setq erlang-indent-level 4))
 
 (use-package elixir-mode
   :load-path "~/Code/emacs-elixir"
@@ -231,6 +232,9 @@
 ;; Show matching parentheses.
 (show-paren-mode 1)
 
+;; Show the column number in the modeline.
+(column-number-mode 1)
+
 
 ;; Backup and autosave files in /tmp.
 (setq backup-directory-alist
@@ -245,9 +249,6 @@
 
 ;; Wrap at 80 characters.
 (setq-default fill-column 80)
-;; Show the column number in the modeline.
-(column-number-mode 1)
-
 
 ;; Ensure there's a trailing newline, always.
 (setq require-final-newline t)
