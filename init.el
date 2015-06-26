@@ -122,9 +122,10 @@
 (use-package popwin
   :config
   (progn
-    (add-to-list 'popwin:special-display-config 'helm-mode)
-    (add-to-list 'popwin:special-display-config
-                 '("*mix*" :position bottom :noselect t))
+    (mapcar (lambda (el) (add-to-list 'popwin:special-display-config el))
+            '(helm-mode
+              ("*mix*" :position bottom :noselect t)
+              ("*alchemist-test-report*" :position bottom :tail t)))
     (popwin-mode 1)))
 
 (use-package neotree
