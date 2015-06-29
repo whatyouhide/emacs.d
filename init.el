@@ -204,6 +204,8 @@
     (evil-leader/set-key-for-mode 'elixir-mode "tb" 'alchemist-mix-test-this-buffer)))
 
 (use-package markdown-mode
+  :init
+  (setq markdown-open-command "marked")
   :mode (("\\.md\\'" . gfm-mode)
          ("\\.mkd\\'" . gfm-mode)
          ("\\.markdown\\'" . gfm-mode))
