@@ -146,6 +146,7 @@
   (progn
     (mapcar (lambda (el) (add-to-list 'popwin:special-display-config el))
             '(helm-mode
+              ("*Help*" :stick t)
               ("*mix*" :position bottom :noselect t)
               ("*alchemist-test-report*" :position bottom :tail t)))
     (popwin-mode 1)))
