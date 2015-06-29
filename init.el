@@ -151,6 +151,10 @@
               ("*alchemist-test-report*" :position bottom :tail t)))
     (popwin-mode 1)))
 
+(use-package smartparens
+  :config
+  (smartparens-global-mode t))
+
 (use-package company
   :init
   (setq company-idle-delay 0.10)
