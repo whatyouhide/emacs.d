@@ -216,6 +216,8 @@
   (progn
     (evil-define-key 'normal alchemist-test-mode-map "]t" 'alchemist-test-mode-jump-to-next-test)
     (evil-define-key 'normal alchemist-test-mode-map "[t" 'alchemist-test-mode-jump-to-previous-test)
+    (define-key evil-normal-state-map "]d" 'alchemist-goto-jump-to-next-def-symbol)
+    (define-key evil-normal-state-map "[d" 'alchemist-goto-jump-to-previous-def-symbol)
     (evil-leader/set-key-for-mode 'elixir-mode "tb" 'alchemist-mix-test-this-buffer)))
 
 (use-package markdown-mode
