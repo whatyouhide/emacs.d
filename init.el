@@ -177,6 +177,11 @@
   :config
   (add-to-list 'writeroom-global-effects 'wh/toggle-tmux-status-bar))
 
+(use-package highlight-sexp
+  :load-path "ext"
+  :init
+  (add-hook 'emacs-lisp-mode-hook 'hl-sexp-mode))
+
 ;; Modes for programming languages and such.
 
 (use-package web-mode
