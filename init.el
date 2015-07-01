@@ -84,6 +84,12 @@
     (global-evil-surround-mode 1)
     (evil-define-key 'visual evil-surround-mode-map "s" 'evil-surround-region)))
 
+(use-package evil-exchange
+  :load-path "ext"
+  :demand
+  :config
+  (evil-exchange-install))
+
 ;; Misc packages.
 
 (use-package pallet
