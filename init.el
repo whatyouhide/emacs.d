@@ -97,10 +97,9 @@
   (pallet-mode t))
 
 (use-package magit
-  :init
-  (setq magit-last-seen-setup-instructions "1.4.0")
   :config
   (progn
+    (add-to-list 'evil-emacs-state-modes 'magit-popup-mode)
     (evil-leader/set-key "g s" 'magit-status)
     (define-key magit-status-mode-map (kbd "j") 'magit-goto-next-section)
     (define-key magit-status-mode-map (kbd "k") 'magit-goto-previous-section)))
