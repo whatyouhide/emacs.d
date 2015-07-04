@@ -189,6 +189,7 @@
 (use-package highlight-sexp
   :load-path "ext"
   :init
+  (add-hook 'racket-mode-hook 'hl-sexp-mode)
   (add-hook 'emacs-lisp-mode-hook 'hl-sexp-mode))
 
 ;; Modes for programming languages and such.
@@ -242,6 +243,11 @@
 (use-package projectile-rails
   :config
   (add-hook 'projectile-mode-hook 'projectile-rails-on))
+
+(use-package racket-mode
+  :config
+  (add-hook 'racket-mode-hook 'smartparens-strict-mode)
+  (add-hook 'racket-mode-hook 'evil-smartparens-mode))
 
 ;; Miscellaneous stuff.
 

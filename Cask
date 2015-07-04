@@ -22,6 +22,7 @@
 (depends-on "popwin")
 (depends-on "projectile")
 (depends-on "projectile-rails")
+(depends-on "racket-mode")
 (depends-on "robe")
 (depends-on "rspec-mode")
 (depends-on "rvm")
