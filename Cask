@@ -29,5 +29,4 @@
 (depends-on "smartparens")
 (depends-on "use-package")
 (depends-on "web-mode")
-(depends-on "writegood-mode")
 (depends-on "writeroom-mode")
