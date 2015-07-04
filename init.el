@@ -217,7 +217,10 @@
     (evil-define-key 'normal alchemist-test-mode-map "[t" 'alchemist-test-mode-jump-to-previous-test)
     (define-key evil-normal-state-map "]d" 'alchemist-goto-jump-to-next-def-symbol)
     (define-key evil-normal-state-map "[d" 'alchemist-goto-jump-to-previous-def-symbol)
-    (evil-leader/set-key-for-mode 'elixir-mode "tb" 'alchemist-mix-test-this-buffer)))
+    (evil-leader/set-key-for-mode 'elixir-mode
+      "t b" 'alchemist-mix-test-this-buffer
+      "t t" 'alchemist-mix-test
+      "t p" 'alchemist-mix-test-at-point)))
 
 (use-package markdown-mode
   :init
