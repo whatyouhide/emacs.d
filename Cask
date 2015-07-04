@@ -6,6 +6,7 @@
 (depends-on "evil")
 (depends-on "evil-commentary")
 (depends-on "evil-leader")
+(depends-on "evil-smartparens")
 (depends-on "evil-surround")
 (depends-on "evil-terminal-cursor-changer")
 (depends-on "exec-path-from-shell")

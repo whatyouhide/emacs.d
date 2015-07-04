@@ -158,7 +158,11 @@
 
 (use-package smartparens
   :config
-  (smartparens-global-mode t))
+  (progn
+    (require 'smartparens-config)
+    (smartparens-global-mode t)))
+
+(use-package evil-smartparens)
 
 (use-package company
   :init
