@@ -147,12 +147,6 @@ line and the script will be made executable for the user."
     (evil-leader/set-key "f" 'projectile-find-file)
     (projectile-global-mode)))
 
-(use-package multi-term
-  :init
-  (setq multi-term-program "/usr/local/bin/zsh")
-  :config
-  (add-hook 'term-mode-hook (lambda () (setq show-trailing-whitespace nil))))
-
 (use-package guide-key
   :init
   (setq guide-key/guide-key-sequence t)
