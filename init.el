@@ -166,14 +166,6 @@ line and the script will be made executable for the user."
               ("*alchemist-test-report*" :position bottom :tail t)))
     (popwin-mode 1)))
 
-(use-package smartparens
-  :config
-  (progn
-    (require 'smartparens-config)
-    (smartparens-global-mode t)))
-
-(use-package evil-smartparens)
-
 (use-package company
   :init
   (setq company-idle-delay 0.10)
@@ -254,10 +246,7 @@ line and the script will be made executable for the user."
   :config
   (add-hook 'projectile-mode-hook 'projectile-rails-on))
 
-(use-package racket-mode
-  :config
-  (add-hook 'racket-mode-hook 'smartparens-strict-mode)
-  (add-hook 'racket-mode-hook 'evil-smartparens-mode))
+(use-package racket-mode)
 
 ;; Miscellaneous stuff.
 
