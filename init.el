@@ -221,6 +221,11 @@ line and the script will be made executable for the user."
   :load-path "~/Code/emacs-elixir"
   :demand)
 
+(defun wh/alchemist-mix-deps-get ()
+  "Fetch the dependencies of the current Mix project with the deps.get task."
+  (interactive)
+  (alchemist-mix-deps-with-prompt "deps.get"))
+
 (use-package alchemist
   :load-path "~/Code/alchemist.el"
   :demand
@@ -230,6 +235,7 @@ line and the script will be made executable for the user."
     (evil-define-key 'normal alchemist-test-mode-map "[t" 'alchemist-test-mode-jump-to-previous-test)
     (define-key evil-normal-state-map "]d" 'alchemist-goto-jump-to-next-def-symbol)
     (define-key evil-normal-state-map "[d" 'alchemist-goto-jump-to-previous-def-symbol)
+    (define-key alchemist-mode-map (kbd "C-c a d g") 'wh/alchemist-mix-deps-get)
     (evil-leader/set-key-for-mode 'elixir-mode
       "t b" 'alchemist-mix-test-this-buffer
       "t t" 'alchemist-mix-test
