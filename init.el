@@ -77,14 +77,16 @@ line and the script will be made executable for the user."
 
 (define-key dired-mode-map (kbd "-") 'dired-up-directory)
 
-(evil-leader/set-key "!" 'shell-command)
-(evil-leader/set-key ":" 'eval-expression)
-(evil-leader/set-key "o" 'other-window)
-(evil-leader/set-key "b" 'switch-to-buffer)
+(evil-leader/set-key
+  "!" 'shell-command
+  ":" 'eval-expression
+  "o" 'other-window
+  "b" 'switch-to-buffer)
 
-(evil-leader/set-key-for-mode 'emacs-lisp-mode "e d" 'eval-defun)
-(evil-leader/set-key-for-mode 'emacs-lisp-mode "e s" 'wh/eval-surrounding-sexp)
-(evil-leader/set-key-for-mode 'emacs-lisp-mode "h" 'describe-function)
+(evil-leader/set-key-for-mode 'emacs-lisp-mode
+  "e d" 'eval-defun
+  "e s" 'wh/eval-surrounding-sexp
+  "h" 'describe-function)
 
 (use-package evil-commentary
   :config
