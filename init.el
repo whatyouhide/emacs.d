@@ -171,6 +171,7 @@ line and the script will be made executable for the user."
   (setq company-idle-delay 0.10)
   :config
   (progn
+    (global-set-key (kbd "C-n") 'company-manual-begin)
     (define-key company-active-map (kbd "C-n") 'company-select-next)
     (define-key company-active-map (kbd "C-p") 'company-select-previous)
     (define-key company-active-map (kbd "TAB") 'company-complete-selection)
