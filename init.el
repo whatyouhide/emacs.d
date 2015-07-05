@@ -72,8 +72,13 @@ line and the script will be made executable for the user."
 (define-key evil-visual-state-map (kbd "a") 'align-regexp)
 
 ;; Modes that don't use evil.
-(add-to-list 'evil-emacs-state-modes 'inferior-emacs-lisp-mode)
-(add-to-list 'evil-emacs-state-modes 'alchemist-iex-mode)
+(mapcar (lambda (mode) (add-to-list 'evil-emacs-state-modes mode))
+        '(inferior-emacs-lisp-mode
+          alchemist-iex-mode
+          cider-repl-mode
+          cider-stacktrace-mode
+          magit-popup-mode
+          magit-popup-sequence-mode))
 
 (define-key dired-mode-map (kbd "-") 'dired-up-directory)
 
@@ -115,7 +120,6 @@ line and the script will be made executable for the user."
 (use-package magit
   :config
   (progn
-    (add-to-list 'evil-emacs-state-modes 'magit-popup-mode)
     (evil-leader/set-key "g s" 'magit-status)
     (define-key magit-status-mode-map (kbd "j") 'magit-goto-next-section)
     (define-key magit-status-mode-map (kbd "k") 'magit-goto-previous-section)))
@@ -192,6 +196,7 @@ line and the script will be made executable for the user."
 (use-package highlight-sexp
   :load-path "ext"
   :init
+  (add-hook 'clojure-mode-hook 'hl-sexp-mode)
   (add-hook 'racket-mode-hook 'hl-sexp-mode)
   (add-hook 'emacs-lisp-mode-hook 'hl-sexp-mode))
 

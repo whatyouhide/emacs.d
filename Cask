@@ -1,6 +1,7 @@
 (source gnu)
 (source melpa)
 
+(depends-on "cider")
 (depends-on "company")
 (depends-on "erlang")
 (depends-on "evil")
