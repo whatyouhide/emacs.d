@@ -44,6 +44,12 @@ line and the script will be made executable for the user."
 ;; Always as "y or n", not that annoying "yes or no".
 (defalias 'yes-or-no-p 'y-or-n-p)
 
+(when (getenv "TMUX")
+  (define-key key-translation-map "\M-[1;5C" (kbd "C-<right>"))
+  (define-key key-translation-map "\M-[1;5D" (kbd "C-<left>"))
+  (define-key input-decode-map "\e[1;5A" [C-up])
+  (define-key input-decode-map "\e[1;5B" [C-down]))
+
 ;; Evil.
 
 ;; Modes for which <leader> works in Emacs state.
