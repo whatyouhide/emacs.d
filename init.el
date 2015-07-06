@@ -245,6 +245,7 @@ line and the script will be made executable for the user."
     (evil-leader/set-key-for-mode 'elixir-mode
       "t b" 'alchemist-mix-test-this-buffer
       "t t" 'alchemist-mix-test
+      "t r" 'alchemist-mix-rerun-last-test
       "t p" 'alchemist-mix-test-at-point)))
 
 (use-package markdown-mode
