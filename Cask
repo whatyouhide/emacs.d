@@ -15,6 +15,7 @@
 (depends-on "guide-key")
 (depends-on "helm")
 (depends-on "helm-ag")
+(depends-on "hl-todo")
 (depends-on "magit")
 (depends-on "markdown-mode")
 (depends-on "monokai-theme")

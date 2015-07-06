@@ -206,6 +206,10 @@ line and the script will be made executable for the user."
   (add-hook 'racket-mode-hook 'hl-sexp-mode)
   (add-hook 'emacs-lisp-mode-hook 'hl-sexp-mode))
 
+(use-package hl-todo
+  :config
+  (global-hl-todo-mode))
+
 ;; Modes for programming languages and such.
 
 (use-package web-mode
