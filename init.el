@@ -3,57 +3,21 @@
 
 (require 'use-package)
 
+(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+
 (load-theme 'monokai t)
-
-(defun wh/edit-init-file ()
-  "Edit the init file, usually `~/.emacs.d/init.el`."
-  (interactive)
-  (find-file (or user-init-file "")))
-
-(defun wh/newline-and-indent-like-previous-line ()
-  (interactive)
-  (newline)
-  (indent-relative-maybe))
-
-(defun wh/eval-surrounding-sexp ()
-  (interactive)
-  (save-excursion
-    (up-list)
-    (eval-last-sexp nil)))
-
-(defun wh/create-bash-script (name)
-  "Create a bash script in ~/bin.
-
-The script will be called `NAME'. A bash shebang will be inserted on the first
-line and the script will be made executable for the user."
-  (interactive "sName: ")
-  (let ((path (concat "~/bin/" name)))
-    (find-file path)
-    (insert "#!/bin/bash\n\n\n")
-    (end-of-buffer)
-    (save-buffer)
-    (shell-script-mode)
-    (shell-command (format "chmod u+x %s" path))))
 
 (global-set-key (kbd "<f2>") 'wh/edit-init-file)
 (global-set-key (kbd "C-k") 'kill-whole-line)
 
-(require 'dired-x)
-(define-key dired-mode-map (kbd "SPC") nil)
-
 ;; Always as "y or n", not that annoying "yes or no".
 (defalias 'yes-or-no-p 'y-or-n-p)
-
-(when (getenv "TMUX")
-  (define-key key-translation-map "\M-[1;5C" (kbd "C-<right>"))
-  (define-key key-translation-map "\M-[1;5D" (kbd "C-<left>"))
-  (define-key input-decode-map "\e[1;5A" [C-up])
-  (define-key input-decode-map "\e[1;5B" [C-down]))
 
 ;; Evil.
 
 ;; Modes for which <leader> works in Emacs state.
 (setq evil-leader/no-prefix-mode-rx '("magit-.*-mode"))
+(setq evil-leader/no-prefix-mode-rx '("dired-mode"))
 
 (global-evil-leader-mode)
 (evil-mode 1)
@@ -86,7 +50,6 @@ line and the script will be made executable for the user."
           magit-popup-mode
           magit-popup-sequence-mode))
 
-(define-key dired-mode-map (kbd "-") 'dired-up-directory)
 
 (evil-leader/set-key
   "!" 'shell-command
@@ -118,7 +81,17 @@ line and the script will be made executable for the user."
   :config
   (evil-exchange-install))
 
+;; My stuff.
+
+(use-package wh-functions)
+(use-package wh-tmux)
+(use-package wh-appearance)
+
 ;; Misc packages.
+
+(use-package dired-x
+  :config
+  (define-key dired-mode-map (kbd "-") 'dired-up-directory))
 
 (use-package pallet
   :config
@@ -128,8 +101,8 @@ line and the script will be made executable for the user."
   :config
   (progn
     (evil-leader/set-key "g s" 'magit-status)
-    (define-key magit-status-mode-map (kbd "j") 'magit-goto-next-section)
-    (define-key magit-status-mode-map (kbd "k") 'magit-goto-previous-section)))
+    (define-key magit-status-mode-map (kbd "j") 'magit-section-forward)
+    (define-key magit-status-mode-map (kbd "k") 'magit-section-backward)))
 
 (use-package github-browse-file
   :config
@@ -285,13 +258,6 @@ line and the script will be made executable for the user."
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
 
-;; Show matching parentheses.
-(show-paren-mode 1)
-
-;; Show the column number in the modeline.
-(column-number-mode 1)
-
-
 ;; Don't backup/autosave files.
 (setq backup-inhibited t)
 (setq auto-save-default nil)
@@ -310,27 +276,8 @@ line and the script will be made executable for the user."
 
 ;; Visual minor modes.
 
-;; Pretty symbols!
-(global-prettify-symbols-mode t)
-
 ;; Font size in 1/10pt (140 = 14 pt).
 (set-face-attribute 'default nil :height 140)
-
-(setq font-lock-maximum-decoration t)
-
-
-;; Don't display the start messages when Emacs starts.
-(setq inhibit-splash-screen t
-      inhibit-startup-echo-area-message t
-      inhibit-startup-message t)
-
-;; Hide all the intrusive GUI features.
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
-(menu-bar-mode -1)
-
-;; Don't flash any alarms.
-(setq ring-bell-function 'ignore)
 
 ;; Left Option is Meta, right Option doesn't do anything in Emacs (so it can be
 ;; used for accented letters and such).
