@@ -219,6 +219,7 @@
     (evil-define-key 'normal alchemist-test-mode-map "[t" 'alchemist-test-mode-jump-to-previous-test)
     (define-key evil-normal-state-map "]d" 'alchemist-goto-jump-to-next-def-symbol)
     (define-key evil-normal-state-map "[d" 'alchemist-goto-jump-to-previous-def-symbol)
+    (define-key alchemist-mode-map (kbd "C-c a g d") 'wh/alchemist-generate-docs)
     (define-key alchemist-mode-map (kbd "C-c a d g") 'wh/alchemist-mix-deps-get)
     (evil-leader/set-key-for-mode 'elixir-mode
       "t b" 'alchemist-mix-test-this-buffer

@@ -30,4 +30,11 @@ line and the script will be made executable for the user."
     (shell-script-mode)
     (shell-command (format "chmod u+x %s" path))))
 
+(defun wh/alchemist-generate-docs ()
+  "Generate the documentation for the current Mix project and open it in the
+default browser."
+  (interactive)
+  (shell-command "MIX_ENV=docs mix docs")
+  (shell-command (concat "open " (alchemist-project-root) "doc/index.html")))
+
 (provide 'wh-functions)
