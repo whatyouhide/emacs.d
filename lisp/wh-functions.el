@@ -1,14 +1,16 @@
 (defun wh/edit-init-file ()
-  "Edit the init file, usually `~/.emacs.d/init.el`."
+  "Edit the init file, usually ~/.emacs.d/init.el."
   (interactive)
   (find-file (or user-init-file "")))
 
 (defun wh/newline-and-indent-like-previous-line ()
+  "Create a newline and indent at the same level of the previous line."
   (interactive)
   (newline)
   (indent-relative-maybe))
 
 (defun wh/eval-surrounding-sexp ()
+  "Eval the sexp which surrounds the current point."
   (interactive)
   (save-excursion
     (up-list)
