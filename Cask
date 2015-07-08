@@ -19,6 +19,7 @@
 (depends-on "magit")
 (depends-on "markdown-mode")
 (depends-on "monokai-theme")
+(depends-on "paredit")
 (depends-on "popwin")
 (depends-on "projectile")
 (depends-on "projectile-rails")
