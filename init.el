@@ -291,12 +291,9 @@ line and the script will be made executable for the user."
 (column-number-mode 1)
 
 
-;; Backup and autosave files in /tmp.
-(setq backup-directory-alist
-      `((".*" . ,temporary-file-directory)))
-(setq auto-save-file-name-transforms
-      `((".*" ,temporary-file-directory t)))
-
+;; Don't backup/autosave files.
+(setq backup-inhibited t)
+(setq auto-save-default nil)
 
 ;; Indentation is two spaces wide, with spaces instead of tabs.
 (setq-default indent-tabs-mode nil)
