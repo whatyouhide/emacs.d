@@ -174,7 +174,7 @@ line and the script will be made executable for the user."
             '(helm-mode
               ("*Help*" :stick t)
               ("*mix*" :position bottom :noselect t)
-              ("*alchemist-test-report*" :position bottom :tail t :stick t)))
+              ("*alchemist-test-report*" :position bottom :tail t :stick t :noselect t)))
     (popwin-mode 1)))
 
 (use-package company
