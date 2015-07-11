@@ -4,6 +4,7 @@
 (require 'use-package)
 
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "ext" user-emacs-directory))
 
 (load-theme 'monokai t)
 
@@ -50,7 +51,6 @@
           magit-popup-mode
           magit-popup-sequence-mode))
 
-
 (evil-leader/set-key
   "!" 'shell-command
   ":" 'eval-expression
@@ -76,7 +76,6 @@
     (evil-define-key 'visual evil-surround-mode-map "s" 'evil-surround-region)))
 
 (use-package evil-exchange
-  :load-path "ext"
   :demand
   :config
   (evil-exchange-install))
@@ -179,7 +178,6 @@
   (add-to-list 'writeroom-global-effects 'wh/toggle-tmux-status-bar))
 
 (use-package highlight-sexp
-  :load-path "ext"
   :init
   (add-hook 'clojure-mode-hook 'hl-sexp-mode)
   (add-hook 'racket-mode-hook 'hl-sexp-mode)
