@@ -88,6 +88,10 @@
 
 ;; Misc packages.
 
+(use-package diminish
+  :config
+  (diminish 'undo-tree-mode))
+
 (use-package dired-x
   :config
   (define-key dired-mode-map (kbd "-") 'dired-up-directory))
@@ -116,6 +120,7 @@
   :config
   (progn
     (helm-mode t)
+    (diminish 'helm-mode)
     (evil-leader/set-key "<SPC>" 'helm-M-x)))
 
 (use-package helm-ag
@@ -130,14 +135,16 @@
   :config
   (progn
     (evil-leader/set-key "f" 'projectile-find-file)
-    (projectile-global-mode)))
+    (projectile-global-mode)
+    (diminish 'projectile-mode)))
 
 (use-package guide-key
   :init
   (setq guide-key/guide-key-sequence t)
   (setq guide-key/idle-delay 0.4)
   :config
-  (guide-key-mode 1))
+  (guide-key-mode 1)
+  (diminish 'guide-key-mode))
 
 (use-package popwin
   :config
@@ -164,7 +171,8 @@
     (define-key company-active-map (kbd "C-p") 'company-select-previous)
     (define-key company-active-map (kbd "TAB") 'company-complete-selection)
     (define-key company-active-map (kbd "RET") nil)
-    (global-company-mode t)))
+    (global-company-mode t)
+    (diminish 'company-mode)))
 
 (defun wh/toggle-tmux-status-bar (activate?)
   (let ((cmd (if activate? "tmux set status off" "tmux set status on")))
