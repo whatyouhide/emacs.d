@@ -90,7 +90,9 @@
 
 (use-package diminish
   :config
-  (diminish 'undo-tree-mode))
+  (mapcar (lambda (mode) (diminish mode))
+          '(undo-tree-mode
+            evil-commentary-mode)))
 
 (use-package dired-x
   :config
