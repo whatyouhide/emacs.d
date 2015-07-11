@@ -150,6 +150,10 @@
               ("*alchemist-test-report*" :position bottom :tail t :stick t :noselect t)))
     (popwin-mode 1)))
 
+(use-package zoom-window
+  :config
+  (evil-leader/set-key "z" 'zoom-window-zoom))
+
 (use-package company
   :init
   (setq company-idle-delay 0.10)

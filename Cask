@@ -31,3 +31,4 @@
 (depends-on "use-package")
 (depends-on "web-mode")
 (depends-on "writeroom-mode")
+(depends-on "zoom-window")
