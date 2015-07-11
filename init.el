@@ -148,6 +148,7 @@
               ("*Help*" :stick t)
               ("*mix*" :position bottom :noselect t)
               ("*alchemist-test-report*" :position bottom :tail t :stick t :noselect t)))
+    (global-set-key (kbd "C-l") popwin:keymap)
     (popwin-mode 1)))
 
 (use-package zoom-window
