@@ -40,6 +40,9 @@
 (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
 (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
 
+(define-key evil-normal-state-map (kbd "C-o") 'other-window)
+(global-set-key (kbd "C-o") 'other-window)
+
 (define-key evil-visual-state-map (kbd "a") 'align-regexp)
 
 ;; Modes that don't use evil.
