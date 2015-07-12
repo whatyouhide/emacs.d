@@ -119,14 +119,26 @@
   (evil-leader/set-key "g b" 'github-browse-file))
 
 (use-package git-messenger
+  :commands git-messenger:popup-message
   :init
   (setq git-messenger:show-detail t)
+  (evil-leader/set-key "g p" 'git-messenger:popup-message)
   :config
   (progn
     (define-key git-messenger-map (kbd "j") 'git-messenger:popup-close)
     (define-key git-messenger-map (kbd "k") 'git-messenger:popup-close)
-    (define-key git-messenger-map (kbd "RET") 'git-messenger:popup-close)
-    (evil-leader/set-key "g p" 'git-messenger:popup-message) ()))
+    (define-key git-messenger-map (kbd "RET") 'git-messenger:popup-close)))
+
+(use-package git-timemachine
+  :defer t
+  :commands git-timemachine-toggle
+  :init
+  (evil-leader/set-key "g t" 'git-timemachine-toggle)
+  :config
+  (progn
+    (evil-make-overriding-map git-timemachine-mode-map 'normal)
+    ;; force update evil keymaps after git-timemachine-mode loaded
+    (add-hook 'git-timemachine-mode-hook #'evil-normalize-keymaps)))
 
 (use-package helm
   :init
