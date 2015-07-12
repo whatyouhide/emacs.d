@@ -118,6 +118,16 @@
   :config
   (evil-leader/set-key "g b" 'github-browse-file))
 
+(use-package git-messenger
+  :init
+  (setq git-messenger:show-detail t)
+  :config
+  (progn
+    (define-key git-messenger-map (kbd "j") 'git-messenger:popup-close)
+    (define-key git-messenger-map (kbd "k") 'git-messenger:popup-close)
+    (define-key git-messenger-map (kbd "RET") 'git-messenger:popup-close)
+    (evil-leader/set-key "g p" 'git-messenger:popup-message) ()))
+
 (use-package helm
   :init
   (setq helm-M-x-fuzzy-match t)
