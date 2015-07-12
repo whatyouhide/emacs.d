@@ -17,8 +17,8 @@
 ;; Evil.
 
 ;; Modes for which <leader> works in Emacs state.
-(setq evil-leader/no-prefix-mode-rx '("magit-.*-mode"))
-(setq evil-leader/no-prefix-mode-rx '("dired-mode"))
+(setq evil-leader/no-prefix-mode-rx
+      '("magit-.*-mode" "dired-mode" "gist-list-mode"))
 
 (global-evil-leader-mode)
 (evil-mode 1)
@@ -111,6 +111,8 @@
     (evil-leader/set-key "g s" 'magit-status)
     (define-key magit-status-mode-map (kbd "j") 'magit-section-forward)
     (define-key magit-status-mode-map (kbd "k") 'magit-section-backward)))
+
+(use-package gist)
 
 (use-package github-browse-file
   :config
@@ -270,6 +272,9 @@
 ;; Show trailing whitespace on programming modes.
 (add-hook 'prog-mode-hook
           '(lambda () (setq-default show-trailing-whitespace t)))
+
+(add-hook 'gist-list-mode-hook
+          (lambda () (setq-default show-trailing-whitespace nil)))
 
 ;; Correctly load $PATH and $MANPATH on OSX (GUI).
 (when (memq window-system '(mac ns))

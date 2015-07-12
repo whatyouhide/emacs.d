@@ -11,6 +11,7 @@
 (depends-on "evil-surround")
 (depends-on "evil-terminal-cursor-changer")
 (depends-on "exec-path-from-shell")
+(depends-on "gist")
 (depends-on "github-browse-file")
 (depends-on "grizzl")
 (depends-on "guide-key")
