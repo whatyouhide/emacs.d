@@ -2,6 +2,7 @@
 (source melpa)
 
 (depends-on "cider")
+(depends-on "clojure-mode")
 (depends-on "company")
 (depends-on "erlang")
 (depends-on "evil")
