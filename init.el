@@ -134,10 +134,10 @@
   (setq helm-apropos-fuzzy-match t)
   :bind
   ("M-x" . helm-M-x)
+  :diminish helm-mode
   :config
   (progn
     (helm-mode t)
-    (diminish 'helm-mode)
     (evil-leader/set-key "<SPC>" 'helm-M-x)))
 
 (use-package helm-ag
@@ -149,19 +149,19 @@
 (use-package projectile
   :init
   (setq projectile-completion-system 'grizzl)
+  :diminish projectile-mode
   :config
   (progn
     (evil-leader/set-key "f" 'projectile-find-file)
-    (projectile-global-mode)
-    (diminish 'projectile-mode)))
+    (projectile-global-mode)))
 
 (use-package guide-key
   :init
   (setq guide-key/guide-key-sequence t)
   (setq guide-key/idle-delay 0.4)
+  :diminish guide-key-mode
   :config
-  (guide-key-mode 1)
-  (diminish 'guide-key-mode))
+  (guide-key-mode 1))
 
 (use-package popwin
   :config
@@ -181,6 +181,7 @@
 (use-package company
   :init
   (setq company-idle-delay 0.10)
+  :diminish company-mode
   :config
   (progn
     (global-set-key (kbd "C-n") 'company-manual-begin)
@@ -188,8 +189,7 @@
     (define-key company-active-map (kbd "C-p") 'company-select-previous)
     (define-key company-active-map (kbd "TAB") 'company-complete-selection)
     (define-key company-active-map (kbd "RET") nil)
-    (global-company-mode t)
-    (diminish 'company-mode)))
+    (global-company-mode t)))
 
 (defun wh/toggle-tmux-status-bar (activate?)
   (let ((cmd (if activate? "tmux set status off" "tmux set status on")))
