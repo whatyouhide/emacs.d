@@ -30,7 +30,6 @@
 (depends-on "racket-mode")
 (depends-on "robe")
 (depends-on "rspec-mode")
-(depends-on "rvm")
 (depends-on "scss-mode")
 (depends-on "use-package")
 (depends-on "web-mode")
