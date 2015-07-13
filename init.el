@@ -280,6 +280,11 @@
                 (local-set-key (kbd "RET") 'wh/newline-and-indent-like-previous-line)
                 (local-set-key (kbd "DEL") 'backward-delete-char-untabify)))))
 
+(use-package ruby-mode
+  :init
+  ;; Don't insert the coding utf8 comment when saving Ruby files.
+  (setq ruby-insert-encoding-magic-comment nil))
+
 (use-package projectile-rails
   :config
   (add-hook 'projectile-mode-hook 'projectile-rails-on))
