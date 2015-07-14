@@ -291,6 +291,9 @@
 
 (use-package racket-mode)
 
+(use-package sh-script
+  :mode (("\\.zsh\\'" . shell-script-mode)))
+
 ;; Miscellaneous stuff.
 
 ;; Remove trailing whitespace on save.
