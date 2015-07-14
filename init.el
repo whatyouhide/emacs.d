@@ -182,6 +182,7 @@
             '(helm-mode
               ("*Help*" :stick t)
               ("*mix*" :position bottom :noselect t)
+              ("*rspec-compilation*" :position bottom :stick t :noselect t)
               ("*alchemist-test-report*" :position bottom :tail t :stick t :noselect t)))
     (global-set-key (kbd "C-l") popwin:keymap)
     (popwin-mode 1)))
@@ -284,6 +285,16 @@
   :init
   ;; Don't insert the coding utf8 comment when saving Ruby files.
   (setq ruby-insert-encoding-magic-comment nil))
+
+(use-package rspec
+  :init
+  (setq rspec-use-rake-when-possible nil)
+  :config
+  (progn
+    (evil-leader/set-key-for-mode 'ruby-mode
+      "t p" 'rspec-verify-single
+      "t t" 'rspec-verify-all
+      "t b" 'rspec-verify)))
 
 (use-package projectile-rails
   :config
