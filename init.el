@@ -296,6 +296,9 @@
 
 ;; Miscellaneous stuff.
 
+;; Scroll output in compile buffers. YES!
+(setq compilation-scroll-output t)
+
 ;; Remove trailing whitespace on save.
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
