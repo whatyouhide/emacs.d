@@ -154,9 +154,9 @@
 
 (use-package helm-ag
   :config
-  (progn
-    (evil-leader/set-key "a g" 'helm-do-ag-project-root)
-    (evil-leader/set-key "a G" 'helm-do-ag)))
+  (evil-leader/set-key
+    "a g" 'helm-do-ag-project-root
+    "a G" 'helm-do-ag))
 
 (use-package projectile
   :init
