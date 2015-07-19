@@ -58,7 +58,9 @@
   "!" 'shell-command
   ":" 'eval-expression
   "o" 'other-window
-  "b" 'switch-to-buffer)
+  "b" 'switch-to-buffer
+  "p" 'projectile-switch-project
+  "B" 'evil-buffer)
 
 (evil-leader/set-key-for-mode 'emacs-lisp-mode
   "e d" 'eval-defun
