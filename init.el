@@ -236,6 +236,10 @@
   (setq web-mode-code-indent-offset 2)
   :mode (("\\.html\\.erb\\'" . web-mode)))
 
+(use-package js
+  :init
+  (setq js-indent-level 2))
+
 (use-package scss-mode
   :init
   (setq css-indent-offset 2))
