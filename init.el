@@ -164,7 +164,9 @@
   :diminish projectile-mode
   :config
   (progn
-    (evil-leader/set-key "f" 'projectile-find-file)
+    (evil-leader/set-key
+      "f" 'projectile-find-file
+      "T" 'wh/projectile-open-todo)
     (projectile-global-mode)))
 
 (use-package guide-key

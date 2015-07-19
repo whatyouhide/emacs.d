@@ -37,4 +37,12 @@ default browser."
   (shell-command "MIX_ENV=docs mix docs")
   (shell-command (concat "open " (alchemist-project-root) "doc/index.html")))
 
+(defun wh/projectile-open-todo ()
+  "Open TODO.md in the root of the (projectile) project if such file exists."
+  (interactive)
+  (let ((file (concat (projectile-project-root) "TODO.md")))
+    (if (file-exists-p file)
+        (find-file file)
+      (message "TODO.md not found in the project root"))))
+
 (provide 'wh-functions)
