@@ -45,4 +45,12 @@ default browser."
         (find-file file)
       (message "TODO.md not found in the project root"))))
 
+(defun wh/package-uninstall (pkg)
+  "Uninstalls `PKG'. Interactively, it prompts for the package name."
+  (interactive
+   (list (completing-read "Package to uninstall: " (mapcar #'car package-alist))))
+  (let* ((pkg (intern pkg))
+         (pkg-desc (car (last (assoc pkg package-alist)))))
+    (package-delete pkg-desc)))
+
 (provide 'wh-functions)
