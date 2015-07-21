@@ -95,9 +95,9 @@
 
 (use-package diminish
   :config
-  (mapcar (lambda (mode) (diminish mode))
-          '(undo-tree-mode
-            evil-commentary-mode)))
+  (progn
+    (diminish 'undo-tree-mode)
+    (diminish 'evil-commentary-mode)))
 
 (use-package dired-x
   :config
