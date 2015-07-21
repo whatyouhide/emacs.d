@@ -28,6 +28,7 @@
 (depends-on "projectile")
 (depends-on "projectile-rails")
 (depends-on "racket-mode")
+(depends-on "rbenv")
 (depends-on "robe")
 (depends-on "rspec-mode")
 (depends-on "scss-mode")

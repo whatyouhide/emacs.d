@@ -309,6 +309,10 @@
       "t t" 'rspec-verify-all
       "t b" 'rspec-verify)))
 
+(use-package rbenv
+  :init
+  (setq rbenv-installation-dir "/usr/local/Cellar/rbenv/0.4.0"))
+
 (use-package projectile-rails
   :config
   (add-hook 'projectile-mode-hook 'projectile-rails-on))
