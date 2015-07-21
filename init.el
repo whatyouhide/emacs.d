@@ -299,15 +299,9 @@
   ;; Don't insert the coding utf8 comment when saving Ruby files.
   (setq ruby-insert-encoding-magic-comment nil))
 
-(use-package rspec
+(use-package rspec-mode
   :init
-  (setq rspec-use-rake-when-possible nil)
-  :config
-  (progn
-    (evil-leader/set-key-for-mode 'ruby-mode
-      "t p" 'rspec-verify-single
-      "t t" 'rspec-verify-all
-      "t b" 'rspec-verify)))
+  (setq rspec-use-rake-when-possible nil))
 
 (use-package rbenv
   :init
