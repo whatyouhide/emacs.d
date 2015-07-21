@@ -335,9 +335,10 @@
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
 
-;; Don't backup/autosave files.
+;; Don't backup/autosave files and don't protect from locks.
 (setq backup-inhibited t)
 (setq auto-save-default nil)
+(setq create-lockfiles nil)
 
 ;; Indentation is two spaces wide, with spaces instead of tabs.
 (setq-default indent-tabs-mode nil)
