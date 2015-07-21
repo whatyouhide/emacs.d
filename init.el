@@ -117,7 +117,8 @@
 (use-package gist)
 
 (use-package github-browse-file
-  :config
+  :commands github-browse-file
+  :init
   (evil-leader/set-key "g b" 'github-browse-file))
 
 (use-package git-messenger
@@ -132,7 +133,6 @@
     (define-key git-messenger-map (kbd "RET") 'git-messenger:popup-close)))
 
 (use-package git-timemachine
-  :defer t
   :commands git-timemachine-toggle
   :init
   (evil-leader/set-key "g t" 'git-timemachine-toggle)
@@ -143,6 +143,7 @@
     (add-hook 'git-timemachine-mode-hook #'evil-normalize-keymaps)))
 
 (use-package helm
+  :demand t
   :init
   (setq helm-M-x-fuzzy-match t)
   (setq helm-apropos-fuzzy-match t)
@@ -150,12 +151,14 @@
   ("M-x" . helm-M-x)
   :diminish helm-mode
   :config
+  (helm-mode t)
   (progn
     (helm-mode t)
     (evil-leader/set-key "<SPC>" 'helm-M-x)))
 
 (use-package helm-ag
-  :config
+  :commands (helm-do-ag helm-do-ag-project-root)
+  :init
   (evil-leader/set-key
     "a g" 'helm-do-ag-project-root
     "a G" 'helm-do-ag))
@@ -192,13 +195,15 @@
     (popwin-mode 1)))
 
 (use-package zoom-window
-  :config
+  :commands 'zoom-window-mode
+  :init
   (evil-leader/set-key "z" 'zoom-window-zoom))
 
 (use-package company
   :init
   (setq company-idle-delay 0.10)
   :diminish company-mode
+  :defer 4 ;; load after 4s of idle time
   :config
   (progn
     (global-set-key (kbd "C-n") 'company-manual-begin)
@@ -213,7 +218,7 @@
     (shell-command cmd)))
 
 (use-package writeroom-mode
-  :demand
+  :commands writeroom-mode
   :init
   (evil-leader/set-key "m w" 'writeroom-mode)
   :config
