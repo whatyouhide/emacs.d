@@ -150,7 +150,6 @@
   :demand t
   :init
   (setq helm-M-x-fuzzy-match t)
-  (setq helm-apropos-fuzzy-match t)
   :bind
   ("M-x" . helm-M-x)
   :diminish helm-mode
