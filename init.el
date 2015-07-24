@@ -292,13 +292,7 @@
   (setq markdown-open-command "marked")
   :mode (("\\.md\\'" . gfm-mode)
          ("\\.mkd\\'" . gfm-mode)
-         ("\\.markdown\\'" . gfm-mode))
-  :config
-  (progn
-    (add-hook 'gfm-mode-hook
-              (lambda ()
-                (local-set-key (kbd "RET") 'wh/newline-and-indent-like-previous-line)
-                (local-set-key (kbd "DEL") 'backward-delete-char-untabify)))))
+         ("\\.markdown\\'" . gfm-mode)))
 
 (use-package ruby-mode
   :init
