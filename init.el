@@ -267,6 +267,7 @@
 (use-package alchemist
   :load-path "~/Code/alchemist.el"
   :demand
+  :diminish alchemist-mode
   :config
   (progn
     (evil-define-key 'normal alchemist-test-mode-map "]t" 'alchemist-test-mode-jump-to-next-test)
