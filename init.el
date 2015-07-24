@@ -53,6 +53,7 @@
           alchemist-iex-mode
           cider-repl-mode
           cider-stacktrace-mode
+          git-rebase-mode
           magit-popup-mode
           magit-popup-sequence-mode))
 
