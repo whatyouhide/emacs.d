@@ -60,6 +60,8 @@
   "!" 'shell-command
   ":" 'eval-expression
   "o" 'other-window
+  "s |" 'split-window-right
+  "s -" 'split-window-below
   "b" 'switch-to-buffer
   "p" 'projectile-switch-project
   "B" 'evil-buffer)
