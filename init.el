@@ -6,7 +6,9 @@
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "ext" user-emacs-directory))
 
-(load-theme 'monokai t)
+(if (display-graphic-p)
+    (load-theme 'zenburn t)
+  (load-theme 'monokai t))
 
 (global-set-key (kbd "<f2>") 'wh/edit-init-file)
 (global-set-key (kbd "C-k") 'kill-whole-line)
