@@ -266,6 +266,10 @@
   (interactive)
   (alchemist-mix-deps-with-prompt "deps.get"))
 
+(defun wh/alchemist-mix-prompt-for-test-flags (flag)
+  (interactive "sTest flags: ")
+  (setq alchemist-mix-test-default-options (list flag)))
+
 (use-package alchemist
   :load-path "~/Code/alchemist.el"
   :demand
@@ -285,6 +289,7 @@
     (define-key alchemist-mode-map (kbd "C-c a g d") 'wh/alchemist-generate-docs)
     (define-key alchemist-mode-map (kbd "C-c a d g") 'wh/alchemist-mix-deps-get)
     (evil-leader/set-key-for-mode 'elixir-mode
+      "t f" 'wh/alchemist-mix-prompt-for-test-flags
       "t b" 'alchemist-mix-test-this-buffer
       "t t" 'alchemist-mix-test
       "t r" 'alchemist-mix-rerun-last-test
