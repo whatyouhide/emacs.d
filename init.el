@@ -196,9 +196,9 @@
     (mapcar (lambda (el) (add-to-list 'popwin:special-display-config el))
             '(helm-mode
               ("*Help*" :stick t)
-              ("*mix*" :position bottom :noselect t)
               ("*rspec-compilation*" :position bottom :stick t :noselect t)
-              ("*alchemist-test-report*" :position bottom :tail t :stick t :noselect t)))
+              ("*mix*" :position bottom :noselect t)
+              ("*alchemist-test-report*" :position bottom :stick t :noselect t)))
     (global-set-key (kbd "C-l") popwin:keymap)
     (popwin-mode 1)))
 
