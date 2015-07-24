@@ -32,6 +32,7 @@
 (depends-on "robe")
 (depends-on "rspec-mode")
 (depends-on "scss-mode")
+(depends-on "swiper-helm")
 (depends-on "use-package")
 (depends-on "web-mode")
 (depends-on "writeroom-mode")

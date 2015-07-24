@@ -167,6 +167,10 @@
     "a g" 'helm-do-ag-project-root
     "a G" 'helm-do-ag))
 
+(use-package swiper-helm
+  :bind
+  ("C-s" . swiper-helm))
+
 (use-package projectile
   :init
   (setq projectile-completion-system 'grizzl)
