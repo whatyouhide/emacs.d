@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: FactoryGirl define block, with an empty factory inside
+# key: fg
+# --
+FactoryGirl.define do
+                   factory $1 do
+
+                   end
+end

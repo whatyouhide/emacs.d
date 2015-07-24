@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: A binding.pry statement
+# key: bp
+# --
+binding.pry

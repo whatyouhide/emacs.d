@@ -220,6 +220,13 @@
     (define-key company-active-map (kbd "RET") nil)
     (global-company-mode t)))
 
+(use-package yasnippet
+  :init
+  (setq-default yas-snippet-dirs '("~/.emacs.d/snippets"))
+  :diminish yas-minor-mode
+  :config
+  (yas-global-mode t))
+
 (defun wh/toggle-tmux-status-bar (activate?)
   (let ((cmd (if activate? "tmux set status off" "tmux set status on")))
     (shell-command cmd)))

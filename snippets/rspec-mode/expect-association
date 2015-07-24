@@ -1,0 +1,4 @@
+# name: Expectation on a Rails association
+# key: iea
+# --
+it { expect(subject).to $1 }

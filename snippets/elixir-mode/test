@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: ExUnit test case
+# key: t
+# --
+test "$1" do
+     $2
+end
