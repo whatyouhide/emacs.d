@@ -1,4 +1,4 @@
-(when (and (not (display-graphic-p)) (getenv "TMUX"))
+(when (wh/under-tmux-p)
   (define-key key-translation-map "\M-[1;5C" (kbd "C-<right>"))
   (define-key key-translation-map "\M-[1;5D" (kbd "C-<left>"))
   (define-key key-translation-map "\M-[1;5A" (kbd "C-<up>"))

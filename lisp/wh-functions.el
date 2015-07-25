@@ -22,6 +22,16 @@ For example:
          (set (quote ,var) ,old-val-symbol)
          result))))
 
+(defun wh/under-tmux-p ()
+  "Returns non-nil if the current Emacs instance is running under tmux."
+  (and (not (display-graphic-p)) (getenv "TMUX")))
+
+(defun wh/toggle-tmux-status-bar (hide?)
+  "Hides the tmux status bar if `HIDE?' is non-nil, otherwise shows it."
+  (if (wh/under-tmux-p)
+      (shell-command (if hide? "tmux set status off" "tmux set status on"))
+    (message "Emacs is not running under tmux")))
+
 ;; Interactive functions.
 
 (defun wh/edit-init-file ()

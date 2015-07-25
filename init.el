@@ -228,9 +228,6 @@
   :config
   (yas-global-mode t))
 
-(defun wh/toggle-tmux-status-bar (activate?)
-  (let ((cmd (if activate? "tmux set status off" "tmux set status on")))
-    (shell-command cmd)))
 
 (use-package writeroom-mode
   :commands writeroom-mode
