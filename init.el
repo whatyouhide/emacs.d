@@ -117,6 +117,10 @@
 (use-package magit
   :config
   (progn
+    ;; I'm using custom-set-variables here so that we can retrieve the original
+    ;; value later on (in wh/magit-status-buffer-switch-function).
+    (custom-set-variables
+     '(magit-status-buffer-switch-function 'wh/magit-status-buffer-switch-function))
     (evil-leader/set-key "g s" 'magit-status)
     (define-key magit-status-mode-map (kbd "j") 'magit-section-forward)
     (define-key magit-status-mode-map (kbd "k") 'magit-section-backward)))

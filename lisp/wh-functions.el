@@ -32,6 +32,15 @@ For example:
       (shell-command (if hide? "tmux set status off" "tmux set status on"))
     (message "Emacs is not running under tmux")))
 
+(defun wh/magit-status-buffer-switch-function (buf)
+  "Open the the Magit status in another frame if there's one.
+
+If there's only one frame, then use the function that magit uses by default."
+  (if (= 1 (length (frame-list)))
+      (funcall (eval (car (get 'magit-status-buffer-switch-function 'standard-value))) buf)
+    (select-frame-set-input-focus (next-frame))
+    (switch-to-buffer buf)))
+
 ;; Interactive functions.
 
 (defun wh/edit-init-file ()
