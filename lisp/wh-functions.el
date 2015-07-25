@@ -60,7 +60,8 @@ line and the script will be made executable for the user."
   "Generate the documentation for the current Mix project and open it in the
 default browser."
   (interactive)
-  (shell-command "MIX_ENV=docs mix docs")
+  (wh/with-var-set-to (alchemist-mix-env "docs")
+    (alchemist-mix-execute '("docs")))
   (shell-command (concat "open " (alchemist-project-root) "doc/index.html")))
 
 (defun wh/projectile-open-todo ()
