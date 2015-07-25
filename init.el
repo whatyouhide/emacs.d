@@ -100,6 +100,29 @@
 (use-package wh-tmux)
 (use-package wh-appearance)
 
+;; Built-in packages.
+
+(use-package recentf
+  :init
+  (setq recentf-save-file "~/.emacs.d/etc/recentf")
+  (setq recentf-max-saved-items 25))
+
+(use-package savehist
+  :init
+  (setq savehist-file "~/.emacs.d/etc/savehist")
+  (setq history-length 1000)
+  :config
+  (savehist-mode))
+
+(use-package saveplace
+  :init
+  (setq-default save-place t)
+  (setq save-place-file "~/.emacs.d/etc/saveplace"))
+
+(use-package dired-x
+  :config
+  (define-key dired-mode-map (kbd "-") 'dired-up-directory))
+
 ;; Misc packages.
 
 (use-package dash
@@ -111,10 +134,6 @@
   (progn
     (diminish 'undo-tree-mode)
     (diminish 'evil-commentary-mode)))
-
-(use-package dired-x
-  :config
-  (define-key dired-mode-map (kbd "-") 'dired-up-directory))
 
 (use-package pallet
   :config
