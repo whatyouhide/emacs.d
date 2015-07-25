@@ -100,6 +100,10 @@
 
 ;; Misc packages.
 
+(use-package dash
+  :config
+  (dash-enable-font-lock))
+
 (use-package diminish
   :config
   (progn
