@@ -1,3 +1,29 @@
+;; Non interactive functions.
+
+(defmacro wh/with-var-set-to (var-and-val &rest body)
+  "Execute `BODY' with a given variable temporarely set to a value.
+
+The value of that variable is restored to the original value after `BODY' is
+executed. `VAR-AND-VAL' is a list with two elements: the variable name (not
+quoted) and its temporary value.
+
+For example:
+
+    (wh/with-var-set-to (alchemist-env \"docs\")
+      (message alchemist-env))
+"
+  (declare (indent defun))
+  (let ((var (car var-and-val))
+        (val (car (cdr var-and-val)))
+        (old-val-symbol (make-symbol "old-val")))
+    `(let ((,old-val-symbol ,var))
+       (set (quote ,var) ,val)
+       (let ((result (progn ,@body)))
+         (set (quote ,var) ,old-val-symbol)
+         result))))
+
+;; Interactive functions.
+
 (defun wh/edit-init-file ()
   "Edit the init file, usually ~/.emacs.d/init.el."
   (interactive)
