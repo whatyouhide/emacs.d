@@ -215,7 +215,11 @@
 
 (use-package company
   :init
-  (setq company-idle-delay 0.10)
+  (setq company-idle-delay 0.1
+        company-minimum-prefix-length 2
+        company-show-numbers t
+        company-dabbrev-downcase nil
+        company-dabbrev-ignore-case)
   :diminish company-mode
   :defer 4 ;; load after 4s of idle time
   :config
@@ -224,6 +228,7 @@
     (define-key company-active-map (kbd "C-n") 'company-select-next)
     (define-key company-active-map (kbd "C-p") 'company-select-previous)
     (define-key company-active-map (kbd "TAB") 'company-complete-selection)
+    (define-key company-active-map (kbd "<tab>") 'company-complete-selection)
     (define-key company-active-map (kbd "RET") nil)
     (global-company-mode t)))
 
