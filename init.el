@@ -12,6 +12,7 @@
 
 (global-set-key (kbd "<f2>") 'wh/edit-init-file)
 (global-set-key (kbd "C-k") 'kill-whole-line)
+(global-set-key (kbd "C-x O") 'other-frame)
 
 ;; Always as "y or n", not that annoying "yes or no".
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -61,6 +62,7 @@
   "!" 'shell-command
   ":" 'eval-expression
   "o" 'other-window
+  "O" 'other-frame
   "s |" 'split-window-right
   "s -" 'split-window-below
   "b" 'switch-to-buffer
