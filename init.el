@@ -191,7 +191,9 @@
   (helm-mode t)
   (progn
     (helm-mode t)
-    (evil-leader/set-key "<SPC>" 'helm-M-x)))
+    (evil-leader/set-key
+      "<SPC>" 'helm-M-x
+      "F" 'helm-recentf)))
 
 (use-package helm-ag
   :commands (helm-do-ag helm-do-ag-project-root)
