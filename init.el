@@ -17,6 +17,8 @@
 ;; Always as "y or n", not that annoying "yes or no".
 (defalias 'yes-or-no-p 'y-or-n-p)
 
+(add-to-list 'auto-mode-alist '("Cask\\'" . emacs-lisp-mode))
+
 ;; Evil.
 
 ;; Modes for which <leader> works in Emacs state.
