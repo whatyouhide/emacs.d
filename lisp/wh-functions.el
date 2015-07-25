@@ -64,6 +64,19 @@ default browser."
     (alchemist-mix-execute '("docs")))
   (shell-command (concat "open " (alchemist-project-root) "doc/index.html")))
 
+(defun wh/alchemist-mix-prompt-for-test-flags (flag)
+  "Prompt for the alchemist test flags to use for the next commands.
+
+This function sets the value of the alchemist-mix-test-default-options global
+variable, so its effect is global and permanent."
+  (interactive "sTest flags: ")
+  (setq alchemist-mix-test-default-options (list flag)))
+
+(defun wh/alchemist-mix-deps-get ()
+  "Fetch the dependencies of the current Mix project with the deps.get task."
+  (interactive)
+  (alchemist-mix-execute '("deps.get")))
+
 (defun wh/projectile-open-todo ()
   "Open TODO.md in the root of the (projectile) project if such file exists."
   (interactive)

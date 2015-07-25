@@ -274,15 +274,6 @@
   :load-path "~/Code/emacs-elixir"
   :demand)
 
-(defun wh/alchemist-mix-deps-get ()
-  "Fetch the dependencies of the current Mix project with the deps.get task."
-  (interactive)
-  (alchemist-mix-deps-with-prompt "deps.get"))
-
-(defun wh/alchemist-mix-prompt-for-test-flags (flag)
-  (interactive "sTest flags: ")
-  (setq alchemist-mix-test-default-options (list flag)))
-
 (use-package alchemist
   :load-path "~/Code/alchemist.el"
   :demand
