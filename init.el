@@ -119,6 +119,8 @@
   (pallet-mode t))
 
 (use-package magit
+  :init
+  (setq magit-revert-buffers 'silent)
   :config
   (progn
     ;; I'm using custom-set-variables here so that we can retrieve the original
