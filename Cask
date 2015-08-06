@@ -31,6 +31,7 @@
 (depends-on "rbenv")
 (depends-on "robe")
 (depends-on "rspec-mode")
+(depends-on "rubocop")
 (depends-on "scss-mode")
 (depends-on "swiper-helm")
 (depends-on "use-package")

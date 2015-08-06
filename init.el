@@ -356,6 +356,10 @@
   :init
   (setq rbenv-installation-dir "/usr/local/Cellar/rbenv/0.4.0"))
 
+(use-package rubocop
+  :init
+  (add-hook 'ruby-mode-hook 'rubocop-mode))
+
 (use-package projectile-rails
   :config
   (add-hook 'projectile-mode-hook 'projectile-rails-on))
