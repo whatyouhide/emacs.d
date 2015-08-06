@@ -238,6 +238,7 @@
             '(helm-mode
               ("*Help*" :stick t)
               ("*rspec-compilation*" :position bottom :stick t :noselect t)
+              ("*elixir help*" :position right :stick t :width 80)
               ("*mix*" :position bottom :noselect t)
               ("*alchemist-test-report*" :position bottom :stick t :noselect t)))
     (global-set-key (kbd "C-l") popwin:keymap)
