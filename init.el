@@ -360,6 +360,8 @@
   :config
   (add-hook 'projectile-mode-hook 'projectile-rails-on))
 
+(use-package yaml-mode)
+
 (use-package racket-mode)
 
 (use-package sh-script
