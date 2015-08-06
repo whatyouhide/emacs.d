@@ -10,7 +10,8 @@
     (load-theme 'zenburn t)
   (load-theme 'monokai t))
 
-(global-set-key (kbd "<f2>") 'wh/edit-init-file)
+(global-set-key (kbd "<f8>") 'wh/edit-init-file)
+(global-set-key (kbd "<f9>") 'wh/edit-notes-file)
 (global-set-key (kbd "C-k") 'kill-whole-line)
 (global-set-key (kbd "C-x O") 'other-frame)
 
@@ -18,6 +19,11 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 (add-to-list 'auto-mode-alist '("Cask\\'" . emacs-lisp-mode))
+
+;; Initial buffer to visit.
+(setq initial-buffer-choice
+      (let ((file (expand-file-name "~/Dropbox/Notes/h.md")))
+        (if (file-exists-p file) file t)))
 
 ;; Evil.
 

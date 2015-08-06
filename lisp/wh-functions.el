@@ -48,6 +48,14 @@ If there's only one frame, then use the function that magit uses by default."
   (interactive)
   (find-file (or user-init-file "")))
 
+(defun wh/edit-notes-file ()
+  "Edit the 'Notes' file in Dropbox."
+  (interactive)
+  (let ((file (expand-file-name "~/Dropbox/Notes/h.md")))
+    (if (file-exists-p file)
+        (find-file file)
+      (message "File %s not found" file))))
+
 (defun wh/newline-and-indent-like-previous-line ()
   "Create a newline and indent at the same level of the previous line."
   (interactive)
