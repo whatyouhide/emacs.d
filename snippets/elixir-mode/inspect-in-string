@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: String interpolation for inspecting something
+# key: #i
+# --
+#{inspect $1}
