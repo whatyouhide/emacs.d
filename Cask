@@ -15,6 +15,7 @@
 (depends-on "git-messenger")
 (depends-on "git-timemachine")
 (depends-on "github-browse-file")
+(depends-on "github-clone")
 (depends-on "grizzl")
 (depends-on "guide-key")
 (depends-on "helm")
