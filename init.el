@@ -418,6 +418,8 @@
 ;; Ensure there's a trailing newline, always.
 (setq require-final-newline t)
 
+(setq bookmark-default-file "~/.emacs.d/etc/bookmarks")
+
 
 
 ;; Visual minor modes.
