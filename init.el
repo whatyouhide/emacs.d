@@ -6,9 +6,15 @@
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "ext" user-emacs-directory))
 
-(if (display-graphic-p)
-    (load-theme 'zenburn t)
-  (load-theme 'monokai t))
+(let ((nice-gui-themes '(zenburn
+                         monokai
+                         material
+                         wombat)))
+  (if (display-graphic-p)
+      (load-theme
+       (nth (random (length nice-gui-themes)) nice-gui-themes)
+       t)
+    (load-theme 'monokai t)))
 
 (global-set-key (kbd "<f8>") 'wh/edit-init-file)
 (global-set-key (kbd "<f9>") 'wh/edit-notes-file)
