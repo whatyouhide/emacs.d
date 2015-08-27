@@ -3,6 +3,7 @@
 
 (depends-on "cider")
 (depends-on "clojure-mode")
+(depends-on "color-theme-sanityinc-tomorrow")
 (depends-on "company")
 (depends-on "erlang")
 (depends-on "evil")
@@ -17,6 +18,7 @@
 (depends-on "github-browse-file")
 (depends-on "github-clone")
 (depends-on "grizzl")
+(depends-on "gruvbox-theme")
 (depends-on "guide-key")
 (depends-on "helm")
 (depends-on "helm-ag")
@@ -24,6 +26,7 @@
 (depends-on "magit")
 (depends-on "markdown-mode")
 (depends-on "material-theme")
+(depends-on "molokai-theme")
 (depends-on "monokai-theme")
 (depends-on "paredit")
 (depends-on "popwin")
