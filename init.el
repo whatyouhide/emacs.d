@@ -402,8 +402,12 @@
 (add-hook 'prog-mode-hook
           '(lambda () (setq-default show-trailing-whitespace t)))
 
-(add-hook 'gist-list-mode-hook
-          (lambda () (setq-default show-trailing-whitespace nil)))
+;; Modes for which we don't want to show trailing whitespace.
+(let ((no-trailing-whitespace-modes '(gist-list-mode-hook
+                                      magit-popup-mode-hook)))
+  (mapcar
+   (lambda (m) (add-hook m (lambda () (setq-local show-trailing-whitespace nil))))
+   no-trailing-whitespace-modes))
 
 ;; Correctly load $PATH and $MANPATH on OSX (GUI).
 (when (memq window-system '(mac ns))
