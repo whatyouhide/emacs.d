@@ -212,7 +212,11 @@
   :init
   (evil-leader/set-key
     "a g" 'helm-do-ag-project-root
-    "a G" 'helm-do-ag))
+    "a G" 'helm-do-ag)
+  :config
+  (progn
+    (evil-make-overriding-map helm-ag-mode-map 'normal)
+    (add-hook 'helm-ag-mode-hook #'evil-normalize-keymaps)))
 
 (use-package swiper-helm
   :bind
