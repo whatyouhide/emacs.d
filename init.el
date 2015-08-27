@@ -6,15 +6,17 @@
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "ext" user-emacs-directory))
 
-(let ((nice-gui-themes '(zenburn
-                         monokai
-                         material
-                         wombat)))
-  (if (display-graphic-p)
-      (load-theme
-       (nth (random (length nice-gui-themes)) nice-gui-themes)
-       t)
-    (load-theme 'monokai t)))
+(setq wh/nice-gui-themes
+      '(zenburn
+        gruvbox
+        leuven
+        material
+        monokai
+        molokai
+        sanityinc-tomorrow-day
+        wombat))
+
+(wh/load-random-gui-theme wh/nice-gui-themes 'monokai)
 
 (global-set-key (kbd "<f8>") 'wh/edit-init-file)
 (global-set-key (kbd "<f9>") 'wh/edit-notes-file)
