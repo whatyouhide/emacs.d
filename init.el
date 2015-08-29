@@ -6,6 +6,9 @@
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "ext" user-emacs-directory))
 
+;; Functions that will be used also throughout this file.
+(use-package wh-functions)
+
 (setq wh/nice-gui-themes
       '(zenburn
         gruvbox
@@ -16,7 +19,9 @@
         sanityinc-tomorrow-day
         wombat))
 
-(wh/load-random-gui-theme wh/nice-gui-themes 'monokai)
+(setq wh/nice-term-theme 'monokai)
+
+(wh/load-random-gui-theme)
 
 (global-set-key (kbd "<f8>") 'wh/edit-init-file)
 (global-set-key (kbd "<f9>") 'wh/edit-notes-file)
@@ -110,7 +115,6 @@
 
 ;; My stuff.
 
-(use-package wh-functions)
 (use-package wh-tmux)
 (use-package wh-appearance)
 

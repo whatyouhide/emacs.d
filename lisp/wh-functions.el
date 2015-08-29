@@ -120,14 +120,14 @@ variable, so its effect is global and permanent."
          (pkg-desc (car (last (assoc pkg package-alist)))))
     (package-delete pkg-desc)))
 
-(defun wh/load-random-gui-theme (themes term-theme)
-  "Load a random theme from a list of `THEMES' if under a GUI, otherwise load
-  `TERM-THEME'."
+(defun wh/load-random-gui-theme ()
+  "Load a random theme from a list of themes if under a GUI, otherwise load
+  a nice term theme."
   (interactive)
   (if (display-graphic-p)
-      (let* ((random-index (random (length themes)))
-             (random-theme (nth random-index themes)))
+      (let* ((random-index (random (length wh/nice-gui-themes)))
+             (random-theme (nth random-index wh/nice-gui-themes)))
         (load-theme random-theme t))
-    (load-theme term-theme t)))
+    (load-theme wh/nice-term-theme t)))
 
 (provide 'wh-functions)
