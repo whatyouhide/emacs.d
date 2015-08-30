@@ -345,6 +345,13 @@
   :config
   (exec-path-from-shell-initialize))
 
+(use-package ace-window
+  :ensure t
+  :bind ("C-x o" . ace-window)
+  :init
+  (setq aw-keys '(?e ?r ?d ?s ?c ?x ?q ?f)))
+
+
 ;; Modes for programming languages and such.
 
 (use-package web-mode
