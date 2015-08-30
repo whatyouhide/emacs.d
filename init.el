@@ -263,6 +263,7 @@
   :commands (projectile-find-file projectile-switch-project)
   :diminish projectile-mode
   :init
+  (use-package grizzl :ensure t)
   (setq projectile-completion-system 'grizzl)
   :config
   (progn
