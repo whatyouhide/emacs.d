@@ -362,11 +362,11 @@
 (use-package web-mode
   :ensure t
   :defer 2
+  :mode (("\\.html\\.erb\\'" . web-mode))
   :init
   (setq web-mode-markup-indent-offset 2)
   (setq web-mode-css-indent-offset 2)
-  (setq web-mode-code-indent-offset 2)
-  :mode (("\\.html\\.erb\\'" . web-mode)))
+  (setq web-mode-code-indent-offset 2))
 
 (use-package js
   ;; built-in
@@ -375,11 +375,15 @@
 
 (use-package scss-mode
   :ensure t
+  :mode "\\.scss\\'"
   :init
   (setq css-indent-offset 2))
 
 (use-package erlang
   :ensure t
+  :mode (("\\.erl\\'" . erlang-mode)
+         ("\\.hrl\\'" . erlang-mode)
+         ("\\.xrl\\'" . erlang-mode))
   :init
   (setq erlang-indent-level 4))
 
@@ -446,11 +450,12 @@
 (use-package projectile-rails
   :ensure t
   :defer t
-  :config
+  :init
   (add-hook 'projectile-mode-hook 'projectile-rails-on))
 
 (use-package yaml-mode
-  :ensure t)
+  :ensure t
+  :mode "\\.e?ya?ml$")
 
 (use-package sh-script
   ;; built-in
