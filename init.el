@@ -196,7 +196,8 @@
     (define-key magit-status-mode-map (kbd "k") 'magit-section-backward)))
 
 (use-package gist
-  :ensure t)
+  :ensure t
+  :commands (gist-region gist-buffer))
 
 (use-package github-browse-file
   :ensure t
