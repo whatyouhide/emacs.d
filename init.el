@@ -233,13 +233,11 @@
 (use-package helm
   :ensure t
   :demand t
+  :diminish helm-mode
+  :bind ("M-x" . helm-M-x)
   :init
   (setq helm-M-x-fuzzy-match t)
-  :bind
-  ("M-x" . helm-M-x)
-  :diminish helm-mode
   :config
-  (helm-mode t)
   (progn
     (helm-mode t)
     (evil-leader/set-key
@@ -260,8 +258,7 @@
 
 (use-package swiper-helm
   :ensure t
-  :bind
-  ("C-s" . swiper-helm))
+  :bind ("C-s" . swiper-helm))
 
 (use-package projectile
   :ensure t
@@ -270,12 +267,11 @@
   :init
   (use-package grizzl :ensure t)
   (setq projectile-completion-system 'grizzl)
+  (evil-leader/set-key
+    "f" 'projectile-find-file
+    "T" 'wh/projectile-open-todo)
   :config
-  (progn
-    (evil-leader/set-key
-      "f" 'projectile-find-file
-      "T" 'wh/projectile-open-todo)
-    (projectile-global-mode)))
+  (projectile-global-mode))
 
 (use-package guide-key
   :ensure t
@@ -421,11 +417,11 @@
 
 (use-package markdown-mode
   :ensure t
-  :init
-  (setq markdown-open-command "marked")
   :mode (("\\.md\\'" . gfm-mode)
          ("\\.mkd\\'" . gfm-mode)
-         ("\\.markdown\\'" . gfm-mode)))
+         ("\\.markdown\\'" . gfm-mode))
+  :config
+  (setq markdown-open-command "marked"))
 
 (use-package ruby-mode
   ;; built-in
