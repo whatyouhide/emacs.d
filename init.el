@@ -352,9 +352,10 @@
 
 (use-package ace-window
   :ensure t
-  :bind ("C-x o" . ace-window)
+  :bind (("C-x o" . ace-window)
+         ("M-o" . ace-window))
   :init
-  (setq aw-keys '(?e ?r ?d ?s ?c ?x ?q ?f)))
+  (setq aw-keys '(?a ?s ?d ?f ?h ?j ?k ?l)))
 
 
 ;; Modes for programming languages and such.
