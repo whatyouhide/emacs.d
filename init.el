@@ -195,6 +195,16 @@
     (define-key magit-status-mode-map (kbd "j") 'magit-section-forward)
     (define-key magit-status-mode-map (kbd "k") 'magit-section-backward)))
 
+(use-package git-gutter+
+  :ensure t
+  :config
+  (progn
+    (global-git-gutter+-mode)
+    (use-package git-gutter-fringe+ :ensure t)
+    (define-key evil-normal-state-map "[g" 'git-gutter+-previous-hunk)
+    (define-key evil-normal-state-map "]g" 'git-gutter+-next-hunk)
+    (evil-leader/set-key "g +" 'git-gutter+-stage-hunks)))
+
 (use-package gist
   :ensure t
   :commands (gist-region gist-buffer))
