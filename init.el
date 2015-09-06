@@ -33,14 +33,15 @@
 (use-package zenburn-theme :ensure t)
 
 (setq wh/nice-gui-themes
-      '(gruvbox
-	leuven
-	material
-	monokai
-	molokai
-	sanityinc-tomorrow-day
-	wombat
-	zenburn))
+      '(aurora
+        gruvbox
+        leuven
+        material
+        monokai
+        molokai
+        sanityinc-tomorrow-day
+        wombat
+        zenburn))
 
 (setq wh/nice-term-theme 'monokai)
 (wh/load-random-gui-theme)
