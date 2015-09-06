@@ -336,6 +336,8 @@
   :init
   (evil-leader/set-key "m w" 'writeroom-mode)
   :config
+  (setq writeroom-restore-window-config t
+        writeroom-width 100)
   (add-to-list 'writeroom-global-effects 'wh/toggle-tmux-status-bar))
 
 (use-package hl-todo
