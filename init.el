@@ -183,7 +183,8 @@
 (use-package magit
   :ensure t
   :init
-  (setq magit-revert-buffers 'silent)
+  (setq magit-revert-buffers 'silent
+        magit-push-always-verify nil)
   :config
   (progn
     ;; I'm using custom-set-variables here so that we can retrieve the original
