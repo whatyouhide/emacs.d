@@ -142,6 +142,9 @@
 
 (use-package wh-tmux)
 (use-package wh-appearance)
+(use-package wh-scratch-buffer
+  :config
+  (evil-leader/set-key "S" 'wh/scratch-buffer-create-or-prompt))
 
 ;; Built-in packages.
 
