@@ -204,8 +204,8 @@
   (progn
     (global-git-gutter+-mode)
     (use-package git-gutter-fringe+ :ensure t)
-    (define-key evil-normal-state-map "[g" 'git-gutter+-previous-hunk)
-    (define-key evil-normal-state-map "]g" 'git-gutter+-next-hunk)
+    (define-key evil-normal-state-map "[h" 'git-gutter+-previous-hunk)
+    (define-key evil-normal-state-map "]h" 'git-gutter+-next-hunk)
     (evil-leader/set-key "g +" 'git-gutter+-stage-hunks)))
 
 (use-package gist
