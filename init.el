@@ -176,11 +176,6 @@
 
 ;; Misc packages.
 
-(use-package dash
-  :ensure t
-  :config
-  (dash-enable-font-lock))
-
 (use-package diminish
   :ensure t
   :config
@@ -354,11 +349,6 @@
   (setq writeroom-restore-window-config t
         writeroom-width 100)
   (add-to-list 'writeroom-global-effects 'wh/toggle-tmux-status-bar))
-
-(use-package hl-todo
-  :ensure t
-  :config
-  (global-hl-todo-mode))
 
 ;; Correctly load $PATH and $MANPATH on OSX (GUI).
 (use-package exec-path-from-shell
