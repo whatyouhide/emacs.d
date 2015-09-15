@@ -145,6 +145,8 @@
 (use-package wh-scratch-buffer
   :config
   (evil-leader/set-key "S" 'wh/scratch-buffer-create-or-prompt))
+(use-package wh-gui
+  :if (display-graphic-p))
 
 ;; Built-in packages.
 
@@ -255,9 +257,7 @@
   :config
   (progn
     (helm-mode t)
-    (evil-leader/set-key
-      "<SPC>" 'helm-M-x
-      "F" 'helm-recentf)))
+    (evil-leader/set-key "<SPC>" 'helm-M-x)))
 
 (use-package helm-ag
   :ensure t
@@ -515,20 +515,10 @@
 
 (setq bookmark-default-file "~/.emacs.d/etc/bookmarks")
 
-
-
-;; Visual minor modes.
-
-;; Font size in 1/10pt (140 = 14 pt).
-(set-face-attribute 'default nil :height 140)
+(setq ispell-program-name "aspell")
 
 (when (display-graphic-p)
   (toggle-frame-maximized))
-
-;; Left Option is Meta, right Option doesn't do anything in Emacs (so it can be
-;; used for accented letters and such).
-(setq mac-option-key-is-meta t)
-(setq mac-right-option-modifier nil)
 
 (setq custom-file "~/.emacs.d/etc/custom.el")
 (load custom-file)
