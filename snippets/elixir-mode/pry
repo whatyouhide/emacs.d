@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: IEx.pry call
+# key: pry
+# --
+require(IEx); IEx.pry
