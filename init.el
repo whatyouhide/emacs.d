@@ -409,6 +409,8 @@
   :load-path "~/Code/alchemist.el"
   :demand t
   :diminish alchemist-mode
+  :init
+  (setq alchemist-test-status-modeline nil)
   :config
   (progn
     (evil-define-key 'normal alchemist-test-mode-map "]t" 'alchemist-test-mode-jump-to-next-test)
