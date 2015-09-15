@@ -200,6 +200,7 @@
 
 (use-package git-gutter+
   :ensure t
+  :diminish git-gutter+-mode
   :config
   (progn
     (global-git-gutter+-mode)
