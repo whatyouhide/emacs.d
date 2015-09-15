@@ -146,6 +146,7 @@
 (use-package wh-tmux)
 (use-package wh-appearance)
 (use-package wh-scratch-buffer
+  :defer 3
   :config
   (evil-leader/set-key "S" 'wh/scratch-buffer-create-or-prompt))
 (use-package wh-gui
@@ -188,15 +189,7 @@
   :init
   (setq magit-revert-buffers 'silent
         magit-push-always-verify nil)
-  :config
-  (progn
-    ;; I'm using custom-set-variables here so that we can retrieve the original
-    ;; value later on (in wh/magit-status-buffer-switch-function).
-    (custom-set-variables
-     '(magit-status-buffer-switch-function 'wh/magit-status-buffer-switch-function))
-    (evil-leader/set-key "g s" 'magit-status)
-    (define-key magit-status-mode-map (kbd "j") 'magit-section-forward)
-    (define-key magit-status-mode-map (kbd "k") 'magit-section-backward)))
+  (evil-leader/set-key "g s" 'magit-status))
 
 (use-package git-gutter+
   :ensure t
@@ -243,7 +236,8 @@
     (add-hook 'git-timemachine-mode-hook #'evil-normalize-keymaps)))
 
 (use-package github-clone
-  :ensure t)
+  :ensure t
+  :commands github-clone)
 
 (use-package helm
   :ensure t
@@ -275,7 +269,7 @@
 
 (use-package projectile
   :ensure t
-  :commands (projectile-find-file projectile-switch-project)
+  :commands (projectile-find-file projectile-find-file-other-window projectile-switch-project)
   :diminish projectile-mode
   :init
   (use-package grizzl :ensure t)
@@ -332,13 +326,12 @@
 
 (use-package yasnippet
   :ensure t
-  :defer 2
+  :defer 4
+  :diminish yas-minor-mode
   :init
   (setq-default yas-snippet-dirs '("~/.emacs.d/snippets"))
-  :diminish yas-minor-mode
   :config
   (yas-global-mode t))
-
 
 (use-package writeroom-mode
   :ensure t
