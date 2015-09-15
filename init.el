@@ -284,6 +284,7 @@
   (setq projectile-completion-system 'grizzl)
   (evil-leader/set-key
     "f" 'projectile-find-file
+    "F" 'projectile-find-file-other-window
     "T" 'wh/projectile-open-todo)
   :config
   (projectile-global-mode))
