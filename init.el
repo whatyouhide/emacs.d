@@ -1,3 +1,6 @@
+;; Fly Emacs, fly! (makes init slightly faster)
+(setq gc-cons-threshold 100000000)
+
 (require 'package)
 (setq package-enable-at-startup nil)
 (add-to-list 'package-archives
