@@ -27,13 +27,13 @@
 
 ;; Theming
 
-(use-package aurora-theme :ensure t)
-(use-package color-theme-sanityinc-tomorrow :ensure t)
-(use-package gruvbox-theme :ensure t)
-(use-package material-theme :ensure t)
-(use-package molokai-theme :ensure t)
-(use-package monokai-theme :ensure t)
-(use-package zenburn-theme :ensure t)
+(use-package aurora-theme                   :ensure t :defer t)
+(use-package color-theme-sanityinc-tomorrow :ensure t :defer t)
+(use-package gruvbox-theme                  :ensure t :defer t)
+(use-package material-theme                 :ensure t :defer t)
+(use-package molokai-theme                  :ensure t :defer t)
+(use-package monokai-theme                  :ensure t :defer t)
+(use-package zenburn-theme                  :ensure t :defer t)
 
 (setq wh/nice-gui-themes
       '(aurora
