@@ -385,9 +385,7 @@
 
 (use-package erlang
   :ensure t
-  :mode (("\\.erl\\'" . erlang-mode)
-         ("\\.hrl\\'" . erlang-mode)
-         ("\\.xrl\\'" . erlang-mode))
+  :mode ("\\.erl\\'" "\\.hrl\\'" "\\.xrl\\'")
   :init
   (setq erlang-indent-level 4))
 
@@ -424,9 +422,7 @@
 
 (use-package markdown-mode
   :ensure t
-  :mode (("\\.md\\'" . gfm-mode)
-         ("\\.mkd\\'" . gfm-mode)
-         ("\\.markdown\\'" . gfm-mode))
+  :mode ("\\.md\\'" "\\.mkd\\'" "\\.markdown\\'")
   :config
   (setq markdown-open-command "marked"))
 
