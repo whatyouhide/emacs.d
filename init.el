@@ -393,11 +393,11 @@
 
 (use-package elixir-mode
   :load-path "~/Code/emacs-elixir"
-  :demand)
+  :mode ("\\.ex\\'" "\\.exs\\'"))
 
 (use-package alchemist
   :load-path "~/Code/alchemist.el"
-  :demand t
+  :mode ("\\.ex\\'" "\\.exs\\'")
   :diminish alchemist-mode
   :init
   (setq alchemist-test-status-modeline nil)
