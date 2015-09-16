@@ -177,6 +177,9 @@
 
 ;; Misc packages.
 
+(use-package dash
+  :ensure t)
+
 (use-package diminish
   :ensure t
   :config
