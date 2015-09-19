@@ -396,34 +396,34 @@
 
 (use-package elixir-mode
   :load-path "~/Code/emacs-elixir"
-  :mode ("\\.ex\\'" "\\.exs\\'"))
-
-(use-package alchemist
-  :load-path "~/Code/alchemist.el"
-  :mode ("\\.ex\\'" "\\.exs\\'")
-  :diminish alchemist-mode
-  :init
-  (setq alchemist-test-status-modeline nil)
+  :mode (("\\.ex\\'" . elixir-mode)
+         ("\\.exs\\'" . elixir-mode))
   :config
-  (progn
-    (evil-define-key 'normal alchemist-test-mode-map "]t" 'alchemist-test-mode-jump-to-next-test)
-    (evil-define-key 'normal alchemist-test-mode-map "[t" 'alchemist-test-mode-jump-to-previous-test)
-    (define-key evil-normal-state-map "]d" 'alchemist-goto-jump-to-next-def-symbol)
-    (define-key evil-normal-state-map "[d" 'alchemist-goto-jump-to-previous-def-symbol)
-    (define-key evil-normal-state-map "]T" '(lambda () (interactive)
-                                                       (popwin:select-popup-window)
-                                                       (alchemist-test-next-result)))
-    (define-key evil-normal-state-map "[T" '(lambda () (interactive)
-                                                       (popwin:select-popup-window)
-                                                       (alchemist-test-previous-result)))
-    (define-key alchemist-mode-map (kbd "C-c a g d") 'wh/alchemist-generate-docs)
-    (define-key alchemist-mode-map (kbd "C-c a d g") 'wh/alchemist-mix-deps-get)
-    (evil-leader/set-key-for-mode 'elixir-mode
-      "t f" 'wh/alchemist-mix-prompt-for-test-flags
-      "t b" 'alchemist-mix-test-this-buffer
-      "t t" 'alchemist-mix-test
-      "t r" 'alchemist-mix-rerun-last-test
-      "t p" 'alchemist-mix-test-at-point)))
+  (use-package alchemist
+    :load-path "~/Code/alchemist.el"
+    :diminish alchemist-mode
+    :init
+    (setq alchemist-test-status-modeline nil)
+    :config
+    (progn
+      (evil-define-key 'normal alchemist-test-mode-map "]t" 'alchemist-test-mode-jump-to-next-test)
+      (evil-define-key 'normal alchemist-test-mode-map "[t" 'alchemist-test-mode-jump-to-previous-test)
+      (define-key evil-normal-state-map "]d" 'alchemist-goto-jump-to-next-def-symbol)
+      (define-key evil-normal-state-map "[d" 'alchemist-goto-jump-to-previous-def-symbol)
+      (define-key evil-normal-state-map "]T" '(lambda () (interactive)
+                                                (popwin:select-popup-window)
+                                                (alchemist-test-next-result)))
+      (define-key evil-normal-state-map "[T" '(lambda () (interactive)
+                                                (popwin:select-popup-window)
+                                                (alchemist-test-previous-result)))
+      (define-key alchemist-mode-map (kbd "C-c a g d") 'wh/alchemist-generate-docs)
+      (define-key alchemist-mode-map (kbd "C-c a d g") 'wh/alchemist-mix-deps-get)
+      (evil-leader/set-key-for-mode 'elixir-mode
+        "t f" 'wh/alchemist-mix-prompt-for-test-flags
+        "t b" 'alchemist-mix-test-this-buffer
+        "t t" 'alchemist-mix-test
+        "t r" 'alchemist-mix-rerun-last-test
+        "t p" 'alchemist-mix-test-at-point))))
 
 (use-package markdown-mode
   :ensure t
@@ -467,7 +467,6 @@
 (use-package sh-script
   ;; built-in
   :mode (("\\.zsh\\'" . shell-script-mode)))
-
 
 ;; Miscellaneous stuff.
 
