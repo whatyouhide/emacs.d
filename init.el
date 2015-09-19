@@ -378,6 +378,10 @@
   :init
   (setq js-indent-level 2))
 
+(use-package jade-mode
+  :ensure t
+  :mode "\\.jade\\'")
+
 (use-package scss-mode
   :ensure t
   :mode "\\.scss\\'"
