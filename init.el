@@ -296,6 +296,7 @@
 
 (use-package popwin
   :ensure t
+  :defer 2
   :config
   (progn
     (mapcar (lambda (el) (add-to-list 'popwin:special-display-config el))
@@ -310,7 +311,7 @@
 
 (use-package company
   :ensure t
-  :defer 4 ;; load after 4s of idle time
+  :defer 4
   :diminish company-mode
   :init
   (setq company-idle-delay 0.1
@@ -366,12 +367,11 @@
 
 (use-package web-mode
   :ensure t
-  :defer 2
   :mode (("\\.html\\.erb\\'" . web-mode))
   :init
-  (setq web-mode-markup-indent-offset 2)
-  (setq web-mode-css-indent-offset 2)
-  (setq web-mode-code-indent-offset 2))
+  (setq web-mode-markup-indent-offset 2
+        web-mode-css-indent-offset 2
+        web-mode-code-indent-offset 2))
 
 (use-package js
   ;; built-in
@@ -390,7 +390,9 @@
 
 (use-package erlang
   :ensure t
-  :mode ("\\.erl\\'" "\\.hrl\\'" "\\.xrl\\'")
+  :mode (("\\.erl\\'" . erlang-mode)
+         ("\\.hrl\\'" . erlang-mode)
+         ("\\.xrl\\'" . erlang-mode))
   :init
   (setq erlang-indent-level 4))
 
