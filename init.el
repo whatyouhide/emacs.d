@@ -152,6 +152,10 @@
   (evil-leader/set-key "S" 'wh/scratch-buffer-create-or-prompt))
 (use-package wh-gui
   :if (display-graphic-p))
+(use-package wh-notes
+  :defer 3
+  :config
+  (evil-leader/set-key "N" 'wh/open-or-create-note))
 
 ;; Built-in packages.
 
