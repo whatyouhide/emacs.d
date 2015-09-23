@@ -110,7 +110,8 @@ variable, so its effect is global and permanent."
   (let ((file (concat (projectile-project-root) "TODO.md")))
     (if (file-exists-p file)
         (find-file file)
-      (message "TODO.md not found in the project root"))))
+      (when (y-or-n-p "TODO.md does not exist. Create one?")
+        (find-file file)))))
 
 (defun wh/package-uninstall (pkg)
   "Uninstalls `PKG'. Interactively, it prompts for the package name."
