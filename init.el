@@ -147,15 +147,15 @@
 (use-package wh-tmux)
 (use-package wh-appearance)
 (use-package wh-scratch-buffer
-  :defer 3
+  :commands wh/scratch-buffer-create-or-prompt
   :config
   (evil-leader/set-key "S" 'wh/scratch-buffer-create-or-prompt))
 (use-package wh-gui
   :if (display-graphic-p))
 (use-package wh-notes
-  :defer 3
+  :commands wh/notes-open-or-create
   :config
-  (evil-leader/set-key "N" 'wh/open-or-create-note))
+  (evil-leader/set-key "N" 'wh/notes-open-or-create))
 
 ;; Built-in packages.
 
