@@ -148,13 +148,13 @@
 (use-package wh-appearance)
 (use-package wh-scratch-buffer
   :commands wh/scratch-buffer-create-or-prompt
-  :config
+  :init
   (evil-leader/set-key "S" 'wh/scratch-buffer-create-or-prompt))
 (use-package wh-gui
   :if (display-graphic-p))
 (use-package wh-notes
   :commands wh/notes-open-or-create
-  :config
+  :init
   (evil-leader/set-key "N" 'wh/notes-open-or-create))
 
 ;; Built-in packages.
