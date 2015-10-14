@@ -478,6 +478,10 @@
   ;; built-in
   :mode (("\\.zsh\\'" . shell-script-mode)))
 
+(use-package idris-mode
+  :ensure t
+  :mode "\\.idr\\'")
+
 ;; Miscellaneous stuff.
 
 ;; Scroll output in compile buffers. YES!
