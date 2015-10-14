@@ -56,6 +56,7 @@
 (global-set-key (kbd "<f9>") 'wh/edit-notes-file)
 (global-set-key (kbd "C-k") 'kill-whole-line)
 (global-set-key (kbd "C-x O") 'other-frame)
+(global-set-key (kbd "C-x K") 'kill-this-buffer)
 
 ;; Always as "y or n", not that annoying "yes or no".
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -84,6 +85,7 @@
        ":" 'eval-expression
        "o" 'other-window
        "O" 'other-frame
+       "K" 'kill-this-buffer
        "s |" 'split-window-right
        "s -" 'split-window-below
        "b" 'switch-to-buffer
