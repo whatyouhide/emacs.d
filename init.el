@@ -361,6 +361,10 @@
   :config
   (exec-path-from-shell-initialize))
 
+(use-package reveal-in-osx-finder
+  :ensure t
+  :if (eq system-type 'darwin))
+
 (use-package ace-window
   :ensure t
   :bind (("C-x o" . ace-window)
