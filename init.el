@@ -488,6 +488,14 @@
   :ensure t
   :mode "\\.idr\\'")
 
+(use-package rust-mode
+  :ensure t
+  :mode "\\.rs\\'")
+
+(use-package go-mode
+  :ensure t
+  :mode "\\.go\\'")
+
 ;; Miscellaneous stuff.
 
 ;; Scroll output in compile buffers. YES!
