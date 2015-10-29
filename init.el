@@ -482,6 +482,7 @@
 
 (use-package sh-script
   ;; built-in
+  :demand t
   :mode (("\\.zsh\\'" . shell-script-mode)))
 
 (use-package idris-mode
