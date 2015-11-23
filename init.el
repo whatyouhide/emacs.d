@@ -111,6 +111,8 @@
     (define-key evil-normal-state-map (kbd "L") 'move-end-of-line)
     (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
     (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
+    (define-key evil-normal-state-map (kbd "C-p") 'previous-line)
+    (define-key evil-normal-state-map (kbd "C-n") 'next-line)
     (define-key evil-visual-state-map (kbd "a") 'align-regexp)
     ;; Modes that don't use evil.
     (setq evil-emacs-state-modes
