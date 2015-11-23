@@ -198,6 +198,7 @@
 
 (use-package magit
   :ensure t
+  :commands magit-status
   :init
   (setq magit-revert-buffers 'silent
         magit-push-always-verify nil)
