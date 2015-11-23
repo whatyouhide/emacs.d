@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Erlang NIF definition
+# key: erlnif
+# binding: direct-keybinding
+# --
+static ERL_NIF_TERM $1(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[]) {
+       $2
+}
