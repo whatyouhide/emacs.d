@@ -163,11 +163,6 @@
 
 ;; Built-in packages.
 
-(use-package recentf
-  :init
-  (setq recentf-save-file "~/.emacs.d/etc/recentf")
-  (setq recentf-max-saved-items 25))
-
 (use-package savehist
   :init
   (setq savehist-file "~/.emacs.d/etc/savehist")
