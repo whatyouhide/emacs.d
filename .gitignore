@@ -15,5 +15,7 @@ projectile-bookmarks.eld
 /projectile.cache
 /var
 /eshell
-/etc
 /url
+
+/etc/*
+!/etc/.gitkeep
