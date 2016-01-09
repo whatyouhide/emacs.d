@@ -36,19 +36,18 @@
 (use-package monokai-theme                  :ensure t :defer t)
 (use-package zenburn-theme                  :ensure t :defer t)
 
-(setq wh/nice-gui-themes
-      '(aurora
-        gruvbox
-        leuven
-        material
-        monokai
-        molokai
-        sanityinc-tomorrow-day
-        wombat
-        zenburn))
-
-(setq wh/nice-term-theme 'monokai)
+(setq wh/nice-gui-themes '(aurora
+                           gruvbox
+                           leuven
+                           material
+                           monokai
+                           molokai
+                           sanityinc-tomorrow-day
+                           wombat
+                           zenburn)
+      wh/nice-term-theme 'monokai)
 (wh/load-random-gui-theme)
+
 
 ;; Global keyboarding
 
