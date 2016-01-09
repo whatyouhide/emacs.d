@@ -148,13 +148,17 @@
 ;; My stuff.
 
 (use-package wh-tmux)
+
 (use-package wh-appearance)
+
 (use-package wh-scratch-buffer
   :commands wh/scratch-buffer-create-or-prompt
   :init
   (evil-leader/set-key "S" 'wh/scratch-buffer-create-or-prompt))
+
 (use-package wh-gui
   :if (display-graphic-p))
+
 (use-package wh-notes
   :commands wh/notes-open-or-create
   :init
@@ -321,7 +325,7 @@
         company-minimum-prefix-length 2
         company-show-numbers t
         company-dabbrev-downcase nil
-        company-dabbrev-ignore-case)
+        company-dabbrev-ignore-case t)
   :config
   (progn
     (global-set-key (kbd "C-n") 'company-manual-begin)
@@ -433,7 +437,6 @@
       (define-key alchemist-mode-map (kbd "C-c a g d") 'wh/alchemist-generate-docs)
       (define-key alchemist-mode-map (kbd "C-c a d g") 'wh/alchemist-mix-deps-get)
       (evil-leader/set-key-for-mode 'elixir-mode
-        "t f" 'wh/alchemist-mix-prompt-for-test-flags
         "t b" 'alchemist-mix-test-this-buffer
         "t t" 'alchemist-mix-test
         "t r" 'alchemist-mix-rerun-last-test
