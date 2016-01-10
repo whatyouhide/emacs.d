@@ -213,10 +213,6 @@
     (define-key evil-normal-state-map "]h" 'git-gutter+-next-hunk)
     (evil-leader/set-key "g +" 'git-gutter+-stage-hunks)))
 
-(use-package gist
-  :ensure t
-  :commands (gist-region gist-buffer))
-
 (use-package github-browse-file
   :ensure t
   :commands github-browse-file
@@ -394,10 +390,6 @@
   :init
   (setq js-indent-level 2))
 
-(use-package jade-mode
-  :ensure t
-  :mode "\\.jade\\'")
-
 (use-package scss-mode
   :ensure t
   :mode "\\.scss\\'"
@@ -465,12 +457,6 @@
   :init
   (setq rbenv-installation-dir "/usr/local/Cellar/rbenv/0.4.0"))
 
-(use-package rubocop
-  :ensure t
-  :defer t
-  :init
-  (add-hook 'ruby-mode-hook 'rubocop-mode))
-
 (use-package projectile-rails
   :ensure t
   :defer t
@@ -493,10 +479,6 @@
 (use-package rust-mode
   :ensure t
   :mode "\\.rs\\'")
-
-(use-package go-mode
-  :ensure t
-  :mode "\\.go\\'")
 
 ;; Miscellaneous stuff.
 
