@@ -363,6 +363,11 @@
   :init
   (setq aw-keys '(?a ?s ?d ?f ?h ?j ?k ?l)))
 
+(use-package rainbow-delimiters
+  :ensure t
+  :init
+  (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode))
+
 ;; Modes for programming languages and such.
 
 (use-package web-mode
