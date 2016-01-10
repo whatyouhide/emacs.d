@@ -1,22 +1,21 @@
 ;; Fly Emacs, fly! (makes init slightly faster)
 (setq gc-cons-threshold 100000000)
 
+;; Initialize the package system.
 (require 'package)
 (setq package-enable-at-startup nil)
-(add-to-list 'package-archives
-	     '("melpa" . "http://melpa.org/packages/"))
-
-(setq use-package-verbose t)
-
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (package-initialize)
 
-;; Bootstrap `use-package'
+;; Bootstrap `use-package'.
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
 
-(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+;; Add custom code to the load path. `ext' contains Lisp code that I didn't
+;; wrote but that is not in melpa, while `lisp' is for List code I wrote.
 (add-to-list 'load-path (expand-file-name "ext" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
 ;; Make use-package available.
 (require 'use-package)
