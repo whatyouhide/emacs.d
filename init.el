@@ -80,11 +80,7 @@
       (evil-leader/set-key
        "!" 'shell-command
        ":" 'eval-expression
-       "o" 'other-window
-       "O" 'other-frame
        "K" 'kill-this-buffer
-       "s |" 'split-window-right
-       "s -" 'split-window-below
        "b" 'switch-to-buffer
        "p" 'projectile-switch-project
        "B" 'evil-buffer)
