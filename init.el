@@ -140,7 +140,8 @@
 
 ;; My stuff.
 
-(use-package wh-tmux)
+(use-package wh-tmux
+  :if (not (window-system)))
 
 (use-package wh-appearance)
 
