@@ -270,14 +270,13 @@
 
 (use-package projectile
   :ensure t
-  :commands (projectile-find-file projectile-find-file-other-window projectile-switch-project)
+  :commands (projectile-find-file projectile-switch-project)
   :diminish projectile-mode
   :init
   (use-package grizzl :ensure t)
   (setq projectile-completion-system 'grizzl)
   (evil-leader/set-key
     "f" 'projectile-find-file
-    "F" 'projectile-find-file-other-window
     "T" 'wh/projectile-open-todo)
   :config
   (projectile-global-mode))
