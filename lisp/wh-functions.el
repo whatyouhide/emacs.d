@@ -51,6 +51,12 @@ If there's only one frame, then use the function that magit uses by default."
   (newline)
   (indent-relative-maybe))
 
+(defun wh/split-window-and-focus-new ()
+  "Splits the window horizontally  and focus the new one."
+  (interactive)
+  (split-window-horizontally)
+  (other-window 1))
+
 (defun wh/eval-surrounding-sexp ()
   "Eval the sexp which surrounds the current point."
   (interactive)
