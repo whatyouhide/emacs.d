@@ -470,9 +470,22 @@
   :demand t
   :mode (("\\.zsh\\'" . shell-script-mode)))
 
-(use-package idris-mode
+(use-package haskell-mode
   :ensure t
-  :mode "\\.idr\\'")
+  :mode ("\\.hs\\'" "\\.lhs\\'")
+  :init
+  (setq haskell-process-suggest-remove-import-lines t
+        haskell-process-log t)
+  (use-package ghc
+    :ensure t
+    :init
+    (add-hook 'haskell-mode-hook (lambda () (ghc-init)))
+    (use-package company-ghc
+      :ensure t
+      :config
+      (add-to-list 'company-backends 'company-ghc)))
+  :config
+  (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-file))
 
 (use-package rust-mode
   :ensure t
