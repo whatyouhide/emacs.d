@@ -391,16 +391,13 @@
 
 (use-package erlang
   :ensure t
-  :mode (("\\.erl\\'" . erlang-mode)
-         ("\\.hrl\\'" . erlang-mode)
-         ("\\.xrl\\'" . erlang-mode))
+  :mode ("\\.erl\\'" "\\.hrl\\'" "\\.xrl\\'")
   :init
   (setq erlang-indent-level 4))
 
 (use-package elixir-mode
   :load-path "~/Code/emacs-elixir"
-  :mode (("\\.ex\\'" . elixir-mode)
-         ("\\.exs\\'" . elixir-mode))
+  :mode ("\\.ex\\'" "\\.exs\\'")
   :config
   (use-package alchemist
     :load-path "~/Code/alchemist.el"
