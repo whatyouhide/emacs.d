@@ -363,11 +363,6 @@
   :init
   (setq aw-keys '(?a ?s ?d ?f ?h ?j ?k ?l)))
 
-(use-package vimish-fold
-  :ensure t
-  :init
-  (evil-leader/set-key "v f" 'vimish-fold))
-
 ;; Modes for programming languages and such.
 
 (use-package web-mode
