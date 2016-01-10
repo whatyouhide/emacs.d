@@ -188,6 +188,9 @@
    (diminish 'undo-tree-mode)
    (diminish 'evil-commentary-mode)))
 
+
+;; Git-related things.
+
 (use-package magit
   :ensure t
   :commands magit-status
@@ -239,6 +242,9 @@
 (use-package github-clone
   :ensure t
   :commands github-clone)
+
+
+;; Helm-related things.
 
 (use-package helm
   :ensure t
