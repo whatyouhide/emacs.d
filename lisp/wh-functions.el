@@ -19,6 +19,17 @@ If there's only one frame, then use the function that magit uses by default."
     (select-frame-set-input-focus (next-frame))
     (switch-to-buffer buf)))
 
+(defun wh/load-theme (&rest args)
+  "Load a random theme from a list of themes if under a GUI, otherwise load
+  a nice term theme."
+  (if (display-graphic-p)
+      (let* ((gui-themes (plist-get args :gui-themes))
+             (random-index (random (length gui-themes)))
+             (random-theme (nth random-index gui-themes)))
+        (load-theme random-theme t))
+    (load-theme (plist-get args :term-theme) t)))
+
+
 ;; Interactive functions.
 
 (defun wh/edit-init-file ()
@@ -77,15 +88,5 @@ line and the script will be made executable for the user."
   (let* ((pkg (intern pkg))
          (pkg-desc (car (last (assoc pkg package-alist)))))
     (package-delete pkg-desc)))
-
-(defun wh/load-random-gui-theme ()
-  "Load a random theme from a list of themes if under a GUI, otherwise load
-  a nice term theme."
-  (interactive)
-  (if (display-graphic-p)
-      (let* ((random-index (random (length wh/nice-gui-themes)))
-             (random-theme (nth random-index wh/nice-gui-themes)))
-        (load-theme random-theme t))
-    (load-theme wh/nice-term-theme t)))
 
 (provide 'wh-functions)

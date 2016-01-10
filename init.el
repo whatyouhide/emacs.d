@@ -35,20 +35,18 @@
 (use-package solarized-theme                :ensure t :defer t)
 (use-package zenburn-theme                  :ensure t :defer t)
 
-(setq wh/nice-gui-themes '(aurora
-                           gruvbox
-                           leuven
-                           material
-                           monokai
-                           molokai
-                           sanityinc-tomorrow-day
-                           solarized-dark
-                           solarized-light
-                           wombat
-                           zenburn)
-      wh/nice-term-theme 'monokai)
-(wh/load-random-gui-theme)
-
+(wh/load-theme :term-theme 'monokai
+               :gui-themes '(aurora
+                             gruvbox
+                             leuven
+                             material
+                             monokai
+                             molokai
+                             sanityinc-tomorrow-day
+                             solarized-dark
+                             solarized-light
+                             wombat
+                             zenburn))
 
 ;; Global keyboarding
 
