@@ -145,13 +145,15 @@
 
 (use-package wh-appearance)
 
+(use-package wh-gui
+  :if (display-graphic-p))
+
+(use-package wh-configs)
+
 (use-package wh-scratch-buffer
   :commands wh/scratch-buffer-create-or-prompt
   :init
   (evil-leader/set-key "S" 'wh/scratch-buffer-create-or-prompt))
-
-(use-package wh-gui
-  :if (display-graphic-p))
 
 (use-package wh-notes
   :commands wh/notes-open-or-create
@@ -476,46 +478,13 @@
   :ensure t
   :mode "\\.rs\\'")
 
-;; Miscellaneous stuff.
 
-;; Scroll output in compile buffers. YES!
-(setq compilation-scroll-output t)
-
-;; Remove trailing whitespace on save.
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-
-;; Show trailing whitespace on programming modes.
-(add-hook 'prog-mode-hook
-          '(lambda () (setq-default show-trailing-whitespace t)))
-
-;; Modes for which we don't want to show trailing whitespace.
-(let ((no-trailing-whitespace-modes '(gist-list-mode-hook
-                                      magit-popup-mode-hook)))
-  (mapcar
-   (lambda (m) (add-hook m (lambda () (setq-local show-trailing-whitespace nil))))
-   no-trailing-whitespace-modes))
-
-;; Don't backup/autosave files and don't protect from locks.
-(setq backup-inhibited t)
-(setq auto-save-default nil)
-(setq create-lockfiles nil)
-
-;; Indentation is two spaces wide, with spaces instead of tabs.
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 2)
-
-;; Wrap at 80 characters.
-(setq-default fill-column 80)
-
-;; Ensure there's a trailing newline, always.
-(setq require-final-newline t)
-
-(setq bookmark-default-file "~/.emacs.d/etc/bookmarks")
-
-(setq ispell-program-name "aspell")
-
+;; Only maximize the window now because doing so earlier causes weird
+;; behaviours.
 (when (display-graphic-p)
   (toggle-frame-maximized))
 
+
+;; Custom file handling.
 (setq custom-file "~/.emacs.d/etc/custom.el")
 (load custom-file)
