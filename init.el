@@ -24,9 +24,7 @@
 ;; Functions that will be used also throughout this file.
 (use-package wh-functions)
 
-
 ;; Theming
-
 (use-package aurora-theme                   :ensure t :defer t)
 (use-package color-theme-sanityinc-tomorrow :ensure t :defer t)
 (use-package gruvbox-theme                  :ensure t :defer t)
@@ -34,6 +32,7 @@
 (use-package moe-theme                      :ensure t :defer t)
 (use-package molokai-theme                  :ensure t :defer t)
 (use-package monokai-theme                  :ensure t :defer t)
+(use-package solarized-theme                :ensure t :defer t)
 (use-package zenburn-theme                  :ensure t :defer t)
 
 (setq wh/nice-gui-themes '(aurora
@@ -43,6 +42,8 @@
                            monokai
                            molokai
                            sanityinc-tomorrow-day
+                           solarized-dark
+                           solarized-light
                            wombat
                            zenburn)
       wh/nice-term-theme 'monokai)
