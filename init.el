@@ -87,8 +87,7 @@
       (evil-leader/set-key-for-mode 'emacs-lisp-mode
 				    "e d" 'eval-defun
 				    "e b" 'eval-buffer
-				    "e s" 'wh/eval-surrounding-sexp
-				    "h" 'describe-function)))
+				    "e s" 'wh/eval-surrounding-sexp)))
   :config
   (progn
     (evil-mode 1)
