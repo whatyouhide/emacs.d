@@ -476,7 +476,8 @@
   :mode ("\\.hs\\'" "\\.lhs\\'")
   :init
   (setq haskell-process-suggest-remove-import-lines t
-        haskell-process-log t)
+        haskell-process-log t
+        haskell-stylish-on-save t)
   (use-package ghc
     :ensure t
     :init
