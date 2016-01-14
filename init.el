@@ -1,4 +1,4 @@
-;; Fly Emacs, fly! (makes init slightly faster)
+;; This makes my Emacs startup time ~35% faster.
 (setq gc-cons-threshold 100000000)
 
 ;; Initialize the package system.
