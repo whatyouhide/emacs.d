@@ -148,6 +148,9 @@
 (use-package wh-gui
   :if (display-graphic-p))
 
+(use-package wh-osx
+  :if (eq system-type 'darwin))
+
 (use-package wh-configs)
 
 (use-package wh-scratch-buffer
