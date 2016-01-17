@@ -324,7 +324,7 @@
         company-dabbrev-ignore-case t)
   :config
   (progn
-    (global-set-key (kbd "C-n") 'company-manual-begin)
+    (global-set-key (kbd "C-<tab>") 'company-manual-begin)
     (define-key company-active-map (kbd "C-n") 'company-select-next)
     (define-key company-active-map (kbd "C-p") 'company-select-previous)
     (define-key company-active-map (kbd "TAB") 'company-complete-selection)
