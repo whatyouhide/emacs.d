@@ -377,6 +377,15 @@
   :init
   (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode))
 
+;; This package highlights the cursor every time it jumps abruptedly from a
+;; place to another (e.g. when changing windows and so on).
+(use-package beacon
+  :ensure t
+  :defer 2
+  :config
+  (beacon-mode 1))
+
+
 ;; Modes for programming languages and such.
 
 (use-package web-mode
