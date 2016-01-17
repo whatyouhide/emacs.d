@@ -367,8 +367,7 @@
 
 (use-package ace-window
   :ensure t
-  :bind (("C-x o" . ace-window)
-         ("M-o" . ace-window))
+  :bind ("M-o" . ace-window)
   :init
   (setq aw-keys '(?a ?s ?d ?f ?h ?j ?k ?l)))
 
