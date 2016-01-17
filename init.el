@@ -199,7 +199,8 @@
   :init
   (setq magit-revert-buffers 'silent
         magit-push-always-verify nil)
-  (evil-leader/set-key "g s" 'magit-status))
+  (evil-leader/set-key "g s" 'magit-status)
+  (global-set-key (kbd "C-x g") 'magit-status))
 
 (use-package git-gutter+
   :ensure t
