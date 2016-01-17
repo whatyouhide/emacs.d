@@ -13,7 +13,7 @@
   (package-install 'use-package))
 
 ;; Add custom code to the load path. `ext' contains Lisp code that I didn't
-;; wrote but that is not in melpa, while `lisp' is for List code I wrote.
+;; write but that is not in melpa, while `lisp' is for List code I wrote.
 (add-to-list 'load-path (expand-file-name "ext" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
