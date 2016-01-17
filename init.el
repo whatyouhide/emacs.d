@@ -216,12 +216,6 @@
     (define-key evil-normal-state-map "]h" 'git-gutter+-next-hunk)
     (evil-leader/set-key "g +" 'git-gutter+-stage-hunks)))
 
-(use-package github-browse-file
-  :ensure t
-  :commands github-browse-file
-  :init
-  (evil-leader/set-key "g b" 'github-browse-file))
-
 (use-package git-messenger
   :ensure t
   :commands git-messenger:popup-message
