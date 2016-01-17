@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Language extension
+# key: lext
+# --
+{-# LANGUAGE $1 #-}
