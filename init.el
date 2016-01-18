@@ -437,7 +437,8 @@
         "t b" 'alchemist-mix-test-this-buffer
         "t t" 'alchemist-mix-test
         "t r" 'alchemist-mix-rerun-last-test
-        "t p" 'alchemist-mix-test-at-point))))
+        "t p" 'alchemist-mix-test-at-point
+        "e b" 'alchemist-eval-buffer))))
 
 (use-package markdown-mode
   :ensure t
