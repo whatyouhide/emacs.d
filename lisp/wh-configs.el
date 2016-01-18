@@ -28,6 +28,6 @@
 ;; - `scroll-conservatively': jump abruptedly every this lines. If set to very
 ;;   high, basically never jumps :)
 (setq scroll-margin 8
-      scroll-conservatively 100000
+      scroll-conservatively 100000)
 
 (provide 'wh-configs)

@@ -308,6 +308,7 @@
               ("*alchemist help*" :position right :stick t :width 80)
               ("*alchemist mix*" :position bottom :noselect t)
               ("*alchemist test report*" :position bottom :stick t :noselect t)
+              ("*alchemist-eval-mode*" :position bottom :height 4 :stick t :noselect t)
               ("*GHC Info*" :position bottom :stick t :noselect t)))
     (global-set-key (kbd "C-l") popwin:keymap)
     (popwin-mode 1)))
@@ -433,6 +434,7 @@
                                                 (alchemist-test-previous-result)))
       (define-key alchemist-mode-map (kbd "C-c a g d") 'wh/alchemist-generate-docs)
       (define-key alchemist-mode-map (kbd "C-c a d g") 'wh/alchemist-mix-deps-get)
+      (define-key alchemist-mode-map (kbd "C-c a S") 'wh/alchemist-new-exs-buffer)
       (evil-leader/set-key-for-mode 'elixir-mode
         "t b" 'alchemist-mix-test-this-buffer
         "t t" 'alchemist-mix-test
