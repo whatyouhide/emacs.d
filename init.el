@@ -33,18 +33,29 @@
 (use-package solarized-theme                :ensure t :defer t)
 (use-package zenburn-theme                  :ensure t :defer t)
 
-(wh/load-theme :term-theme 'monokai
-               :gui-themes '(aurora
-                             gruvbox
-                             leuven
+(use-package theme-changer
+  :ensure t
+  :init
+  (setq wh/term-theme 'monokai
+        wh/gui-themes-light '(aurora
+                              leuven
+                              solarized-light)
+        wh/gui-themes-dark '(gruvbox
                              material
                              monokai
                              molokai
-                             sanityinc-tomorrow-day
                              solarized-dark
-                             solarized-light
-                             wombat
                              zenburn))
+  (setq calendar-location-name "Gothenburg, Sweden"
+        calendar-latitude 57.71
+        calendar-longitude 11.98)
+  :config
+  (progn
+    (if (display-graphic-p)
+        (change-theme (wh/random-element wh/gui-themes-light)
+                      (wh/random-element wh/gui-themes-dark))
+      (load-theme wh/term-theme t))))
+
 
 ;; Global keyboarding
 
