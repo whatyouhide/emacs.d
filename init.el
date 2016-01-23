@@ -37,10 +37,10 @@
   :ensure t
   :init
   (setq wh/term-theme 'monokai
-        wh/gui-themes-light '(aurora
-                              leuven
+        wh/gui-themes-light '(leuven
                               solarized-light)
-        wh/gui-themes-dark '(gruvbox
+        wh/gui-themes-dark '(aurora
+                             gruvbox
                              material
                              monokai
                              molokai
