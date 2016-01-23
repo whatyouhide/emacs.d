@@ -366,7 +366,8 @@
 (use-package exec-path-from-shell
   :ensure t
   :if (memq window-system '(mac ns))
-  :defer 0.5
+  :init
+  (setq exec-path-from-shell-arguments '("-l"))
   :config
   (exec-path-from-shell-initialize))
 
