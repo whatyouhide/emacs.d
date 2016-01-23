@@ -432,6 +432,7 @@
     :init
     (setq alchemist-test-status-modeline nil)
     :config
+    (exec-path-from-shell-copy-env "MIX_ARCHIVES")
     (progn
       (evil-define-key 'normal alchemist-test-mode-map "]t" 'alchemist-test-mode-jump-to-next-test)
       (evil-define-key 'normal alchemist-test-mode-map "[t" 'alchemist-test-mode-jump-to-previous-test)
