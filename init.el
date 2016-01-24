@@ -467,7 +467,9 @@
   :ensure t
   :mode ("\\.md\\'" "\\.mkd\\'" "\\.markdown\\'")
   :config
-  (setq markdown-open-command "marked"))
+  (progn
+    (add-hook 'markdown-mode-hook 'auto-fill-mode) ;; hard-wrap lines
+    (setq markdown-open-command "marked")))
 
 (use-package ruby-mode
   ;; built-in
