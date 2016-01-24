@@ -256,6 +256,12 @@
   :ensure t
   :commands github-clone)
 
+(use-package github-notifier
+  :ensure t
+  :defer 5
+  :config
+  (when (and (boundp 'github-notifier-token) github-notifier-token)
+    (github-notifier-mode)))
 
 ;; Helm-related things.
 
