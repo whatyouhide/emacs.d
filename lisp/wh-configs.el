@@ -22,6 +22,11 @@
 
 ;; Wrap at 80 characters.
 (setq-default fill-column 80)
+;; In programming modes, wrap in comments.
+(add-hook 'prog-mode-hook
+          (lambda ()
+            (set (make-local-variable 'comment-auto-fill-only-comments) t)
+            (auto-fill-mode)))
 
 ;; Scrolling:
 ;; - `scroll-margin': always have a margin of 8 lines on top/bottom
