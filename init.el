@@ -62,8 +62,9 @@
 (global-set-key (kbd "<f8>") 'wh/edit-init-file)
 (global-set-key (kbd "<f9>") 'wh/edit-notes-file)
 (global-set-key (kbd "C-x \\") 'wh/split-window-and-focus-new)
-(global-set-key (kbd "C-k") 'kill-whole-line)
 (global-set-key (kbd "C-x O") 'other-frame)
+(global-set-key (kbd "C-x B") 'wh/switch-to-previous-buffer)
+(global-set-key (kbd "C-k") 'kill-whole-line)
 
 ;; Always as "y or n", not that annoying "yes or no".
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -93,7 +94,7 @@
        "K" 'kill-this-buffer
        "b" 'switch-to-buffer
        "p" 'projectile-switch-project
-       "B" 'evil-buffer)
+       "B" 'wh/switch-to-previous-buffer)
       (evil-leader/set-key-for-mode 'emacs-lisp-mode
 				    "e d" 'eval-defun
 				    "e b" 'eval-buffer
@@ -212,6 +213,8 @@
   :init
   (setq magit-revert-buffers 'silent
         magit-push-always-verify nil)
+  ;; Use flyspell in the commit buffer
+  (add-hook 'git-commit-setup-hook 'git-commit-turn-on-flyspell)
   (evil-leader/set-key "g s" 'magit-status)
   (global-set-key (kbd "C-x g") 'magit-status))
 

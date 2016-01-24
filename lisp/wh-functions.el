@@ -97,4 +97,11 @@ line and the script will be made executable for the user."
   (elixir-mode)
   (alchemist-mode))
 
+(defun wh/switch-to-previous-buffer ()
+  "Switche to the previously visited buffer.
+
+If called multiple times, basically alternate between two buffers."
+  (interactive)
+  (switch-to-buffer (other-buffer (current-buffer))))
+
 (provide 'wh-functions)
