@@ -306,6 +306,11 @@
   :config
   (projectile-global-mode))
 
+(use-package flyspell
+  ;; built-in
+  :init
+  (setq ispell-program-name "aspell"))
+
 (use-package guide-key
   :ensure t
   :init
