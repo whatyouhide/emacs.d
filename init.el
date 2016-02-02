@@ -262,15 +262,16 @@
 
 (use-package helm
   :ensure t
-  :demand t
   :diminish helm-mode
+  :bind (("M-x" . helm-M-x)
+         ("C-x C-f" . helm-find-files)
+         ("C-x b" . helm-buffers-list))
   :init
   (setq helm-M-x-fuzzy-match t
         helm-buffers-fuzzy-matching t)
+  (evil-leader/set-key "<SPC>" 'helm-M-x)
   :config
-  (progn
-    (helm-mode 1)
-    (evil-leader/set-key "<SPC>" 'helm-M-x)))
+  (helm-mode 1))
 
 (use-package helm-ag
   :ensure t
