@@ -264,12 +264,12 @@
   :ensure t
   :demand t
   :diminish helm-mode
-  :bind ("M-x" . helm-M-x)
   :init
-  (setq helm-M-x-fuzzy-match t)
+  (setq helm-M-x-fuzzy-match t
+        helm-buffers-fuzzy-matching t)
   :config
   (progn
-    (helm-mode t)
+    (helm-mode 1)
     (evil-leader/set-key "<SPC>" 'helm-M-x)))
 
 (use-package helm-ag
