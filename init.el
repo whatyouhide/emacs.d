@@ -61,7 +61,9 @@
 
 (global-set-key (kbd "<f8>") 'wh/edit-init-file)
 (global-set-key (kbd "<f9>") 'wh/edit-notes-file)
-(global-set-key (kbd "C-x \\") 'wh/split-window-and-focus-new)
+(global-set-key (kbd "C-x \\") 'wh/split-window-horizontally-and-focus-new)
+(global-set-key (kbd "C-x -") 'wh/split-window-vertically-and-focus-new)
+(global-set-key (kbd "C-x p") (lambda () (interactive) (other-window -1)))
 (global-set-key (kbd "C-x O") 'other-frame)
 (global-set-key (kbd "C-x B") 'wh/switch-to-previous-buffer)
 (global-set-key (kbd "C-k") 'kill-whole-line)

@@ -46,10 +46,18 @@ If there's only one frame, then use the function that magit uses by default."
   (newline)
   (indent-relative-maybe))
 
-(defun wh/split-window-and-focus-new ()
-  "Splits the window horizontally  and focus the new one."
+(defun wh/split-window-horizontally-and-focus-new ()
+  "Splits the window horizontally and focus the new one."
   (interactive)
-  (split-window-horizontally)
+  (wh/--split-window-and-focus-new 'split-window-horizontally))
+
+(defun wh/split-window-vertically-and-focus-new ()
+  "Splits the window vertically and focus the new one."
+  (interactive)
+  (wh/--split-window-and-focus-new 'split-window-vertically))
+
+(defun wh/--split-window-and-focus-new (splitting-fun)
+  (funcall splitting-fun)
   (other-window 1))
 
 (defun wh/eval-surrounding-sexp ()
