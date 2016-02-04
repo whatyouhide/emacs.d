@@ -95,7 +95,6 @@
        ":" 'eval-expression
        "K" 'kill-this-buffer
        "b" 'switch-to-buffer
-       "p" 'projectile-switch-project
        "B" 'wh/switch-to-previous-buffer)
       (evil-leader/set-key-for-mode 'emacs-lisp-mode
 				    "e d" 'eval-defun
@@ -294,10 +293,11 @@
   :commands (projectile-find-file projectile-switch-project)
   :diminish projectile-mode
   :init
-  (use-package grizzl :ensure t)
-  (setq projectile-completion-system 'grizzl)
+  (use-package helm-projectile
+    :ensure t)
   (evil-leader/set-key
-    "f" 'projectile-find-file
+    "p" 'helm-projectile-switch-project
+    "f" 'helm-projectile-find-file
     "T" 'wh/projectile-open-todo)
   :config
   (projectile-global-mode))
