@@ -25,27 +25,34 @@
 
 ;; Theming
 (use-package aurora-theme                   :ensure t :defer t)
+(use-package badwolf-theme                  :ensure t :defer t)
 (use-package color-theme-sanityinc-tomorrow :ensure t :defer t)
 (use-package gruvbox-theme                  :ensure t :defer t)
 (use-package material-theme                 :ensure t :defer t)
+(use-package minimal-theme                  :ensure t :defer t)
 (use-package molokai-theme                  :ensure t :defer t)
 (use-package monokai-theme                  :ensure t :defer t)
 (use-package solarized-theme                :ensure t :defer t)
 (use-package zenburn-theme                  :ensure t :defer t)
 
+(setq wh/term-theme 'monokai
+      wh/gui-themes-light '(leuven
+                            minimal-light
+                            solarized-light)
+      wh/gui-themes-dark '(ample
+                           ample-flat
+                           aurora
+                           badwolf
+                           gruvbox
+                           material
+                           monokai
+                           molokai
+                           solarized-dark
+                           zenburn))
+
 (use-package theme-changer
   :ensure t
   :init
-  (setq wh/term-theme 'monokai
-        wh/gui-themes-light '(leuven
-                              solarized-light)
-        wh/gui-themes-dark '(aurora
-                             gruvbox
-                             material
-                             monokai
-                             molokai
-                             solarized-dark
-                             zenburn))
   (setq calendar-location-name "Gothenburg, Sweden"
         calendar-latitude 57.71
         calendar-longitude 11.98)
