@@ -253,10 +253,6 @@
     ;; force update evil keymaps after git-timemachine-mode loaded
     (add-hook 'git-timemachine-mode-hook #'evil-normalize-keymaps)))
 
-(use-package github-clone
-  :ensure t
-  :commands github-clone)
-
 ;; Helm-related things.
 
 (use-package helm
