@@ -435,7 +435,11 @@
 
 (use-package erlang
   :ensure t
-  :mode ("\\.erl\\'" "\\.hrl\\'" "\\.xrl\\'")
+  ;; We need to specify erlang-mode explicitely as the package is not called
+  ;; erlang-mode.
+  :mode (("\\.erl\\'" . erlang-mode)
+         ("\\.hrl\\'" . erlang-mode)
+         ("\\.xrl\\'" . erlang-mode))
   :init
   (setq erlang-indent-level 4))
 
