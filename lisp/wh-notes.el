@@ -6,6 +6,6 @@
 (defun wh/notes-open-or-create ()
   "Open or create a note file in the `wh/notes-directory' directory."
   (interactive)
-  (find-file (read-file-name "Note:" wh/notes-directory)))
+  (find-file (read-file-name "Note: " wh/notes-directory)))
 
 (provide 'wh-notes)
