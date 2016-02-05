@@ -98,15 +98,15 @@
       (evil-leader/set-leader "<SPC>")
       (global-evil-leader-mode 1)
       (evil-leader/set-key
-       "!" 'shell-command
-       ":" 'eval-expression
-       "K" 'kill-this-buffer
-       "b" 'switch-to-buffer
-       "B" 'wh/switch-to-previous-buffer)
+        "!" 'shell-command
+        ":" 'eval-expression
+        "K" 'kill-this-buffer
+        "b" 'switch-to-buffer
+        "B" 'wh/switch-to-previous-buffer)
       (evil-leader/set-key-for-mode 'emacs-lisp-mode
-				    "e d" 'eval-defun
-				    "e b" 'eval-buffer
-				    "e s" 'wh/eval-surrounding-sexp)))
+        "e d" 'eval-defun
+        "e b" 'eval-buffer
+        "e s" 'wh/eval-surrounding-sexp)))
   :config
   (progn
     (evil-mode 1)
