@@ -143,19 +143,19 @@
   (evil-commentary-mode))
 
 (use-package evil-terminal-cursor-changer
- :ensure t)
+  :ensure t)
 
 (use-package evil-surround
- :ensure t
- :config
- (progn
-   (global-evil-surround-mode 1)
-   (evil-define-key 'visual evil-surround-mode-map "s" 'evil-surround-region)))
+  :ensure t
+  :config
+  (progn
+    (global-evil-surround-mode 1)
+    (evil-define-key 'visual evil-surround-mode-map "s" 'evil-surround-region)))
 
 (use-package evil-exchange
- :ensure t
- :config
- (evil-exchange-install))
+  :ensure t
+  :config
+  (evil-exchange-install))
 
 ;; My stuff.
 
@@ -209,8 +209,8 @@
   :ensure t
   :config
   (progn
-   (diminish 'undo-tree-mode)
-   (diminish 'evil-commentary-mode)))
+    (diminish 'undo-tree-mode)
+    (diminish 'evil-commentary-mode)))
 
 
 ;; Git-related things.
