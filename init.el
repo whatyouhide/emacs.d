@@ -67,7 +67,6 @@
 ;; Global keyboarding
 
 (global-set-key (kbd "<f8>") 'wh/edit-init-file)
-(global-set-key (kbd "<f9>") 'wh/edit-notes-file)
 (global-set-key (kbd "C-x \\") 'wh/split-window-horizontally-and-focus-new)
 (global-set-key (kbd "C-x -") 'wh/split-window-vertically-and-focus-new)
 (global-set-key (kbd "C-x p") (lambda () (interactive) (other-window -1)))
@@ -78,11 +77,6 @@
 ;; Always as "y or n", not that annoying "yes or no".
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-
-;; Initial buffer to visit.
-(setq initial-buffer-choice
-      (let ((file (expand-file-name "~/Dropbox/Notes/h.md")))
-        (if (file-exists-p file) file t)))
 
 ;; Evil.
 
@@ -178,7 +172,10 @@
   (evil-leader/set-key "S" 'wh/scratch-buffer-create-or-prompt))
 
 (use-package wh-notes
+  ;; We need this package as it exports a variable that we'll use later on.
+  :demand t
   :commands wh/notes-open-or-create
+  :bind ("<f9>" . wh/notes-edit-misc-notes-file)
   :init
   (evil-leader/set-key "N" 'wh/notes-open-or-create))
 
@@ -543,6 +540,11 @@
 (when (display-graphic-p)
   (toggle-frame-maximized))
 
+
+
+;; Initial buffer to visit.
+(setq initial-buffer-choice
+      (if (file-exists-p wh/notes-misc-notes-file) wh/notes-misc-notes-file t))
 
 ;; Custom file handling.
 (setq custom-file "~/.emacs.d/etc/custom.el")
