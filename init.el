@@ -222,7 +222,8 @@
   :commands magit-status
   :init
   (setq magit-revert-buffers 'silent
-        magit-push-always-verify nil)
+        magit-push-always-verify nil
+        git-commit-summary-max-length 70)
   ;; Use flyspell in the commit buffer
   (add-hook 'git-commit-setup-hook 'git-commit-turn-on-flyspell)
   (evil-leader/set-key "g s" 'magit-status)
