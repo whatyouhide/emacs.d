@@ -220,14 +220,14 @@
 (use-package magit
   :ensure t
   :commands magit-status
+  :bind ("C-x g" . magit-status)
   :init
   (setq magit-revert-buffers 'silent
         magit-push-always-verify nil
         git-commit-summary-max-length 70)
   ;; Use flyspell in the commit buffer
   (add-hook 'git-commit-setup-hook 'git-commit-turn-on-flyspell)
-  (evil-leader/set-key "g s" 'magit-status)
-  (global-set-key (kbd "C-x g") 'magit-status))
+  (evil-leader/set-key "g s" 'magit-status))
 
 (use-package git-gutter+
   :ensure t
@@ -320,11 +320,12 @@
 (use-package guide-key
   :ensure t
   :init
-  (setq guide-key/guide-key-sequence t)
-  (setq guide-key/idle-delay 0.4)
   :diminish guide-key-mode
   :config
-  (guide-key-mode 1))
+  (progn
+    (setq guide-key/guide-key-sequence t)
+    (setq guide-key/idle-delay 0.4)
+    (guide-key-mode 1)))
 
 (use-package popwin
   :ensure t
@@ -347,14 +348,13 @@
   :ensure t
   :defer 4
   :diminish company-mode
-  :init
-  (setq company-idle-delay 0.1
-        company-minimum-prefix-length 2
-        company-show-numbers t
-        company-dabbrev-downcase nil
-        company-dabbrev-ignore-case t)
   :config
   (progn
+    (setq company-idle-delay 0.1
+          company-minimum-prefix-length 2
+          company-show-numbers t
+          company-dabbrev-downcase nil
+          company-dabbrev-ignore-case t)
     (global-set-key (kbd "C-<tab>") 'company-manual-begin)
     (define-key company-active-map (kbd "C-n") 'company-select-next)
     (define-key company-active-map (kbd "C-p") 'company-select-previous)
@@ -367,10 +367,10 @@
   :ensure t
   :defer 4
   :diminish yas-minor-mode
-  :init
-  (setq-default yas-snippet-dirs '("~/.emacs.d/snippets"))
   :config
-  (yas-global-mode t))
+  (progn
+    (setq-default yas-snippet-dirs '("~/.emacs.d/snippets"))
+    (yas-global-mode t)))
 
 (use-package writeroom-mode
   :ensure t
@@ -386,10 +386,10 @@
 (use-package exec-path-from-shell
   :ensure t
   :if (memq window-system '(mac ns))
-  :init
-  (setq exec-path-from-shell-arguments '("-l"))
   :config
-  (exec-path-from-shell-initialize))
+  (progn
+    (setq exec-path-from-shell-arguments '("-l"))
+    (exec-path-from-shell-initialize)))
 
 (use-package reveal-in-osx-finder
   :ensure t
@@ -398,7 +398,7 @@
 (use-package ace-window
   :ensure t
   :bind ("M-o" . ace-window)
-  :init
+  :config
   (setq aw-keys '(?a ?s ?d ?f ?h ?j ?k ?l)))
 
 (use-package rainbow-delimiters
@@ -414,19 +414,13 @@
   :config
   (beacon-mode 1))
 
-(use-package hl-todo
-  :ensure t
-  :defer 2
-  :config
-  (hl-todo-mode))
-
 
 ;; Modes for programming languages and such.
 
 (use-package web-mode
   :ensure t
   :mode (("\\.html\\.erb\\'" . web-mode))
-  :init
+  :config
   (setq web-mode-markup-indent-offset 2
         web-mode-css-indent-offset 2
         web-mode-code-indent-offset 2))
@@ -449,7 +443,7 @@
   :mode (("\\.erl\\'" . erlang-mode)
          ("\\.hrl\\'" . erlang-mode)
          ("\\.xrl\\'" . erlang-mode))
-  :init
+  :config
   (setq erlang-indent-level 4))
 
 (use-package elixir-mode
