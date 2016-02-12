@@ -24,15 +24,19 @@
 (use-package wh-functions)
 
 ;; Theming
-(use-package aurora-theme                   :ensure t :defer t)
-(use-package badwolf-theme                  :ensure t :defer t)
-(use-package gruvbox-theme                  :ensure t :defer t)
-(use-package material-theme                 :ensure t :defer t)
-(use-package minimal-theme                  :ensure t :defer t)
-(use-package molokai-theme                  :ensure t :defer t)
-(use-package monokai-theme                  :ensure t :defer t)
-(use-package solarized-theme                :ensure t :defer t)
-(use-package zenburn-theme                  :ensure t :defer t)
+(use-package ample-theme     :ensure t :defer t)
+(use-package aurora-theme    :ensure t :defer t)
+(use-package badwolf-theme   :ensure t :defer t)
+(use-package dracula-theme   :ensure t :defer t)
+(use-package gruvbox-theme   :ensure t :defer t)
+(use-package material-theme  :ensure t :defer t)
+(use-package minimal-theme   :ensure t :defer t)
+(use-package molokai-theme   :ensure t :defer t)
+(use-package monokai-theme   :ensure t :defer t)
+(use-package oldlace-theme   :ensure t :defer t)
+(use-package solarized-theme :ensure t :defer t)
+(use-package spacegray-theme :ensure t :defer t)
+(use-package zenburn-theme   :ensure t :defer t)
 
 (use-package wh-theming
   :demand t
@@ -41,9 +45,12 @@
          ("C-c t p" . wh/theming-load-prev-theme))
   :init
   (setq wh/term-theme 'monokai
-        wh/gui-themes '(aurora
+        wh/gui-themes '(ample
+                        ample-flat
+                        aurora
                         badwolf
                         dichromacy
+                        dracula
                         gruvbox
                         leuven
                         material
@@ -51,8 +58,10 @@
                         minimal-light
                         monokai
                         molokai
+                        oldlace
                         solarized-dark
                         solarized-light
+                        spacegray
                         zenburn))
   :config
   (if (memq window-system '(mac ns))
