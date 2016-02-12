@@ -36,7 +36,9 @@
 
 (use-package wh-theming
   :demand t
-  :bind ("C-c t r" . wh/theming-load-random-theme)
+  :bind (("C-c t r" . wh/theming-load-random-theme)
+         ("C-c t n" . wh/theming-load-next-theme)
+         ("C-c t p" . wh/theming-load-prev-theme))
   :init
   (setq wh/term-theme 'monokai
         wh/gui-themes '(aurora
