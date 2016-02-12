@@ -26,7 +26,6 @@
 ;; Theming
 (use-package aurora-theme                   :ensure t :defer t)
 (use-package badwolf-theme                  :ensure t :defer t)
-(use-package color-theme-sanityinc-tomorrow :ensure t :defer t)
 (use-package gruvbox-theme                  :ensure t :defer t)
 (use-package material-theme                 :ensure t :defer t)
 (use-package minimal-theme                  :ensure t :defer t)
@@ -35,33 +34,28 @@
 (use-package solarized-theme                :ensure t :defer t)
 (use-package zenburn-theme                  :ensure t :defer t)
 
-(setq wh/term-theme 'monokai
-      wh/gui-themes-light '(leuven
-                            minimal-light
-                            solarized-light)
-      wh/gui-themes-dark '(ample
-                           ample-flat
-                           aurora
-                           badwolf
-                           gruvbox
-                           material
-                           monokai
-                           molokai
-                           solarized-dark
-                           zenburn))
-
-(use-package theme-changer
-  :ensure t
+(use-package wh-theming
+  :demand t
+  :bind ("C-c t r" . wh/theming-load-random-theme)
   :init
-  (setq calendar-location-name "Gothenburg, Sweden"
-        calendar-latitude 57.71
-        calendar-longitude 11.98)
+  (setq wh/term-theme 'monokai
+        wh/gui-themes '(aurora
+                        badwolf
+                        dichromacy
+                        gruvbox
+                        leuven
+                        material
+                        minimal
+                        minimal-light
+                        monokai
+                        molokai
+                        solarized-dark
+                        solarized-light
+                        zenburn))
   :config
-  (progn
-    (if (display-graphic-p)
-        (change-theme (wh/random-element wh/gui-themes-light)
-                      (wh/random-element wh/gui-themes-dark))
-      (load-theme wh/term-theme t))))
+  (if (memq window-system '(mac ns))
+      (wh/theming-load-random-theme)
+    (load-theme wh/term-theme t)))
 
 
 ;; Global keyboarding
@@ -407,6 +401,12 @@
   :defer 2
   :config
   (beacon-mode 1))
+
+(use-package hl-todo
+  :ensure t
+  :defer 2
+  :config
+  (hl-todo-mode))
 
 
 ;; Modes for programming languages and such.
