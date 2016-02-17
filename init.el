@@ -402,6 +402,14 @@
   :config
   (setq aw-keys '(?a ?s ?d ?f ?h ?j ?k ?l)))
 
+(use-package smartscan
+  :ensure t
+  :bind (("M-p" . smartscan-symbol-go-backward)
+         ("M-n" . smartscan-symbol-go-forward)
+         ("M-'" . smartscan-symbol-replace))
+  :config
+  (smartscan-mode t))
+
 (use-package rainbow-delimiters
   :ensure t
   :init
