@@ -134,7 +134,8 @@
                                            haskell-interactive-mode
                                            inferior-emacs-lisp-mode
                                            magit-popup-mode
-                                           magit-popup-sequence-mode)))))
+                                           magit-popup-sequence-mode
+                                           xkcd-mode)))))
 
 (use-package evil-commentary
   :ensure t
@@ -413,6 +414,10 @@
   :defer 2
   :config
   (beacon-mode 1))
+
+(use-package xkcd
+  :ensure t
+  :commands xkcd)
 
 
 ;; Modes for programming languages and such.
