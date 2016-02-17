@@ -407,6 +407,11 @@
   :init
   (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode))
 
+(use-package default-text-scale
+  :ensure t
+  :bind (("s-=" . default-text-scale-increase)
+         ("s--" . default-text-scale-decrease)))
+
 ;; This package highlights the cursor every time it jumps abruptedly from a
 ;; place to another (e.g. when changing windows and so on).
 (use-package beacon

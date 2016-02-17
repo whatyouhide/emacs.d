@@ -1,8 +1,3 @@
-;; Keybindings.
-(global-set-key (kbd "s-=") 'text-scale-increase)
-(global-set-key (kbd "s--") 'text-scale-decrease)
-(global-set-key (kbd "s-n") 'make-frame)
-
 ;; Font size in 1/10pt (140 = 14 pt).
 (set-face-attribute 'default nil :height 140)
 
