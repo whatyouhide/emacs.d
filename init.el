@@ -419,6 +419,14 @@
   :ensure t
   :commands xkcd)
 
+(use-package spotify
+  :ensure t
+  :init
+  (evil-leader/set-key
+    "M P" 'spotify-playpause
+    "M p" 'spotify-previous
+    "M n" 'spotify-next))
+
 
 ;; Modes for programming languages and such.
 
