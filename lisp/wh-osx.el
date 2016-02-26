@@ -13,4 +13,7 @@
 (global-set-key (kbd "C-s-f") 'toggle-frame-fullscreen)
 (global-set-key (kbd "<C-s-268632070>") 'toggle-frame-fullscreen)
 
+;; Binds ⌘ + s to save the buffer.
+(global-set-key (kbd "s-s") 'save-buffer)
+
 (provide 'wh-osx)
