@@ -577,6 +577,16 @@
   :ensure t
   :mode "\\.rs\\'")
 
+(use-package go-mode
+  :ensure t
+  :mode "\\.go\\'"
+  :config
+  (add-hook 'go-mode-hook
+            (lambda ()
+              (setq-local tab-width 4)
+              (setq gofmt-command "goimports")
+              (add-hook 'before-save-hook 'gofmt-before-save))))
+
 
 ;; Only maximize the window now because doing so earlier causes weird
 ;; behaviours.
