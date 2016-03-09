@@ -314,6 +314,10 @@
   :ensure t
   :bind ("C-s" . swiper-helm))
 
+(use-package avy
+  :ensure t
+  :bind ("C-;" . avy-goto-char))
+
 (use-package projectile
   :ensure t
   :commands (projectile-find-file projectile-switch-project)
