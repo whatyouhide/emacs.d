@@ -277,6 +277,12 @@
     ;; force update evil keymaps after git-timemachine-mode loaded
     (add-hook 'git-timemachine-mode-hook #'evil-normalize-keymaps)))
 
+(use-package browse-at-remote
+  :ensure t
+  :commands browse-at-remote/browse
+  :init
+  (evil-leader/set-key "g b" 'browse-at-remote/browse))
+
 ;; Helm-related things.
 
 (use-package helm
