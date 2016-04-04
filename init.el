@@ -435,6 +435,13 @@
   :config
   (smartscan-mode t))
 
+(use-package drag-stuff
+  :ensure t
+  :bind (("M-J" . drag-stuff-down)
+         ("M-K" . drag-stuff-up))
+  :config
+  (drag-stuff-global-mode))
+
 (use-package rainbow-delimiters
   :ensure t
   :init
