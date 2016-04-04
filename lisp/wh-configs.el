@@ -30,4 +30,6 @@
 (setq scroll-margin 8
       scroll-conservatively 100000)
 
+(prefer-coding-system 'utf-8)
+
 (provide 'wh-configs)
