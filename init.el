@@ -488,7 +488,9 @@
   :mode (("\\.erl\\'" . erlang-mode)
          ("\\.hrl\\'" . erlang-mode)
          ("\\.xrl\\'" . erlang-mode)
-         ("sys\\.config\\'" . erlang-mode))
+         ("sys\\.config\\'" . erlang-mode)
+         ("rebar\\.config\\'" . erlang-mode)
+         ("\\.app\\(\\.src\\)?\\'" . erlang-mode))
   :config
   (setq erlang-indent-level 4))
 
