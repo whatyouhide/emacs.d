@@ -82,14 +82,6 @@ line and the script will be made executable for the user."
       (when (y-or-n-p "TODO.md does not exist. Create one?")
         (find-file file)))))
 
-(defun wh/package-uninstall (pkg)
-  "Uninstall `PKG'. Interactively, it prompts for the package name."
-  (interactive
-   (list (completing-read "Package to uninstall: " (mapcar #'car package-alist))))
-  (let* ((pkg (intern pkg))
-         (pkg-desc (car (last (assoc pkg package-alist)))))
-    (package-delete pkg-desc)))
-
 (defun wh/alchemist-new-exs-buffer ()
   "Create a scratch buffer in Elixir mode."
   (interactive)
