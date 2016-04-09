@@ -370,6 +370,14 @@
     (global-set-key (kbd "C-l") popwin:keymap)
     (popwin-mode 1)))
 
+(use-package fancy-battery
+  :ensure t
+  :defer 2
+  :init
+  (setq fancy-battery-show-percentage t)
+  :config
+  (fancy-battery-mode))
+
 (use-package company
   :ensure t
   :defer 4
