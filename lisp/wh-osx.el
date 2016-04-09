@@ -16,4 +16,8 @@
 ;; Binds ⌘ + s to save the buffer.
 (global-set-key (kbd "s-s") 'save-buffer)
 
+;; I disable this by default (along with tool-bar-mode and such), but on OSX it
+;; really is unobstrusive.
+(menu-bar-mode +1)
+
 (provide 'wh-osx)
