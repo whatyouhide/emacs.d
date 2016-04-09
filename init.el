@@ -455,16 +455,6 @@
   :init
   (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode))
 
-(use-package smartparens
-  :ensure t
-  :defer 1
-  :init
-  (setq sp-highlight-pair-overlay nil
-        sp-highlight-wrap-overlay nil
-        sp-highlight-wrap-tag-overlay nil)
-  :config
-  (smartparens-global-mode 1))
-
 (use-package default-text-scale
   :ensure t
   :bind (("s-=" . default-text-scale-increase)
