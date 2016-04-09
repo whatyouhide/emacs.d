@@ -229,8 +229,9 @@
 
 (use-package magit
   :ensure t
-  :commands magit-status
-  :bind ("C-x g" . magit-status)
+  :commands (magit-status magit-checkout)
+  :bind (("C-x g" . magit-status)
+         ("C-c g b" . magit-checkout))
   :init
   (use-package magit-gh-pulls
     :ensure t
