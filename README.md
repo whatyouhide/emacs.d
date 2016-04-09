@@ -1,11 +1,6 @@
-# Hey, macs
+# Hey, macs!
 
-My poor Emacs configuration, I'm a newbie :(.
+My Emacs configuration. Mostly works if just cloned inside `~/.emacs.d`, except
+for maybe fonts I think :smiley:.
 
-For reference:
-
-```
-$ git clone https://github.com/whatyouhide/emacs.d ~/.emacs.d
-$ brew install cask
-$ cask install
-```
+![](https://i.ytimg.com/vi/rX-YiYHahoo/maxresdefault.jpg)
