@@ -265,6 +265,9 @@
     ;; force update evil keymaps after git-timemachine-mode loaded
     (add-hook 'git-timemachine-mode-hook #'evil-normalize-keymaps)))
 
+(use-package gitignore-mode
+  :ensure t)
+
 (use-package browse-at-remote
   :ensure t
   :commands browse-at-remote/browse
