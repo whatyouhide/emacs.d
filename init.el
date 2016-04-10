@@ -468,6 +468,15 @@
     "M p" 'spotify-previous
     "M n" 'spotify-next))
 
+(use-package perspective
+  :ensure t
+  :init
+  (use-package persp-projectile
+    :ensure t
+    :defer t)
+  :config
+  (persp-mode)
+  (require 'persp-projectile))
 
 ;; Modes for programming languages and such.
 
