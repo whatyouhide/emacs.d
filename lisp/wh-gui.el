@@ -7,6 +7,9 @@
 ;; Fringe.
 (setq-default left-fringe-width 16)
 
+;; Resize frames pixel-by-pixel.
+(setq frame-resize-pixelwise t)
+
 ;; Scrolling with the mouse.
 (setq mouse-wheel-scroll-amount '(1))    ;; one line at a time
 (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
