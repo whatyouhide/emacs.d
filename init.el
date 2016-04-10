@@ -24,23 +24,17 @@
 (use-package wh-functions)
 
 ;; Theming
-(use-package ample-theme        :ensure t :defer t)
-(use-package aurora-theme       :ensure t :defer t)
 (use-package badwolf-theme      :ensure t :defer t)
 (use-package darktooth-theme    :ensure t :defer t)
 (use-package dracula-theme      :ensure t :defer t)
 (use-package flatland-theme     :ensure t :defer t)
-(use-package gruvbox-theme      :ensure t :defer t)
 (use-package material-theme     :ensure t :defer t)
 (use-package minimal-theme      :ensure t :defer t)
 (use-package molokai-theme      :ensure t :defer t)
 (use-package monokai-theme      :ensure t :defer t)
 (use-package mustang-theme      :ensure t :defer t)
-(use-package oldlace-theme      :ensure t :defer t)
-(use-package soft-morning-theme :ensure t :defer t)
 (use-package solarized-theme    :ensure t :defer t)
 (use-package spacegray-theme    :ensure t :defer t)
-(use-package underwater-theme   :ensure t :defer t)
 (use-package zenburn-theme      :ensure t :defer t)
 
 (use-package wh-theming
@@ -50,27 +44,20 @@
          ("C-c t p" . wh/theming-load-prev-theme))
   :init
   (setq wh/term-theme 'monokai
-        wh/gui-themes '(ample
-                        ample-flat
-                        aurora
-                        badwolf
+        wh/gui-themes '(badwolf
                         darktooth
                         dichromacy
                         dracula
                         flatland
-                        gruvbox
                         leuven
                         material
                         minimal
                         minimal-light
                         molokai
                         monokai
-                        oldlace
-                        soft-morning
                         solarized-dark
                         solarized-light
                         spacegray
-                        underwater
                         zenburn))
   :config
   (if (memq window-system '(mac ns))
