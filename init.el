@@ -479,8 +479,12 @@
     :ensure t
     :defer t)
   :config
-  (persp-mode)
-  (require 'persp-projectile))
+  (progn
+    (persp-mode)
+    (require 'persp-projectile)
+    (evil-leader/set-key
+      "w n" 'persp-next
+      "w p" 'persp-prev)))
 
 ;; Modes for programming languages and such.
 
