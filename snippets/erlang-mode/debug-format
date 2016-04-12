@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: Debug statement that only happens if 'hacking' is the pdict
+# key: hformat
+# --
+case get(hacking) of
+     true ->
+          io:format("$1", [$2]);
+     _ ->
+          ok
+end,

@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: Inspect statement that is printed only if :hacking is in the pdict
+# key: hformat
+# --
+case :erlang.get(:hacking) do
+     true ->
+          IO.puts "$1"
+     _ ->
+          :ok
+end
