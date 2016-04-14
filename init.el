@@ -219,7 +219,8 @@
   :ensure t
   :commands (magit-status magit-checkout)
   :bind (("C-x g" . magit-status)
-         ("C-c g b" . magit-checkout))
+         ("C-c g b" . magit-checkout)
+         ("C-c g B" . magit-blame))
   :init
   (use-package magit-gh-pulls
     :ensure t
@@ -230,6 +231,8 @@
         git-commit-summary-max-length 70)
   ;; Use flyspell in the commit buffer
   (add-hook 'git-commit-setup-hook 'git-commit-turn-on-flyspell)
+  (add-hook 'magit-blame-mode 'evil-insert-state)
+  (add-hook 'magit-blame-mode (lambda () (message "hello")))
   (evil-leader/set-key "g s" 'magit-status))
 
 (use-package git-gutter+
@@ -362,14 +365,6 @@
               ("*GHC Info*" :position bottom :stick t :noselect t)))
     (global-set-key (kbd "C-l") popwin:keymap)
     (popwin-mode 1)))
-
-(use-package fancy-battery
-  :ensure t
-  :defer 2
-  :init
-  (setq fancy-battery-show-percentage t)
-  :config
-  (fancy-battery-mode))
 
 (use-package company
   :ensure t
@@ -648,3 +643,54 @@
 (when (not (file-exists-p custom-file))
   (with-temp-buffer (write-file custom-file)))
 (load custom-file)
+
+
+;; ;;; Buffer, Windows and Frames
+;; (setq frame-title-format
+;;       '(:eval (if (buffer-file-name)
+;;                   (abbreviate-file-name (buffer-file-name)) "%b"))
+;;       ;; Size new windows proportionally wrt other windows
+;;       window-combination-resize t)
+
+
+;; ;; Configure `display-buffer' behaviour for some special buffers.
+;; (setq display-buffer-alist
+;;       `(
+;;         ;; Nail Helm to the side window
+;;         (,(rx bos "*" (* nonl) "helm" (* nonl) "*" eos)
+;;          (display-buffer-in-side-window)
+;;          (side . bottom)
+;;          (window-height . 0.4)
+;;          (window-width . 0.6))
+;;         ;; Put REPLs and error lists into the bottom side window
+;;         (,(rx bos (or "*Flycheck errors*" ; Flycheck error list
+;;                       "*compilation"      ; Compilation buffers
+;;                       "*Warnings*"        ; Emacs warnings
+;;                       "*sbt"              ; SBT REPL and compilation buffer
+;;                       "*SQL"              ; SQL REPL
+;;                       "*shell"            ; Shell window
+;;                       "*Help"             ; Help buffers
+;;                       ))
+;;          (display-buffer-reuse-window
+;;           display-buffer-in-side-window)
+;;          (side            . bottom)
+;;          (reusable-frames . visible)
+;;          (window-height   . 0.33))
+;;         ;; Let `display-buffer' reuse visible frames for all buffers.  This must
+;;         ;; be the last entry in `display-buffer-alist', because it overrides any
+;;         ;; later entry with more specific actions.
+;;         ("." nil (reusable-frames . visible))))
+
+
+
+;; ;; magit-blame
+
+
+
+;; ;; (use-package git-commit                 ; Git commit message mode
+;; ;;   :ensure t
+;; ;;   :defer t
+;;   :config
+;;   ;; Oh, really?  Come on… I know what I'm doing…
+;;   (remove-hook 'git-commit-finish-query-functions
+;;                #'git-commit-check-style-conventions))
