@@ -29,7 +29,6 @@
 (use-package dracula-theme      :ensure t :defer t)
 (use-package flatland-theme     :ensure t :defer t)
 (use-package material-theme     :ensure t :defer t)
-(use-package minimal-theme      :ensure t :defer t)
 (use-package molokai-theme      :ensure t :defer t)
 (use-package monokai-theme      :ensure t :defer t)
 (use-package mustang-theme      :ensure t :defer t)
@@ -51,8 +50,6 @@
                         flatland
                         leuven
                         material
-                        minimal
-                        minimal-light
                         molokai
                         monokai
                         solarized-dark
