@@ -84,7 +84,7 @@
   (use-package evil-leader
     :ensure t
     :init
-    (setq evil-leader/no-prefix-more-rx '("magit-.*-mode" "dired-mode" "gist-list-mode"))
+    (setq evil-leader/no-prefix-mode-rx '("magit-.*-mode" "dired-mode" "gist-list-mode"))
     :config
     (progn
       (evil-leader/set-leader "<SPC>")
