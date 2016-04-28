@@ -108,7 +108,6 @@
     (define-key evil-insert-state-map (kbd "<RET>") 'newline-and-indent)
     ;; Evil keybindings.
     (define-key evil-normal-state-map (kbd "-") 'dired-jump)
-    (define-key evil-normal-state-map (kbd "C-a") 'back-to-indentation)
     (define-key evil-normal-state-map (kbd "H") 'back-to-indentation)
     (define-key evil-normal-state-map (kbd "C-e") 'move-end-of-line)
     (define-key evil-normal-state-map (kbd "L") 'move-end-of-line)
@@ -178,6 +177,9 @@
   :bind ("<f9>" . wh/notes-edit-misc-notes-file)
   :init
   (evil-leader/set-key "N" 'wh/notes-open-or-create))
+
+(use-package wh-smarter-beginning-of-line
+  :bind ("C-a" . wh/smarter-beginning-of-line))
 
 ;; Built-in packages.
 
