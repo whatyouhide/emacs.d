@@ -127,7 +127,6 @@
                                            inferior-emacs-lisp-mode
                                            magit-popup-mode
                                            magit-popup-sequence-mode
-                                           org-mode
                                            xkcd-mode)))))
 
 (use-package evil-commentary
