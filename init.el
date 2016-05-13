@@ -27,13 +27,11 @@
 (use-package badwolf-theme      :ensure t :defer t)
 (use-package darktooth-theme    :ensure t :defer t)
 (use-package dracula-theme      :ensure t :defer t)
-(use-package flatland-theme     :ensure t :defer t)
 (use-package material-theme     :ensure t :defer t)
 (use-package molokai-theme      :ensure t :defer t)
 (use-package monokai-theme      :ensure t :defer t)
 (use-package mustang-theme      :ensure t :defer t)
 (use-package solarized-theme    :ensure t :defer t)
-(use-package spacegray-theme    :ensure t :defer t)
 (use-package zenburn-theme      :ensure t :defer t)
 
 (use-package wh-theming
@@ -47,14 +45,12 @@
                         darktooth
                         dichromacy
                         dracula
-                        flatland
                         leuven
                         material
                         molokai
                         monokai
                         solarized-dark
                         solarized-light
-                        spacegray
                         zenburn))
   :config
   (if (memq window-system '(mac ns))
