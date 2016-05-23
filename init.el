@@ -26,7 +26,6 @@
 ;; Theming
 (use-package badwolf-theme      :ensure t :defer t)
 (use-package darktooth-theme    :ensure t :defer t)
-(use-package dracula-theme      :ensure t :defer t)
 (use-package material-theme     :ensure t :defer t)
 (use-package monokai-theme      :ensure t :defer t)
 (use-package mustang-theme      :ensure t :defer t)
@@ -43,7 +42,6 @@
         wh/gui-themes '(badwolf
                         darktooth
                         dichromacy
-                        dracula
                         leuven
                         material
                         monokai
