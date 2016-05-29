@@ -34,8 +34,7 @@
 
 (use-package wh-theming
   :demand t
-  :bind (("C-c t r" . wh/theming-load-random-theme)
-         ("C-c t n" . wh/theming-load-next-theme)
+  :bind (("C-c t n" . wh/theming-load-next-theme)
          ("C-c t p" . wh/theming-load-prev-theme))
   :init
   (setq wh/term-theme 'monokai
@@ -52,7 +51,6 @@
   (if (memq window-system '(mac ns))
       (wh/theming-load-random-theme)
     (load-theme wh/term-theme t)))
-
 
 ;; Global keyboarding
 
@@ -160,7 +158,6 @@
   ;; We need this package as it exports a variable that we'll use later on.
   :demand t
   :commands wh/notes-open-or-create
-  :bind ("<f9>" . wh/notes-edit-misc-notes-file)
   :init
   (evil-leader/set-key "N" 'wh/notes-open-or-create))
 
@@ -176,14 +173,9 @@
   :config
   (savehist-mode))
 
-(use-package saveplace
-  :init
-  (setq-default save-place t)
-  (setq save-place-file "~/.emacs.d/etc/saveplace"))
-
 (use-package dired-x
   :config
-  (define-key dired-mode-map (kbd "-") 'dired-up-directory))
+  (define-key dired-mode-map (kbd "C--") 'dired-up-directory))
 
 ;; Misc packages.
 
@@ -196,7 +188,6 @@
   (progn
     (diminish 'undo-tree-mode)
     (diminish 'evil-commentary-mode)))
-
 
 ;; Git-related things.
 
@@ -411,8 +402,7 @@
 (use-package smartscan
   :ensure t
   :bind (("M-p" . smartscan-symbol-go-backward)
-         ("M-n" . smartscan-symbol-go-forward)
-         ("M-'" . smartscan-symbol-replace))
+         ("M-n" . smartscan-symbol-go-forward))
   :config
   (smartscan-mode t))
 
@@ -529,7 +519,8 @@
         "t t" 'alchemist-mix-test
         "t r" 'alchemist-mix-rerun-last-test
         "t p" 'alchemist-mix-test-at-point
-        "e b" 'alchemist-eval-buffer))))
+        "e b" 'alchemist-eval-buffer
+        "a d" 'alchemist-goto-list-symbol-definitions))))
 
 (use-package markdown-mode
   :ensure t
@@ -615,12 +606,6 @@
 (when (display-graphic-p)
   (toggle-frame-maximized))
 
-
-
-;; Initial buffer to visit.
-(setq initial-buffer-choice
-      (if (file-exists-p wh/notes-misc-notes-file) wh/notes-misc-notes-file t))
-
 ;; Custom file handling.
 (setq custom-file "~/.emacs.d/etc/custom.el")
 (when (not (file-exists-p custom-file))
@@ -663,17 +648,3 @@
 ;;         ;; be the last entry in `display-buffer-alist', because it overrides any
 ;;         ;; later entry with more specific actions.
 ;;         ("." nil (reusable-frames . visible))))
-
-
-
-;; ;; magit-blame
-
-
-
-;; ;; (use-package git-commit                 ; Git commit message mode
-;; ;;   :ensure t
-;; ;;   :defer t
-;;   :config
-;;   ;; Oh, really?  Come on… I know what I'm doing…
-;;   (remove-hook 'git-commit-finish-query-functions
-;;                #'git-commit-check-style-conventions))
