@@ -13,8 +13,9 @@
 (global-set-key (kbd "C-s-f") 'toggle-frame-fullscreen)
 (global-set-key (kbd "<C-s-268632070>") 'toggle-frame-fullscreen)
 
-;; Binds ⌘ + s to save the buffer.
+;; Binds ⌘ + s to save the buffer (and unbind C-x C-s so I start using this :\).
 (global-set-key (kbd "s-s") 'save-buffer)
+(global-unset-key (kbd "C-x C-s"))
 
 ;; I disable this by default (along with tool-bar-mode and such), but on OSX it
 ;; really is unobstrusive.
