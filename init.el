@@ -175,7 +175,7 @@
 
 (use-package dired-x
   :config
-  (define-key dired-mode-map (kbd "C--") 'dired-up-directory))
+  (define-key dired-mode-map (kbd "-") 'dired-up-directory))
 
 ;; Misc packages.
 
