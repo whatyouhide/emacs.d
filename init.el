@@ -208,8 +208,7 @@
   ;; Use flyspell in the commit buffer
   (add-hook 'git-commit-setup-hook 'git-commit-turn-on-flyspell)
   (add-hook 'magit-blame-mode 'evil-insert-state)
-  (add-hook 'magit-blame-mode (lambda () (message "hello")))
-  (evil-leader/set-key "g s" 'magit-status))
+  (add-hook 'magit-blame-mode (lambda () (message "hello"))))
 
 (use-package git-gutter+
   :ensure t
@@ -524,11 +523,7 @@
 
 (use-package markdown-mode
   :ensure t
-  :mode ("\\.md\\'" "\\.mkd\\'" "\\.markdown\\'")
-  :config
-  (progn
-    (add-hook 'markdown-mode-hook 'auto-fill-mode) ;; hard-wrap lines
-    (setq markdown-open-command "marked")))
+  :mode ("\\.md\\'" "\\.mkd\\'" "\\.markdown\\'"))
 
 (use-package ruby-mode
   ;; built-in
