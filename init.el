@@ -136,11 +136,6 @@
     (global-evil-surround-mode 1)
     (evil-define-key 'visual evil-surround-mode-map "s" 'evil-surround-region)))
 
-(use-package evil-exchange
-  :ensure t
-  :config
-  (evil-exchange-install))
-
 ;; My stuff.
 
 (use-package wh-tmux
@@ -455,14 +450,6 @@
 (use-package xkcd
   :ensure t
   :commands xkcd)
-
-(use-package spotify
-  :ensure t
-  :init
-  (evil-leader/set-key
-    "M P" 'spotify-playpause
-    "M p" 'spotify-previous
-    "M n" 'spotify-next))
 
 (use-package perspective
   :ensure t
