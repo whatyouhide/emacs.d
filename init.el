@@ -436,12 +436,6 @@
   :config
   (global-hl-todo-mode))
 
-(use-package highlight-thing
-  :ensure t
-  :defer 2
-  :config
-  (global-highlight-thing-mode))
-
 (use-package xkcd
   :ensure t
   :commands xkcd)
