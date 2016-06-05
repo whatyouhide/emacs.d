@@ -26,7 +26,6 @@
 ;; Theming
 (use-package badwolf-theme      :ensure t :defer t)
 (use-package darktooth-theme    :ensure t :defer t)
-(use-package material-theme     :ensure t :defer t)
 (use-package monokai-theme      :ensure t :defer t)
 (use-package mustang-theme      :ensure t :defer t)
 (use-package solarized-theme    :ensure t :defer t)
@@ -42,7 +41,6 @@
                         darktooth
                         dichromacy
                         leuven
-                        material
                         monokai
                         solarized-dark
                         solarized-light
