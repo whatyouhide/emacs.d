@@ -453,7 +453,8 @@
 
 (use-package web-mode
   :ensure t
-  :mode (("\\.html\\.erb\\'" . web-mode))
+  :mode (("\\.html\\.erb\\'" . web-mode)
+         ("\\.eex\\'" . web-mode))
   :config
   (setq web-mode-markup-indent-offset 2
         web-mode-css-indent-offset 2
