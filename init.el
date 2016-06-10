@@ -216,8 +216,7 @@
     (global-git-gutter+-mode)
     (use-package git-gutter-fringe+ :ensure t)
     (define-key evil-normal-state-map "[h" 'git-gutter+-previous-hunk)
-    (define-key evil-normal-state-map "]h" 'git-gutter+-next-hunk)
-    (evil-leader/set-key "g +" 'git-gutter+-stage-hunks)))
+    (define-key evil-normal-state-map "]h" 'git-gutter+-next-hunk)))
 
 (use-package git-messenger
   :ensure t
@@ -276,9 +275,7 @@
   :ensure t
   :commands (helm-do-ag helm-do-ag-project-root)
   :init
-  (evil-leader/set-key
-    "a g" 'helm-do-ag-project-root
-    "a G" 'helm-do-ag)
+  (evil-leader/set-key "a g" 'helm-do-ag-project-root)
   :config
   (progn
     (evil-make-overriding-map helm-ag-mode-map 'normal)
@@ -425,6 +422,7 @@
 (use-package beacon
   :ensure t
   :defer 2
+  :diminish beacon-mode
   :config
   (beacon-mode 1))
 
