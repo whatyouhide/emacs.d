@@ -63,75 +63,6 @@
 ;; Always as "y or n", not that annoying "yes or no".
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-
-;; Evil.
-
-(use-package evil
-  :ensure t
-  :init
-  (use-package evil-leader
-    :ensure t
-    :init
-    (setq evil-leader/no-prefix-mode-rx '("magit-.*-mode" "dired-mode" "gist-list-mode"))
-    :config
-    (progn
-      (evil-leader/set-leader "<SPC>")
-      (global-evil-leader-mode 1)
-      (evil-leader/set-key
-        "!" 'shell-command
-        ":" 'eval-expression
-        "K" 'kill-this-buffer
-        "b" 'switch-to-buffer
-        "B" 'wh/switch-to-previous-buffer)
-      (evil-leader/set-key-for-mode 'emacs-lisp-mode
-        "e d" 'eval-defun
-        "e b" 'eval-buffer
-        "e s" 'wh/eval-surrounding-sexp)))
-  :config
-  (progn
-    (evil-mode 1)
-    ;; Use Emacs keybindings when in insert mode.
-    (setcdr evil-insert-state-map nil)
-    (define-key evil-insert-state-map [escape] 'evil-normal-state)
-    (define-key evil-insert-state-map (kbd "<RET>") 'newline-and-indent)
-    ;; Evil keybindings.
-    (define-key evil-normal-state-map (kbd "-") 'dired-jump)
-    (define-key evil-normal-state-map (kbd "H") 'back-to-indentation)
-    (define-key evil-normal-state-map (kbd "C-e") 'move-end-of-line)
-    (define-key evil-normal-state-map (kbd "L") 'move-end-of-line)
-    (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
-    (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
-    (define-key evil-normal-state-map (kbd "C-p") 'previous-line)
-    (define-key evil-normal-state-map (kbd "C-n") 'next-line)
-    (define-key evil-visual-state-map (kbd "a") 'align-regexp)
-    ;; Modes that don't use evil.
-    (setq evil-emacs-state-modes (append evil-emacs-state-modes
-                                         '(alchemist-iex-mode
-                                           cider-repl-mode
-                                           cider-stacktrace-mode
-                                           git-rebase-mode
-                                           haskell-error-mode
-                                           haskell-interactive-mode
-                                           inferior-emacs-lisp-mode
-                                           magit-popup-mode
-                                           magit-popup-sequence-mode
-                                           xkcd-mode)))))
-
-(use-package evil-commentary
-  :ensure t
-  :config
-  (evil-commentary-mode))
-
-(use-package evil-terminal-cursor-changer
-  :ensure t)
-
-(use-package evil-surround
-  :ensure t
-  :config
-  (progn
-    (global-evil-surround-mode 1)
-    (evil-define-key 'visual evil-surround-mode-map "s" 'evil-surround-region)))
-
 ;; My stuff.
 
 (use-package wh-tmux
@@ -148,16 +79,10 @@
 (use-package wh-configs)
 
 (use-package wh-scratch-buffer
-  :commands wh/scratch-buffer-create-or-prompt
-  :init
-  (evil-leader/set-key "S" 'wh/scratch-buffer-create-or-prompt))
+  :bind ("C-c S" . wh/scratch-buffer-or-create-prompt))
 
 (use-package wh-notes
-  ;; We need this package as it exports a variable that we'll use later on.
-  :demand t
-  :commands wh/notes-open-or-create
-  :init
-  (evil-leader/set-key "N" 'wh/notes-open-or-create))
+  :bind ("C-c N" . wh/notes-open-or-create))
 
 (use-package wh-smarter-beginning-of-line
   :bind ("C-a" . wh/smarter-beginning-of-line))
@@ -181,11 +106,7 @@
   :ensure t)
 
 (use-package diminish
-  :ensure t
-  :config
-  (progn
-    (diminish 'undo-tree-mode)
-    (diminish 'evil-commentary-mode)))
+  :ensure t)
 
 ;; Git-related things.
 
@@ -205,7 +126,6 @@
         git-commit-summary-max-length 70)
   ;; Use flyspell in the commit buffer
   (add-hook 'git-commit-setup-hook 'git-commit-turn-on-flyspell)
-  (add-hook 'magit-blame-mode 'evil-insert-state)
   (add-hook 'magit-blame-mode (lambda () (message "hello"))))
 
 (use-package git-gutter+
@@ -214,41 +134,27 @@
   :config
   (progn
     (global-git-gutter+-mode)
-    (use-package git-gutter-fringe+ :ensure t)
-    (define-key evil-normal-state-map "[h" 'git-gutter+-previous-hunk)
-    (define-key evil-normal-state-map "]h" 'git-gutter+-next-hunk)))
+    (use-package git-gutter-fringe+ :ensure t)))
 
 (use-package git-messenger
   :ensure t
-  :commands git-messenger:popup-message
+  :bind ("C-c g p" . git-messenger:popup-message)
   :init
   (setq git-messenger:show-detail t)
-  (evil-leader/set-key "g p" 'git-messenger:popup-message)
   :config
   (progn
-    (define-key git-messenger-map (kbd "j") 'git-messenger:popup-close)
-    (define-key git-messenger-map (kbd "k") 'git-messenger:popup-close)
     (define-key git-messenger-map (kbd "RET") 'git-messenger:popup-close)))
 
 (use-package git-timemachine
   :ensure t
-  :commands git-timemachine-toggle
-  :init
-  (evil-leader/set-key "g t" 'git-timemachine-toggle)
-  :config
-  (progn
-    (evil-make-overriding-map git-timemachine-mode-map 'normal)
-    ;; force update evil keymaps after git-timemachine-mode loaded
-    (add-hook 'git-timemachine-mode-hook #'evil-normalize-keymaps)))
+  :bind ("C-c g t" . git-timemachine-toggle))
 
 (use-package gitignore-mode
   :ensure t)
 
 (use-package browse-at-remote
   :ensure t
-  :commands browse-at-remote/browse
-  :init
-  (evil-leader/set-key "g b" 'browse-at-remote/browse))
+  :bind ("C-c g b" . browse-at-remote/browse))
 
 ;; Helm-related things.
 
@@ -262,7 +168,6 @@
   (setq helm-M-x-fuzzy-match t
         helm-buffers-fuzzy-matching t
         helm-display-header-line nil)
-  (evil-leader/set-key "<SPC>" 'helm-M-x)
   :config
   ;; No idea why here find-file is set to nil (so it uses the native find-file
   ;; for Emacs. This makes stuff like (find-file (read-file-name ...)) work with
@@ -273,13 +178,7 @@
 
 (use-package helm-ag
   :ensure t
-  :commands (helm-do-ag helm-do-ag-project-root)
-  :init
-  (evil-leader/set-key "a g" 'helm-do-ag-project-root)
-  :config
-  (progn
-    (evil-make-overriding-map helm-ag-mode-map 'normal)
-    (add-hook 'helm-ag-mode-hook #'evil-normalize-keymaps)))
+  :bind ("C-c a g" . helm-do-ag-project-root))
 
 (use-package swiper-helm
   :ensure t
@@ -296,10 +195,6 @@
   :init
   (use-package helm-projectile
     :ensure t)
-  (evil-leader/set-key
-    "p" 'helm-projectile-switch-project
-    "f" 'helm-projectile-find-file
-    "T" 'wh/projectile-open-todo)
   :config
   (projectile-global-mode))
 
@@ -366,9 +261,7 @@
 
 (use-package writeroom-mode
   :ensure t
-  :commands writeroom-mode
-  :init
-  (evil-leader/set-key "m w" 'writeroom-mode)
+  :bind ("C-c W" . writeroom-mode)
   :config
   (setq writeroom-restore-window-config t
         writeroom-width 100)
@@ -492,28 +385,7 @@
     :init
     (setq alchemist-test-status-modeline nil)
     :config
-    (exec-path-from-shell-copy-env "MIX_ARCHIVES")
-    (progn
-      (evil-define-key 'normal alchemist-test-mode-map "]t" 'alchemist-test-mode-jump-to-next-test)
-      (evil-define-key 'normal alchemist-test-mode-map "[t" 'alchemist-test-mode-jump-to-previous-test)
-      (define-key evil-normal-state-map "]d" 'alchemist-goto-jump-to-next-def-symbol)
-      (define-key evil-normal-state-map "[d" 'alchemist-goto-jump-to-previous-def-symbol)
-      (define-key evil-normal-state-map "]T" '(lambda () (interactive)
-                                                (popwin:select-popup-window)
-                                                (alchemist-test-next-result)))
-      (define-key evil-normal-state-map "[T" '(lambda () (interactive)
-                                                (popwin:select-popup-window)
-                                                (alchemist-test-previous-result)))
-      (define-key alchemist-mode-map (kbd "C-c a g d") 'wh/alchemist-generate-docs)
-      (define-key alchemist-mode-map (kbd "C-c a d g") 'wh/alchemist-mix-deps-get)
-      (define-key alchemist-mode-map (kbd "C-c a S") 'wh/alchemist-new-exs-buffer)
-      (evil-leader/set-key-for-mode 'elixir-mode
-        "t b" 'alchemist-mix-test-this-buffer
-        "t t" 'alchemist-mix-test
-        "t r" 'alchemist-mix-rerun-last-test
-        "t p" 'alchemist-mix-test-at-point
-        "e b" 'alchemist-eval-buffer
-        "a d" 'alchemist-goto-list-symbol-definitions))))
+    (exec-path-from-shell-copy-env "MIX_ARCHIVES")))
 
 (use-package markdown-mode
   :ensure t
