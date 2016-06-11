@@ -209,23 +209,14 @@
     (setq guide-key/idle-delay 0.4)
     (guide-key-mode 1)))
 
-(use-package popwin
+(use-package shackle
   :ensure t
   :defer 2
   :config
   (progn
-    (mapcar (lambda (el) (add-to-list 'popwin:special-display-config el))
-            '(helm-mode
-              ("*Help*" :stick t)
-              ("*rspec-compilation*" :position bottom :stick t :noselect t)
-              ("*alchemist help*" :position right :stick t :width 80)
-              ("*alchemist mix*" :position bottom :noselect t)
-              ("*alchemist elixir*" :position bottom :noselect t)
-              ("*alchemist test report*" :position bottom :stick t :noselect t)
-              ("*alchemist-eval-mode*" :position bottom :height 4 :stick t)
-              ("*GHC Info*" :position bottom :stick t :noselect t)))
-    (global-set-key (kbd "C-l") popwin:keymap)
-    (popwin-mode 1)))
+    (setq shackle-rules
+          '(("*Help*" :select t :align 'below :size 0.4)))
+    (shackle-mode)))
 
 (use-package company
   :ensure t
