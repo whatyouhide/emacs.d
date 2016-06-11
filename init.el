@@ -125,8 +125,7 @@
         magit-push-always-verify nil
         git-commit-summary-max-length 70)
   ;; Use flyspell in the commit buffer
-  (add-hook 'git-commit-setup-hook 'git-commit-turn-on-flyspell)
-  (add-hook 'magit-blame-mode (lambda () (message "hello"))))
+  (add-hook 'git-commit-setup-hook 'git-commit-turn-on-flyspell))
 
 (use-package git-gutter+
   :ensure t
