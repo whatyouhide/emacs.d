@@ -275,12 +275,6 @@
   :ensure t
   :if (eq system-type 'darwin))
 
-(use-package ace-window
-  :ensure t
-  :bind ("M-o" . ace-window)
-  :config
-  (setq aw-keys '(?a ?s ?d ?f ?h ?j ?k ?l)))
-
 (use-package smartscan
   :ensure t
   :bind (("M-p" . smartscan-symbol-go-backward)
