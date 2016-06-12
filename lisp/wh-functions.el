@@ -96,4 +96,18 @@ If called multiple times, basically alternate between two buffers."
   (interactive)
   (switch-to-buffer (other-buffer (current-buffer))))
 
+(defun wh/open-line-below ()
+  "Open a line below the current one (like vim's 'o')."
+  (interactive)
+  (end-of-line)
+  (newline-and-indent))
+
+(defun wh/open-line-above ()
+  "Open a line above the current one (like vim's 'O')."
+  (interactive)
+  (beginning-of-line)
+  (newline)
+  (previous-line)
+  (indent-for-tab-command))
+
 (provide 'wh-functions)
