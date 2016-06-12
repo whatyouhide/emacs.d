@@ -59,6 +59,7 @@
 (global-set-key (kbd "C-x O") 'other-frame)
 (global-set-key (kbd "C-x B") 'wh/switch-to-previous-buffer)
 (global-set-key (kbd "C-k") 'kill-whole-line)
+(global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "<S-return>") 'wh/open-line-below)
 (global-set-key (kbd "<C-S-return>") 'wh/open-line-above)
 
