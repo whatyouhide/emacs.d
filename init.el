@@ -193,7 +193,9 @@
   :diminish projectile-mode
   :init
   (use-package helm-projectile
-    :ensure t)
+    :ensure t
+    :bind (("s-p" . helm-projectile-find-file)
+           ("s-P" . helm-projectile-switch-project)))
   :config
   (projectile-global-mode))
 
