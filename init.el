@@ -62,6 +62,7 @@
 (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "<S-return>") 'wh/open-line-below)
 (global-set-key (kbd "<C-S-return>") 'wh/open-line-above)
+(global-set-key (kbd "s-/") 'comment-line)
 
 ;; Always as "y or n", not that annoying "yes or no".
 (defalias 'yes-or-no-p 'y-or-n-p)
