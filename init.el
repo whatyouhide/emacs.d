@@ -100,8 +100,7 @@
   (savehist-mode))
 
 (use-package dired-x
-  :bind ("C-c -" . dired-jump)
-  :config
+  :init
   (define-key dired-mode-map (kbd "-") 'dired-up-directory))
 
 ;; Misc packages.
