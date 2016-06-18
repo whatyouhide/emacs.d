@@ -285,6 +285,12 @@
   :config
   (drag-stuff-global-mode))
 
+(use-package undo-tree
+  :ensure t
+  :init
+  (global-undo-tree-mode 1)
+  (global-set-key (kbd "C-?") 'undo-tree-redo))
+
 (use-package rainbow-delimiters
   :ensure t
   :init
