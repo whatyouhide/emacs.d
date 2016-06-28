@@ -137,6 +137,9 @@
 (use-package git-gutter+
   :ensure t
   :diminish git-gutter+-mode
+  :demand t
+  :bind (("C-c h n" . git-gutter+-next-hunk)
+         ("C-c h p" . git-gutter+-previous-hunk))
   :config
   (progn
     (global-git-gutter+-mode)
