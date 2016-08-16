@@ -329,6 +329,8 @@
 
 (use-package perspective
   :ensure t
+  :bind (("M-s-“" . persp-prev)
+         ("M-s-‘" . persp-next))
   :init
   (use-package persp-projectile
     :ensure t
