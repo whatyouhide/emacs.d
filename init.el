@@ -117,9 +117,7 @@
 (use-package magit
   :ensure t
   :commands (magit-status magit-checkout)
-  :bind (("C-x g" . magit-status)
-         ("C-c g b" . magit-checkout)
-         ("C-c g B" . magit-blame))
+  :bind (("C-x g" . magit-status))
   :init
   (use-package magit-gh-pulls
     :ensure t
@@ -268,8 +266,8 @@
 
 (use-package drag-stuff
   :ensure t
-  :bind (("M-J" . drag-stuff-down)
-         ("M-K" . drag-stuff-up))
+  :bind (("M-<down>" . drag-stuff-down)
+         ("M-<up>" . drag-stuff-up))
   :config
   (drag-stuff-global-mode))
 
