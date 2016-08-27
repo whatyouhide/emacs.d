@@ -24,7 +24,6 @@
 (use-package wh-functions)
 
 ;; Theming
-(use-package badwolf-theme      :ensure t :defer t)
 (use-package darkokai-theme     :ensure t :defer t)
 (use-package darktooth-theme    :ensure t :defer t)
 (use-package monokai-theme      :ensure t :defer t)
@@ -38,10 +37,8 @@
          ("C-c t p" . wh/theming-load-prev-theme))
   :init
   (setq wh/term-theme 'monokai
-        wh/gui-themes '(badwolf
-                        darkokai
+        wh/gui-themes '(darkokai
                         darktooth
-                        dichromacy
                         leuven
                         monokai
                         solarized-dark
