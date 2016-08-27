@@ -217,15 +217,6 @@
     (setq guide-key/idle-delay 0.4)
     (guide-key-mode 1)))
 
-(use-package shackle
-  :ensure t
-  :defer 2
-  :config
-  (progn
-    (setq shackle-rules
-          '(("*Help*" :select t :align 'below :size 0.4)))
-    (shackle-mode)))
-
 (use-package company
   :ensure t
   :defer 4
@@ -275,13 +266,6 @@
   :ensure t
   :if (eq system-type 'darwin))
 
-(use-package smartscan
-  :ensure t
-  :bind (("M-p" . smartscan-symbol-go-backward)
-         ("M-n" . smartscan-symbol-go-forward))
-  :config
-  (smartscan-mode t))
-
 (use-package drag-stuff
   :ensure t
   :bind (("M-J" . drag-stuff-down)
@@ -319,10 +303,6 @@
   :defer 1
   :config
   (global-hl-todo-mode))
-
-(use-package xkcd
-  :ensure t
-  :commands xkcd)
 
 (use-package perspective
   :ensure t
