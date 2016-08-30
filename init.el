@@ -296,12 +296,6 @@
   :config
   (beacon-mode 1))
 
-(use-package hl-todo
-  :ensure t
-  :defer 1
-  :config
-  (global-hl-todo-mode))
-
 (use-package perspective
   :ensure t
   :bind (("M-s-“" . persp-prev)
