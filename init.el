@@ -246,7 +246,7 @@
 
 (use-package writeroom-mode
   :ensure t
-  :bind ("C-c W" . writeroom-mode)
+  :commands (writeroom-mode)
   :config
   (setq writeroom-restore-window-config t
         writeroom-width 100)
