@@ -5,7 +5,7 @@
 (set-default-font "Hack")
 
 ;; Fringe.
-(setq-default left-fringe-width 16)
+(setq-default left-fringe-width 8)
 
 ;; Resize frames pixel-by-pixel.
 (setq frame-resize-pixelwise t)

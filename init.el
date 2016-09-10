@@ -130,16 +130,24 @@
   ;; Use flyspell in the commit buffer
   (add-hook 'git-commit-setup-hook 'git-commit-turn-on-flyspell))
 
-(use-package git-gutter+
+(use-package git-gutter-fringe
   :ensure t
-  :diminish git-gutter+-mode
+  :diminish git-gutter-mode
   :demand t
-  :bind (("C-c h n" . git-gutter+-next-hunk)
-         ("C-c h p" . git-gutter+-previous-hunk))
+  :bind (("C-c h n" . git-gutter:next-hunk)
+         ("C-c h p" . git-gutter:previous-hunk))
   :config
   (progn
-    (global-git-gutter+-mode)
-    (use-package git-gutter-fringe+ :ensure t)))
+    (global-git-gutter-mode t)
+    (define-fringe-bitmap 'git-gutter-fr:added
+      [224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224]
+      nil nil 'center)
+    (define-fringe-bitmap 'git-gutter-fr:modified
+      [224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224]
+      nil nil 'center)
+    (define-fringe-bitmap 'git-gutter-fr:deleted
+      [0 0 0 0 0 0 0 0 0 0 0 0 0 128 192 224 240 248]
+      nil nil 'center)))
 
 (use-package git-messenger
   :ensure t
