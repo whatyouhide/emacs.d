@@ -41,6 +41,7 @@
                         darktooth
                         leuven
                         monokai
+                        mustang
                         solarized-dark
                         solarized-light
                         zenburn))
