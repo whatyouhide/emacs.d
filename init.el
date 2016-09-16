@@ -302,12 +302,11 @@
   :bind (("M-s-“" . persp-prev)
          ("M-s-‘" . persp-next))
   :init
+  (persp-mode)
   (use-package persp-projectile
     :ensure t
-    :defer t)
-  :config
-  (progn
-    (persp-mode)
+    :demand t
+    :init
     (require 'persp-projectile)))
 
 ;; Modes for programming languages and such.
