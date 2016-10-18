@@ -276,6 +276,7 @@
 
 (use-package drag-stuff
   :ensure t
+  :diminish drag-stuff-mode
   :bind (("M-<down>" . drag-stuff-down)
          ("M-<up>" . drag-stuff-up))
   :config
