@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: capture_log call for ExUnit
+# key: caplog
+# --
+capture_log(fn ->
+               $1
+end)
