@@ -83,8 +83,7 @@
   :bind ("C-c S" . wh/scratch-buffer-or-create-prompt))
 
 (use-package wh-notes
-  :bind (("C-c N" . wh/notes-open-or-create)
-         ("C-c D" . wh/notes-open-dev-file)))
+  :bind (("C-c N" . wh/notes-open-or-create)))
 
 (use-package wh-smarter-beginning-of-line
   :bind ("C-a" . wh/smarter-beginning-of-line))
