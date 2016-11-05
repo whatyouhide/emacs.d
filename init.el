@@ -95,8 +95,8 @@
 (use-package dired-x
   ;; built-in
   :demand t
-  :config
-  (define-key dired-mode-map (kbd "-") 'dired-up-directory))
+  :init
+  (add-hook 'dired-mode-hook 'dired-hide-details-mode))
 
 ;; Spell checking.
 (use-package flyspell
