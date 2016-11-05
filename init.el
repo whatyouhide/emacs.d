@@ -89,30 +89,32 @@
 (use-package wh-smarter-beginning-of-line
   :bind ("C-a" . wh/smarter-beginning-of-line))
 
-;; Built-in packages.
+;; Misc packages.
 
-(use-package savehist
-  :init
-  (setq savehist-file "~/.emacs.d/etc/savehist")
-  (setq history-length 1000)
-  :config
-  (savehist-mode))
-
+;; Better dired.
 (use-package dired-x
+  ;; built-in
   :demand t
   :config
   (define-key dired-mode-map (kbd "-") 'dired-up-directory))
 
-;; Misc packages.
+;; Spell checking.
+(use-package flyspell
+  ;; built-in
+  :init
+  (setq ispell-program-name "aspell"))
 
+;; List-manipulation utilities.
 (use-package dash
   :ensure t)
 
+;; Hide minor modes from the mode bar.
 (use-package diminish
   :ensure t)
 
 ;; Git-related things.
 
+;; Git interface.
 (use-package magit
   :ensure t
   :commands (magit-status magit-checkout)
@@ -128,6 +130,7 @@
   ;; Use flyspell in the commit buffer
   (add-hook 'git-commit-setup-hook 'git-commit-turn-on-flyspell))
 
+;; Shows git additions/deletions/edits on the fringe.
 (use-package git-gutter-fringe
   :ensure t
   :diminish git-gutter-mode
@@ -147,6 +150,7 @@
       [0 0 0 0 0 0 0 0 0 0 0 0 0 128 192 224 240 248]
       nil nil 'center)))
 
+;; Show a small popup with the blame for the current line only.
 (use-package git-messenger
   :ensure t
   :bind ("C-c g p" . git-messenger:popup-message)
@@ -156,13 +160,16 @@
   (progn
     (define-key git-messenger-map (kbd "RET") 'git-messenger:popup-close)))
 
+;; Navigate throught the history of the current file.
 (use-package git-timemachine
   :ensure t
   :bind ("C-c g t" . git-timemachine-toggle))
 
+;; Mode for .gitignore files.
 (use-package gitignore-mode
   :ensure t)
 
+;; Browse the current file/line on GitHub or similar.
 (use-package browse-at-remote
   :ensure t
   :bind ("C-c g b" . browse-at-remote/browse))
@@ -195,6 +202,7 @@
   :ensure t
   :bind ("C-s" . swiper-helm))
 
+;; Project management.
 (use-package projectile
   :ensure t
   :commands (projectile-find-file projectile-switch-project)
@@ -207,11 +215,8 @@
   :config
   (projectile-global-mode))
 
-(use-package flyspell
-  ;; built-in
-  :init
-  (setq ispell-program-name "aspell"))
-
+;; Shows a popup with all the possible key bindings that would complete the
+;; started binding.
 (use-package guide-key
   :ensure t
   :init
@@ -222,6 +227,7 @@
     (setq guide-key/idle-delay 0.4)
     (guide-key-mode 1)))
 
+;; Snippets.
 (use-package yasnippet
   :ensure t
   :defer 4
@@ -231,6 +237,7 @@
     (setq-default yas-snippet-dirs '("~/.emacs.d/snippets"))
     (yas-global-mode t)))
 
+;; Distraction-free editing.
 (use-package writeroom-mode
   :ensure t
   :commands (writeroom-mode)
@@ -247,10 +254,12 @@
     (setq exec-path-from-shell-arguments '("-l"))
     (exec-path-from-shell-initialize)))
 
+;; Revelas the current file in Finder.app.
 (use-package reveal-in-osx-finder
   :ensure t
   :if (eq system-type 'darwin))
 
+;; Moves selected region around.
 (use-package drag-stuff
   :ensure t
   :diminish drag-stuff-mode
@@ -259,6 +268,7 @@
   :config
   (drag-stuff-global-mode))
 
+;; Undo tree.
 (use-package undo-tree
   :ensure t
   :diminish undo-tree-mode
@@ -266,11 +276,13 @@
   (global-undo-tree-mode 1)
   (global-set-key (kbd "C-?") 'undo-tree-redo))
 
+;; Pair-wise colored parens.
 (use-package rainbow-delimiters
   :ensure t
   :init
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
+;; Scale the text of all the windows/frames at the same time.
 (use-package default-text-scale
   :ensure t
   :bind (("s-=" . default-text-scale-increase)
@@ -285,6 +297,7 @@
   :config
   (beacon-mode 1))
 
+;; "Workspaces".
 (use-package perspective
   :ensure t
   :bind (("M-s-“" . persp-prev)
