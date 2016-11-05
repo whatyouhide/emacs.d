@@ -69,9 +69,6 @@
 
 ;; My stuff.
 
-(use-package wh-tmux
-  :if (not (window-system)))
-
 (use-package wh-appearance)
 
 (use-package wh-gui
@@ -258,8 +255,7 @@
   :commands (writeroom-mode)
   :config
   (setq writeroom-restore-window-config t
-        writeroom-width 100)
-  (add-to-list 'writeroom-global-effects 'wh/toggle-tmux-status-bar))
+        writeroom-width 100))
 
 ;; Correctly load $PATH and $MANPATH on OSX (GUI).
 (use-package exec-path-from-shell

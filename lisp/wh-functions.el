@@ -1,15 +1,5 @@
 ;; Non interactive functions.
 
-(defun wh/under-tmux-p ()
-  "Returns non-nil if the current Emacs instance is running under tmux."
-  (and (not (display-graphic-p)) (getenv "TMUX")))
-
-(defun wh/toggle-tmux-status-bar (hide?)
-  "Hides the tmux status bar if `HIDE?' is non-nil, otherwise shows it."
-  (if (wh/under-tmux-p)
-      (shell-command (if hide? "tmux set status off" "tmux set status on"))
-    (message "Emacs is not running under tmux")))
-
 (defun wh/magit-status-buffer-switch-function (buf)
   "Open the the Magit status in another frame if there's one.
 
