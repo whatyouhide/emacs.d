@@ -100,4 +100,13 @@ If called multiple times, basically alternate between two buffers."
   (previous-line)
   (indent-for-tab-command))
 
+(defun wh/duplicate-line ()
+  "Duplicate the current line and insert the duplicate below the current line"
+  (interactive)
+  (save-excursion
+    (let ((line-contents (buffer-substring-no-properties (line-beginning-position) (line-end-position))))
+      (move-end-of-line 1)
+      (newline)
+      (insert line-contents))))
+
 (provide 'wh-functions)
