@@ -25,7 +25,6 @@
 
 ;; Theming
 (use-package darkokai-theme     :ensure t :defer t)
-(use-package darktooth-theme    :ensure t :defer t)
 (use-package monokai-theme      :ensure t :defer t)
 (use-package solarized-theme    :ensure t :defer t)
 (use-package zenburn-theme      :ensure t :defer t)
@@ -37,7 +36,6 @@
   :init
   (setq wh/term-theme 'monokai
         wh/gui-themes '(darkokai
-                        darktooth
                         leuven
                         monokai
                         solarized-dark
