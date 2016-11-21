@@ -76,9 +76,6 @@
 
 (use-package wh-configs)
 
-(use-package wh-scratch-buffer
-  :bind ("C-c S" . wh/scratch-buffer-or-create-prompt))
-
 (use-package wh-notes
   :bind (("C-c N" . wh/notes-open-or-create)))
 
