@@ -1,9 +1,6 @@
 ;; Font size in 1/10pt (140 = 14 pt).
 (set-face-attribute 'default nil :height 140)
 
-;; Default font.
-(set-default-font "Hack")
-
 ;; Fringe.
 (setq-default left-fringe-width 8)
 
