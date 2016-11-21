@@ -118,10 +118,6 @@
   :commands (magit-status magit-checkout)
   :bind (("C-x g" . magit-status))
   :init
-  (use-package magit-gh-pulls
-    :ensure t
-    :config
-    (add-hook 'magit-mode-hook 'magit-gh-pulls-mode))
   (setq magit-revert-buffers 'silent
         magit-push-always-verify nil
         git-commit-summary-max-length 70)
