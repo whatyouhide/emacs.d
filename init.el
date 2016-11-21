@@ -340,23 +340,6 @@
   ;; Don't insert the "coding utf8" comment when saving Ruby files.
   (setq ruby-insert-encoding-magic-comment nil))
 
-(use-package rspec-mode
-  :ensure t
-  :defer t
-  :init
-  (setq rspec-use-rake-when-possible nil))
-
-(use-package rbenv
-  :ensure t
-  :init
-  (setq rbenv-installation-dir "/usr/local/Cellar/rbenv/0.4.0"))
-
-(use-package projectile-rails
-  :ensure t
-  :defer t
-  :init
-  (add-hook 'projectile-mode-hook 'projectile-rails-on))
-
 (use-package yaml-mode
   :ensure t
   :mode "\\.e?ya?ml$")
