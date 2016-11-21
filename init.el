@@ -96,12 +96,6 @@
   :init
   (add-hook 'dired-mode-hook 'dired-hide-details-mode))
 
-;; Spell checking.
-(use-package flyspell
-  ;; built-in
-  :init
-  (setq ispell-program-name "aspell"))
-
 ;; List-manipulation utilities.
 (use-package dash
   :ensure t)
@@ -120,9 +114,7 @@
   :init
   (setq magit-revert-buffers 'silent
         magit-push-always-verify nil
-        git-commit-summary-max-length 70)
-  ;; Use flyspell in the commit buffer
-  (add-hook 'git-commit-setup-hook 'git-commit-turn-on-flyspell))
+        git-commit-summary-max-length 70))
 
 ;; Shows git additions/deletions/edits on the fringe.
 (use-package git-gutter-fringe
