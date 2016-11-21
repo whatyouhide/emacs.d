@@ -359,13 +359,6 @@
               (setq gofmt-command "goimports")
               (add-hook 'before-save-hook 'gofmt-before-save))))
 
-(use-package org-mode
-  :mode "\\.org\\'"
-  :config
-  (setq org-blank-before-new-entry '((heading . t)
-                                     (plain-list-item . auto))))
-
-
 ;; Only maximize the window now because doing so earlier causes weird
 ;; behaviours.
 (when (display-graphic-p)
