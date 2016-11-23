@@ -24,10 +24,10 @@
 (use-package wh-functions)
 
 ;; Theming
-(use-package darkokai-theme     :ensure t :defer t)
-(use-package monokai-theme      :ensure t :defer t)
-(use-package solarized-theme    :ensure t :defer t)
-(use-package zenburn-theme      :ensure t :defer t)
+(use-package darkokai-theme  :ensure t :defer t)
+(use-package monokai-theme   :ensure t :defer t)
+(use-package solarized-theme :ensure t :defer t)
+(use-package zenburn-theme   :ensure t :defer t)
 
 (use-package wh-theming
   :demand t
