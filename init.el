@@ -364,6 +364,9 @@
 (when (display-graphic-p)
   (toggle-frame-maximized))
 
+;; For emacsclient
+(server-start)
+
 ;; Custom file handling.
 (setq custom-file "~/.emacs.d/etc/custom.el")
 (when (not (file-exists-p custom-file))
