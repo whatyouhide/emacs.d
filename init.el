@@ -104,6 +104,7 @@
 ;; Git interface.
 (use-package magit
   :ensure t
+  :diminish auto-revert-mode
   :commands (magit-status magit-checkout)
   :bind (("C-x g" . magit-status))
   :init
