@@ -345,6 +345,10 @@
   :ensure t
   :mode "\\.e?ya?ml$")
 
+(use-package haml-mode
+  :ensure t
+  :mode "\\.haml\\'")
+
 (use-package sh-script
   ;; built-in
   :demand t
