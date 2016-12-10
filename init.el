@@ -227,6 +227,11 @@
   (setq writeroom-restore-window-config t
         writeroom-width 100))
 
+(use-package electric-pair
+  ;; built-in
+  :init
+  (electric-pair-mode 1))
+
 ;; Correctly load $PATH and $MANPATH on OSX (GUI).
 (use-package exec-path-from-shell
   :ensure t
