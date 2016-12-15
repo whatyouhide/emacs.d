@@ -255,6 +255,11 @@
   :config
   (drag-stuff-global-mode))
 
+(use-package multiple-cursors
+  :ensure t
+  :bind (("s-d" . mc/mark-next-like-this)
+         ("s-D" . mc/unmark-next-like-this)))
+
 ;; Pair-wise colored parens.
 (use-package rainbow-delimiters
   :ensure t
