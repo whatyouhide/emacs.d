@@ -294,6 +294,13 @@
     :init
     (require 'persp-projectile)))
 
+(use-package shackle
+  :ensure t
+  :init
+  (setq shackle-rules '(("*alchemist test report*" :select nil :size 0.3 :align 'below)))
+  :config
+  (shackle-mode t))
+
 ;; Modes for programming languages and such.
 
 (use-package web-mode
