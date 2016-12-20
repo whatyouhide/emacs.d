@@ -32,4 +32,6 @@
 
 (prefer-coding-system 'utf-8)
 
+(delete-selection-mode 1)
+
 (provide 'wh-configs)
