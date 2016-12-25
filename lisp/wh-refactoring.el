@@ -1,0 +1,25 @@
+(require 'multiple-cursors)
+
+(defun wh/refactoring-extract-variable ()
+  (interactive)
+  (if (region-active-p)
+      (let ((expression (wh/refactoring--get-region-and-delete-it)))
+        (deactivate-mark)
+        (mc/create-fake-cursor-at-point)
+        (wh/refactoring--open-line-above)
+        (save-excursion (insert (concat " = " expression)))
+        (mc/maybe-multiple-cursors-mode))
+    (message "No active region")))
+
+(defun wh/refactoring--get-region-and-delete-it ()
+  (let ((expression (buffer-substring (region-beginning) (region-end))))
+    (delete-region (region-beginning) (region-end))
+    expression))
+
+(defun wh/refactoring--open-line-above ()
+  (beginning-of-line)
+  (newline)
+  (previous-line)
+  (indent-for-tab-command))
+
+(provide 'wh-refactoring)

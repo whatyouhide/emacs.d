@@ -84,6 +84,9 @@
 (use-package wh-smarter-beginning-of-line
   :bind ("C-a" . wh/smarter-beginning-of-line))
 
+(use-package wh-refactoring
+  :bind ("s-r e" . wh/refactoring-extract-variable))
+
 ;; Misc packages.
 
 ;; Better dired.
