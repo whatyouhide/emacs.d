@@ -203,7 +203,7 @@
 ;; started binding.
 (use-package guide-key
   :ensure t
-  :init
+  :defer 4
   :diminish guide-key-mode
   :config
   (progn
