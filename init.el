@@ -258,7 +258,8 @@
 (use-package multiple-cursors
   :ensure t
   :bind (("s-d" . mc/mark-next-like-this)
-         ("s-D" . mc/unmark-next-like-this)))
+         ("s-D" . mc/unmark-next-like-this)
+         ("S-s-<mouse-1>" . mc/add-cursor-on-click)))
 
 ;; Pair-wise colored parens.
 (use-package rainbow-delimiters
