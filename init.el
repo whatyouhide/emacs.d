@@ -202,6 +202,15 @@
   :config
   (projectile-global-mode))
 
+(use-package company
+  :ensure t
+  :defer t
+  :diminish company-mode
+  :init
+  (setq company-idle-delay 0.2)
+  :config
+  (add-hook 'prog-mode-hook 'company-mode))
+
 ;; Shows a popup with all the possible key bindings that would complete the
 ;; started binding.
 (use-package guide-key
