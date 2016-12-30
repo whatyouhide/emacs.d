@@ -7,6 +7,7 @@
     (disable-theme wh/theming-current-theme))
   (setq wh/theming-current-theme theme)
   (load-theme theme t)
+  (wh/theming--make-fringe-transparent)
   (message "Loaded theme %s" theme))
 
 (defun wh/theming-load-next-theme ()
@@ -47,5 +48,10 @@ theme if we're in the terminal."
 (defun wh/theming--prev-element (current-idx list)
   (let ((next-idx (% (- (+ current-idx (length list)) 1) (length list))))
     (nth next-idx list)))
+
+(defun wh/theming--make-fringe-transparent ()
+  (set-face-attribute 'fringe nil
+                      :foreground (face-foreground 'default)
+                      :background (face-background 'default)))
 
 (provide 'wh-theming)
