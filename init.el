@@ -296,19 +296,6 @@
   :config
   (beacon-mode 1))
 
-;; "Workspaces".
-(use-package perspective
-  :ensure t
-  :bind (("M-s-“" . persp-prev)
-         ("M-s-‘" . persp-next))
-  :init
-  (persp-mode)
-  (use-package persp-projectile
-    :ensure t
-    :demand t
-    :init
-    (require 'persp-projectile)))
-
 (use-package shackle
   :ensure t
   :init
