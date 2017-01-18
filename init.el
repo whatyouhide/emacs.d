@@ -26,9 +26,13 @@
 ;; Theming
 (use-package atom-one-dark-theme :ensure t :defer t)
 (use-package darkokai-theme      :ensure t :defer t)
+(use-package github-theme        :ensure t :defer t)
 (use-package monokai-theme       :ensure t :defer t)
+(use-package paganini-theme      :ensure t :defer t)
 (use-package solarized-theme     :ensure t :defer t)
+(use-package sublime-themes      :ensure t :defer t)
 (use-package zenburn-theme       :ensure t :defer t)
+(use-package zweilight-theme     :ensure t :defer t)
 
 (use-package wh-theming
   :demand t
@@ -37,12 +41,20 @@
   :init
   (setq wh/term-theme 'monokai
         wh/gui-themes '(atom-one-dark
+                        brin
                         darkokai
-                        leuven
+                        fogus
+                        github
+                        granger
+                        hickey
                         monokai
+                        odersky
+                        paganini
                         solarized-dark
                         solarized-light
-                        zenburn))
+                        wilson
+                        zenburn
+                        zweilight))
   :config
   (if (memq window-system '(mac ns))
       (wh/theming-load-random-theme)
