@@ -32,7 +32,6 @@
 (use-package solarized-theme     :ensure t :defer t)
 (use-package sublime-themes      :ensure t :defer t)
 (use-package zenburn-theme       :ensure t :defer t)
-(use-package zweilight-theme     :ensure t :defer t)
 
 (use-package wh-theming
   :demand t
@@ -53,8 +52,7 @@
                         solarized-dark
                         solarized-light
                         wilson
-                        zenburn
-                        zweilight))
+                        zenburn))
   :config
   (if (memq window-system '(mac ns))
       (wh/theming-load-random-theme)
