@@ -109,4 +109,9 @@ If called multiple times, basically alternate between two buffers."
       (newline)
       (insert line-contents))))
 
+(defun wh/join-line-below ()
+  "Joins the line below the current one into the current one."
+  (interactive)
+  (delete-indentation 1))
+
 (provide 'wh-functions)

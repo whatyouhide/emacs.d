@@ -65,13 +65,18 @@
 (global-set-key (kbd "C-x -") 'wh/split-window-vertically-and-focus-new)
 (global-set-key (kbd "C-x p") (lambda () (interactive) (other-window -1)))
 (global-set-key (kbd "C-x O") 'other-frame)
-(global-set-key (kbd "C-x B") 'wh/switch-to-previous-buffer)
+(global-set-key (kbd "s-b") 'wh/switch-to-previous-buffer)
 (global-set-key (kbd "C-k") 'kill-whole-line)
 (global-set-key (kbd "C-S-k") 'wh/duplicate-line)
 (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "<S-return>") 'wh/open-line-below)
 (global-set-key (kbd "<C-S-return>") 'wh/open-line-above)
 (global-set-key (kbd "s-/") 'comment-line)
+(global-set-key (kbd "M-o") 'other-window)
+(global-set-key (kbd "M-O") 'other-frame)
+(global-set-key (kbd "s-J") 'wh/join-line-below)
+(global-set-key (kbd "s-<") 'previous-buffer)
+(global-set-key (kbd "s->") 'next-buffer)
 
 ;; Always as "y or n", not that annoying "yes or no".
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -169,7 +174,7 @@
 ;; Browse the current file/line on GitHub or similar.
 (use-package browse-at-remote
   :ensure t
-  :bind ("C-c g b" . browse-at-remote/browse))
+  :bind ("C-c g b" . browse-at-remote))
 
 ;; Helm-related things.
 
@@ -252,6 +257,7 @@
   :ensure t
   :commands (writeroom-mode)
   :config
+  (add-to-list 'writeroom-global-effects 'visual-line-mode)
   (setq writeroom-restore-window-config t
         writeroom-width 100))
 
